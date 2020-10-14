@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register to Grooooves!</title>
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <script src="https://kit.fontawesome.com/ade53cd309.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+    <%- include('navbar.ejs') -%>
+    </header>
+    <main class="main">
+        <div class="title">Grooove in!</div>
+        <!-- <%- messages('messages-template', locals) %> -->
+        <form id="login_form" action="/users/login" method="POST">
+            <input class="form_item" type="text" name="username" placeholder="grooover name" required>
+            <input class="form_item" type="password" name="password" placeholder="password" required>
+            <button class="form_item" id='login_button' type="submit">Grooove In</button>
+        </form>
+        <div>Not a Grooover yet?</div>
+        <a href="/users/register"><button id="sign_button">Grooove up</a></button> 
+    </main>
+
+    <footer>
+
+    </footer>
+   
+    <script src="/js/navbar.js"></script>
+</body>
+</html>

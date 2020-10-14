@@ -1,0 +1,70 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.main .title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.main .error {
+  color: red;
+  font-weight: bold;
+}
+
+.main #register_form {
+  width: 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  margin: 1rem auto;
+}
+
+.main #register_form .form_item {
+  margin: 1rem 0;
+  height: 2rem;
+  text-align: center;
+}
+
+.main #register_form ::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  font-style: italic;
+  text-align: center;
+}
+
+.main a {
+  text-decoration: none;
+  color: #000;
+}
+
+.main #sign_button {
+  width: 70%;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+@media (min-width: 769px) {
+  .main {
+    text-align: center;
+    margin-top: 3rem;
+  }
+  .main #register_form {
+    width: 40%;
+  }
+  .main #sign_button {
+    width: 40%;
+  }
+}
+/*# sourceMappingURL=register.css.map */

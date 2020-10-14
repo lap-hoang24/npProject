@@ -1,0 +1,69 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+//======== TYPOGRAPHY =========
+
+// =======  HEADER  =========
+
+// =======  MAIN  =============
+.main {
+    text-align: center;
+    margin-top: 3rem;
+
+    .title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .error {
+        color: red;
+        font-weight: bold;
+    }
+
+    #register_form {
+        width: 70%;
+        display: flex;
+        flex-flow: column wrap;
+        margin: 1rem auto;
+
+        .form_item {
+            margin: 1rem 0;
+            height: 2rem;
+            text-align: center;
+        }
+        ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+            font-style: italic;
+            text-align: center;
+          }
+    }
+
+    a {
+        text-decoration: none;
+        color: #000;
+    }
+
+    #sign_button {
+        width: 70%; 
+        margin-top: 1rem;
+        padding: 0.5rem 1rem;
+    }
+}
+
+
+@media (min-width: 769px) { 
+    .main {
+        text-align: center;
+        margin-top: 3rem;
+    
+        #register_form {
+            width: 40%;
+        }
+    
+        #sign_button {
+            width: 40%; 
+        }
+    }
+}

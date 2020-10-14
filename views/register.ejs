@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register to Grooooves!</title>
+    <link rel="stylesheet" href="/css/register.css">
+    <link rel="stylesheet" href="/css/nav.css">
+    <script src="https://kit.fontawesome.com/ade53cd309.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <%- include('navbar.ejs') -%>
+    </header>
+    <main class="main">
+        <div class="title">Be a Grooover!</div>
+
+        <% if (errors) { %>
+            <% errors.forEach((error) => { %>
+                <div class='error'> <%= error.msg %> </div>
+           <% })} %>
+    
+        <form id="register_form" action="/users/register" method="POST">
+            <input class="form_item" type="text" name="username" placeholder="grooover name" >
+            <input class="form_item" type="text" name="email" placeholder="groove@gmail.com"    >
+            <input class="form_item" type="password" name="password" placeholder="password" >
+            <input class="form_item" type="password" name="password2" placeholder="confirm password" >
+            <button class="form_item" id='register_button' type="submit">Register</button>
+        </form>
+        <div>Already a Grooover?</div>
+        <a href="/login"><button id="sign_button">Grooove in</a></button> 
+    </main>
+
+    <footer>
+
+    </footer>
+    <script src="/js/navbar.js"></script>
+</body>
+</html>
