@@ -6,13 +6,13 @@ function mailer(user) {
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'lap.hoang.idi@gmail.com',
-      pass: 'healWorldthe2491'
+      user: 'laguna.sup.dreams@gmail.com',
+      pass: '@Rolly0605'
     }
   });
   
   var mailOptions = {
-    from: 'lap.hoang.idi@gmail.com',
+    from: 'laguna.sup.dreams@gmail.com',
     to: user.email,
     subject: 'Sending Email using Node.js',
     html: "<a href='https://grooove.herokuapp.com/users/change_password/" + user._id + "'> Get a new password </a>"
