@@ -1,0 +1,90 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    font-size: 13px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+main {
+
+    .jumbotron {
+        width: 100%;
+        background-image: url('/images/kovid-rathee[upcoming-event].jpg');
+        background-size: cover;
+        height: 250px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &_text {
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 1.5rem;
+        }
+    }
+
+    #events_lists {
+        margin-top: 2rem;
+
+        .event_item {
+            display: flex;
+            width: 100%;
+            height: 90px;
+            margin-top: 1rem;
+
+            .performers_picture {
+                height: 90px;
+                width: 100px;
+                margin-left: 5px;
+                position: relative;
+
+                .date_time {
+                    font-size: 11px;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    background: #fff;
+                    height: 30px;
+                    width: 30px;
+                    border-radius: 3px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    .day {
+                        text-align: center;
+                        height: 50%;
+                        width: 80%;
+                        border-bottom: 1px solid black;
+                    }
+                }
+
+                img {
+                    height: 100%;
+                    width: 100%;
+                    display: block;
+                }
+            }
+
+            .event_description {
+                margin-left: 10px;
+                width: calc(100vw - 110px);
+
+                a {
+                    text-decoration: none;
+                    font-weight: 500;
+                    color: #000;
+                    border-bottom: 2px solid #000;
+                }
+                
+                .event_name {
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}

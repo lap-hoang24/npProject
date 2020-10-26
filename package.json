@@ -18,9 +18,11 @@
   },
   "homepage": "https://github.com/lap-hoang24/npProject#readme",
   "dependencies": {
+    "@supercharge/request-ip": "^1.1.2",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.5",
     "ejs": "^3.1.5",
     "express": "^4.17.1",
     "express-messages": "^1.0.1",
@@ -28,8 +30,11 @@
     "express-validator": "^6.6.1",
     "flash": "^1.1.0",
     "mongoose": "^5.10.9",
+    "node-fetch": "^2.6.1",
+    "nodemailer": "^6.4.14",
     "nodemon": "^2.0.4",
     "passport": "^0.4.1",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "request-ip": "^2.1.3"
   }
 }

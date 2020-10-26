@@ -15,15 +15,11 @@
     <main class="main">
         <div class="title">Grooove in!</div>
         <%- messages('messages-template', locals) %>
-        <form id="login_form" action="/users/login" method="POST">
-            <input class="form_item" type="text" name="username" placeholder="grooover name" required>
-            <input class="form_item" type="password" name="password" placeholder="password" required>
-            <button class="form_item" id='login_button' type="submit">Grooove In</button>
+        <form id="login_form" action="/users/recover_password" method="POST">
+            <input class="form_item" type="text" name="email" placeholder="email" required>
+            <button class="form_item" id="recovery_button" type="submit">Get recover link</button>
         </form>
-        <div>Not a Grooover yet?</div>
-        <a href="/users/register"><button id="sign_button">Grooove up</a></button> 
-        <div>Forgot your password?</div>
-        <a href="/users/recover_password"><button id="recover_button">Recover password</a></button>
+ 
     </main>
 
     <footer>

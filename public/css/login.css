@@ -20,6 +20,11 @@
   margin-bottom: 2rem;
 }
 
+.main .error {
+  color: red;
+  font-weight: bold;
+}
+
 .main #login_form {
   width: 70%;
   display: -webkit-box;

@@ -1,24 +1,23 @@
     <nav class="navbar">
-      <div class="brand_logo">Grooove</div>
+      <div class="brand_logo"> <a href="/">Grooove</a> </div>
 
       <a href="#" class="toggle_button">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
       </a>
-
+      
       <div class="navbar_links">
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Upcoming Events</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/events/near-you">Events near You</a></li>
+          <li><a href="/events/upcoming">Upcoming Events</a></li>
+          <li><a href="#">LIVE</a></li>
           <div class="account">
             <% if (user) { %>
               <li id="user-in"><a href=""><%= user.username.toUpperCase() %></a>  </li>
               <li><a href="/users/logout">Sign Out</a></li>
            <% } else { %>
-
              <li><a href="/users/login">Sign In</a></li>
              <li><a href="/users/register">Sign Up</a></li>
           <% } %>

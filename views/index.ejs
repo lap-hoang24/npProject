@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Groooooove it hard, Bitch!</title>
-    <link rel="stylesheet" href="/css/nav.css">
-</head>
-<body>
-    <header>
-        <%- include('navbar.ejs') -%>
-    </header>
-
+    <link rel="stylesheet" href="/css/nav.css" />
+  </head>
+  <body>
+    <header><%- include('navbar.ejs') -%></header>
+    <body>
+      <%- messages('messages-template', locals) %>
+      
+        <h1>Name of Burning Man Events in 2019</h1>
+    
+    </body>
 
     <script src="/js/navbar.js"></script>
-</body>
+  </body>
 </html>

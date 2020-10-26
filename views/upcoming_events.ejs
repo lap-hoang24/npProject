@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upcoming Events</title>
+    <link rel="stylesheet" href="/css/nav.css" />
+    <link rel="stylesheet" href="/css/upcoming-event.css" />
+  </head>
+  <body>
+    <header><%- include('navbar.ejs') -%></header>
+    <main>
+      <section class="jumbotron">
+        <div class="jumbotron_text">Exciting Upcoming Events!</div>
+      </section>
+
+      <section id="events_lists">
+        <% for (let i = 0; i < data.length; i++) { %>
+        <div class="event_item">
+          <div class="performers_picture">
+            <img src="<%= data[i].performers[0].image %>" alt="concert crowd" />
+            <div class="date_time" date-time="<%= data[i].datetime_utc %>">
+              <div class="day"></div>
+              <div class="month"></div>
+            </div>
+          </div>
+          <div class="event_description">
+            <div
+              class="event_name"
+              event_name="<%= data[i].displayName %>"
+            ></div>
+            <div class="event_name">
+              <a class="event_link" href="<%= data[i].url %>"
+                ><%= data[i].short_title %></a
+              >
+            </div>
+            <div class="performers_name"><%= data[i].performers[0].name %></div>
+            <div class="venue_state">
+              <%= data[i].venue.name %> - <%= data[i].venue.display_location %>
+            </div>
+          </div>
+        </div>
+        <% } %>
+      </section>
+    </main>
+
+    <script src="../js/navbar.js"></script>
+    <script src="../js/date_time.js"></script>
+  </body>
+</html>

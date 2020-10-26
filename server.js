@@ -7,6 +7,19 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
 const config = require('./config/database');
+const cookieParser = require('cookie-parser');
+const fetch = require('node-fetch');
+
+const RequestIp = require('@supercharge/request-ip')
+
+
+
+
+
+
+// === import Authentication Check ===
+
+const checkAuth = require('./controller/auth');
 
 // === SETTING UP MONGODB CONNECTION ===
 mongoose.connect(config.database, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -19,6 +32,8 @@ database.on('error', (err) => {
     console.error(err);
 })
 
+
+
 // ======== SETTING UP MIDDLEWARES ========
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -27,15 +42,10 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(__dirname + '/public'));
 
-// === Express SESSION Middleware ===
+app.use(cookieParser());
 
-app.set('trust proxy', 1) // trust first proxy
+mongoose.set('useFindAndModify', false);
 
-app.use(session({
-    secret: 'keyboard cat',
-    resave: true,
-    saveUninitialized: true
-}))
 
 // === Express MESSAGES Middleware ===
 
@@ -45,6 +55,17 @@ app.use((req, res, next) => {
     res.locals.messages = messages(req, res);
     next();
 })
+
+// === Express SESSION Middleware === (must be placed before PASSPORTJS)
+
+app.set('trust proxy', 1) // trust first proxy
+
+app.use(session({
+    secret: '123',
+    resave: true,
+    saveUninitialized: true
+}))
+
 
 // === PASSPORT CONFIG ===
 
@@ -59,6 +80,8 @@ app.get('*', (req, res, next) => {
     next();
 })
 
+
+
 // === BRING IN MODELS ===
 
 const User = require('./models/Users');
@@ -68,15 +91,43 @@ const User = require('./models/Users');
 const users = require('./routes/users');
 app.use('/users', users);
 
+const events = require('./routes/events');
+app.use('/events', events)
 // === RENDER HOME PAGE ===
 
 app.get('/', (req, res) => {
-    res.render('index', {
-        
-    });
+        res.render('index', {
+        })
+
 })
 
-// === SERVER PORT ===
+// =========== SEARCH
+
+app.get('/search', (req, res) => {
+    const ip = RequestIp.getClientIp(req)
+    console.log(ip)
+    res.render('search', {
+        
+    })
+})
+
+app.post('/search', async (req, res) => {
+    let api = "https://api.seatgeek.com/2/performers?q="
+    let search_query = req.body.search_query;
+    let client_id = '&client_id=MjEzNjIzNTl8MTYwMzM3ODg3OS42NDc4ODU2';
+
+
+    const response = await fetch(api + search_query + "&per_page=20" + client_id);
+
+    const data = await response.json();
+
+})
+
+// ===========
+
+
+
+// ====== SERVER PORT ======
 
 app.listen(3000, () => {
     console.log("Listening on port 3000");

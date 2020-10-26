@@ -16,20 +16,28 @@
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   background-color: #000;
   position: relative;
 }
 
+.navbar a {
+  text-decoration: none;
+  color: #fff;
+}
+
 .navbar .brand_logo {
   font-size: 1.5rem;
-  margin: 0.5rem;
+  padding: 1rem;
   color: #fff;
 }
 
 .navbar .toggle_button {
   position: absolute;
-  top: 0.75rem;
-  right: 1rem;
+  top: 0.8rem;
+  right: 1.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -53,6 +61,7 @@
 
 .navbar .navbar_links {
   width: 100%;
+  height: 100%;
   display: none;
 }
 
@@ -73,12 +82,13 @@
 .navbar .navbar_links li {
   list-style: none;
   text-align: center;
+  height: 100%;
 }
 
 .navbar .navbar_links a {
   text-decoration: none;
   color: #fff;
-  padding: 1rem;
+  padding: 1.2rem;
   display: block;
 }
 
