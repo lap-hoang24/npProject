@@ -15,7 +15,7 @@ function mailer(user) {
     from: 'laguna.sup.dreams@gmail.com',
     to: user.email,
     subject: 'Sending Email using Node.js',
-    html: "<a href='https://grooove.herokuapp.com/users/change_password/" + user._id + "'> Get a new password </a>"
+    html: "<a href='https://grooove.herokuapp.com/users/change_password/" + user._id + "'> Get a new password bitchhhh </a>"
   };
   
   transporter.sendMail(mailOptions, function(error, info){
