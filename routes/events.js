@@ -28,7 +28,7 @@ router.get('/near-you', async (req, res) => {
     let ip, api, apiKey, perPage, response, data;
     let myIp = "87.65.73.133";
     ip = RequestIp.getClientIp(req)
-    api = "https://api.songkick.com/api/3.0/events.json?location=ip:" + myIp;
+    api = "https://api.songkick.com/api/3.0/events.json?location=ip:" + ip;
     apiKey = "&apikey=iQvmMn3zAKS85ja5";
     perPage = "40";
     
