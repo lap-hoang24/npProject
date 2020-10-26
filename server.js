@@ -9,7 +9,7 @@ const passport = require('passport');
 const config = require('./config/database');
 const cookieParser = require('cookie-parser');
 const fetch = require('node-fetch');
-
+const PORT = process.env.PORT || 3000;
 const RequestIp = require('@supercharge/request-ip')
 
 
@@ -129,6 +129,6 @@ app.post('/search', async (req, res) => {
 
 // ====== SERVER PORT ======
 
-app.listen(3000, () => {
-    console.log("Listening on port 3000");
+app.listen(PORT, () => {
+    console.log(`Listening on ${ PORT }`);
 })
