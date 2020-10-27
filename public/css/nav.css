@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -6,6 +7,7 @@
 }
 
 .navbar {
+  font-family: 'Montserrat', sans-serif;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -82,7 +84,6 @@
 .navbar .navbar_links li {
   list-style: none;
   text-align: center;
-  height: 100%;
 }
 
 .navbar .navbar_links a {
@@ -90,6 +91,11 @@
   color: #fff;
   padding: 1.2rem;
   display: block;
+}
+
+.navbar .navbar_links a:hover {
+  background-color: #fff;
+  color: red;
 }
 
 .navbar .navbar_links .account {
@@ -109,6 +115,12 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  position: absolute;
+  height: 310px;
+  top: 60px;
+  left: 0px;
+  background: #000;
+  z-index: 999;
 }
 
 @media (min-width: 769px) {

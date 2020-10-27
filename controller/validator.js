@@ -1,7 +1,6 @@
 
 const { check, validationResult } = require('express-validator');
 
-
 // === REGISTER FORM VALIDATOR
 
 

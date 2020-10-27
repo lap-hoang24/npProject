@@ -8,13 +8,7 @@ const session = require('express-session');
 const passport = require('passport');
 const config = require('./config/database');
 const cookieParser = require('cookie-parser');
-const fetch = require('node-fetch');
 const PORT = process.env.PORT || 3000;
-const RequestIp = require('@supercharge/request-ip')
-
-
-
-
 
 
 // === import Authentication Check ===
@@ -31,8 +25,6 @@ database.once('open', () => {
 database.on('error', (err) => {
     console.error(err);
 })
-
-
 
 // ======== SETTING UP MIDDLEWARES ========
 
@@ -93,6 +85,10 @@ app.use('/users', users);
 
 const events = require('./routes/events');
 app.use('/events', events)
+
+const search = require('./routes/search');
+app.use('/', search);
+
 // === RENDER HOME PAGE ===
 
 app.get('/', (req, res) => {
@@ -100,32 +96,6 @@ app.get('/', (req, res) => {
         })
 
 })
-
-// =========== SEARCH
-
-app.get('/search', (req, res) => {
-    const ip = RequestIp.getClientIp(req)
-    console.log(ip)
-    res.render('search', {
-        
-    })
-})
-
-app.post('/search', async (req, res) => {
-    let api = "https://api.seatgeek.com/2/performers?q="
-    let search_query = req.body.search_query;
-    let client_id = '&client_id=MjEzNjIzNTl8MTYwMzM3ODg3OS42NDc4ODU2';
-
-
-    const response = await fetch(api + search_query + "&per_page=20" + client_id);
-
-    const data = await response.json();
-
-})
-
-// ===========
-
-
 
 // ====== SERVER PORT ======
 

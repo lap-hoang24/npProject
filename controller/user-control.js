@@ -2,7 +2,7 @@
 
 // ====== DEPENDENCIES  ==========================================
 
-const mailer = require('../mailer');
+const mailer = require('../controller/mailer');
 const passport = require('passport');
 const bcryptjs = require('bcryptjs');
 const { check, validationResult } = require('express-validator');

@@ -4,16 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Groooooove it hard, Bitch!</title>
-    <link rel="stylesheet" href="/css/nav.css" />
+    <link rel="stylesheet" href="/css/main.css" />
   </head>
   <body>
     <header><%- include('navbar.ejs') -%></header>
-    <body>
-      <%- messages('messages-template', locals) %>
-      
-        <h1>Name of Burning Man Events in 2019</h1>
-    
-    </body>
+    <main>
+      <section id="jumbotron">
+        <div id="slogan">Feel the Groooves</div>
+        <a href="/events/live"><div id="live-button">Join LIVE</div></a>
+        <div id="bottom-blur"></div>
+      </section>
+
+      <section class="content-wrapper">
+        <div class="title-wrapper">
+          <div id="title">news and events</div>
+          <div id="down-arrow"><i class="fas fa-arrow-down"></i></div>
+        </div>
+        
+        <div class="news-events">
+
+        </div>
+      </section>
+
+    </main>
 
     <script src="/js/navbar.js"></script>
   </body>

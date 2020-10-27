@@ -1,11 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const bcryptjs = require('bcryptjs');
-const { check, validationResult } = require('express-validator');
-const passport = require('passport');
-const mailer = require('../mailer');
-
-
 const UserController = require('../controller/user-control');
 const checkAuth = require('../controller/auth');
 const Validator = require('../controller/validator');

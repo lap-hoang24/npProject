@@ -6,11 +6,6 @@
   padding: 0;
 }
 
-body {
-  font-size: 13px;
-  font-family: 'Montserrat', sans-serif;
-}
-
 main .jumbotron {
   width: 100%;
   background-image: url("/images/kovid-rathee[upcoming-event].jpg");
@@ -101,5 +96,6 @@ main #events_lists .event_item .event_description a {
 
 main #events_lists .event_item .event_description .event_name {
   text-transform: uppercase;
+  padding-bottom: 0.3rem;
 }
-/*# sourceMappingURL=upcoming-event.css.map */
+/*# sourceMappingURL=upcoming-nearyou.css.map */
