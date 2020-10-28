@@ -1,9 +1,208 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+body {
+  font-size: 13px;
+  font-family: "Montserrat", sans-serif;
+}
+
+header {
+  position: fixed;
+  top: 0px;
+  right: 0;
+  width: 100%;
+  background: transparent;
+  z-index: 99999999;
+}
+
+header .active {
+  background-color: rgba(0, 0, 0, 0.638) !important;
+}
+
+header .navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: transparent;
+  position: relative;
+  z-index: 100;
+}
+
+header .navbar a {
+  text-decoration: none;
+  color: #fff;
+}
+
+header .navbar .brand_logo {
+  font-family: "Monoton", cursive;
+  font-size: 1.8rem;
+  padding: 1rem;
+  color: #fff;
+}
+
+header .navbar .reverse-transform {
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  -webkit-transition: -webkit-transform 0.5s ease-in-out;
+  transition: -webkit-transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
+  -webkit-transform-origin: 0%;
+          transform-origin: 0%;
+}
+
+header .navbar .transform {
+  -webkit-transform: rotate(30deg);
+          transform: rotate(30deg);
+  -webkit-transition: -webkit-transform 0.5s ease-in-out;
+  transition: -webkit-transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
+  -webkit-transform-origin: 0%;
+          transform-origin: 0%;
+}
+
+header .navbar .toggle_button {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 30px;
+  height: 21px;
+}
+
+header .navbar .toggle_button .bar {
+  height: 3px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+header .navbar .navbar_links {
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+header .navbar .navbar_links ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+header .navbar .navbar_links li {
+  list-style: none;
+  text-align: center;
+  padding: 1.7rem 1.7rem;
+}
+
+header .navbar .navbar_links a {
+  font-weight: 400;
+  text-decoration: none;
+  color: #fff;
+  display: block;
+}
+
+header .navbar .navbar_links .account {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 80%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: auto;
+}
+
+header .navbar .active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  height: 310px;
+  top: 60px;
+  left: 0px;
+  background: #fff;
+  z-index: 99999;
+}
+
+header .navbar .active a {
+  color: #000;
+}
+
+@media (min-width: 769px) {
+  header {
+    top: 1rem;
+  }
+  header .navbar {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  header .navbar .navbar_links {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  header .navbar .navbar_links ul {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  header .navbar .navbar_links .account {
+    margin: 0;
+    width: 20%;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  header .navbar .toggle_button {
+    display: none;
+  }
 }
 
 main .jumbotron {
@@ -97,5 +296,11 @@ main #events_lists .event_item .event_description a {
 main #events_lists .event_item .event_description .event_name {
   text-transform: uppercase;
   padding-bottom: 0.3rem;
+}
+
+@media (min-width: 769px) {
+  body {
+    font-size: 15px;
+  }
 }
 /*# sourceMappingURL=upcoming-nearyou.css.map */

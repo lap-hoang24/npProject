@@ -58,7 +58,6 @@ app.use(session({
     saveUninitialized: true
 }))
 
-
 // === PASSPORT CONFIG ===
 
 require('./config/passport')(passport);
@@ -71,8 +70,6 @@ app.get('*', (req, res, next) => {
     res.locals.user = req.user || null;
     next();
 })
-
-
 
 // === BRING IN MODELS ===
 
@@ -93,6 +90,7 @@ app.use('/', search);
 
 app.get('/', (req, res) => {
         res.render('index', {
+
         })
 
 })
