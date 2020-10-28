@@ -19,13 +19,11 @@ header {
         position: relative;
         z-index: 100;
 
-        
-        
         a {
             text-decoration: none;
             color: #fff;
         }
-        
+
         .brand_logo {
             font-family: "Monoton", cursive;
             font-size: 1.8rem;
@@ -75,41 +73,57 @@ header {
             li {
                 list-style: none;
                 text-align: center;
-                padding: 1.7rem 1.7rem;
-                // &:nth-child(1),
-                // &:nth-child(2),
-                // &:nth-child(3) {
-                //     border-right: 2px solid white;
-                // }
+                padding: 1rem;
             }
 
             a {
                 font-weight: 400;
                 text-decoration: none;
-                color: #fff;
+                // color: #000;
                 display: block;
             }
 
+            #live {
+                color: rgb(208, 13, 13);
+            }
             .account {
-                display: flex;
-                flex-wrap: wrap;
                 width: 80%;
-                justify-content: space-between;
-                margin: auto;
-                // li {
-                //     &:nth-child(1) {
-                //         border-right: 2px solid white;
-                //     }
-                // }
+                margin: 1rem;
+                color: #fff;
+                display: flex;
+
+                #user-in {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: relative;
+                    &:hover {
+                        cursor: pointer;
+                    }
+                    #user-dropdown {
+                        position: absolute;
+                        width: auto;
+                        z-index: -11;
+                        background: #fff;
+                        color: #000;
+                        opacity: 0;
+                    }
+
+                    a {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                }
             }
         }
 
         .active {
             display: flex;
             position: absolute;
-            height: 310px;
+            height: 250px;
             top: 60px;
-            left: 0px;
+            right: -200px;
             background: #fff;
             z-index: 99999;
             a {
@@ -135,12 +149,33 @@ header {
                     flex-wrap: nowrap;
                     justify-content: flex-end;
                 }
+                li {
+
+                    padding: 1.7rem 1.7rem;
+
+                }
+    
                 .account {
+                    color: #fff;
                     margin: 0;
                     width: 20%;
                     flex-wrap: nowrap;
                     justify-content: flex-end;
+
+                    #user-in {
+
+                        &:hover #user-dropdown {
+                            opacity: 0.9;
+                            display: block;
+                            z-index: 1;
+                            top: 60px;
+                            transition: opacity 0.4s linear;
+                        }
+                    }
                 }
+
+
+
             }
 
             .toggle_button {

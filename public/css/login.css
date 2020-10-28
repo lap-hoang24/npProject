@@ -22,7 +22,7 @@ header {
   z-index: 99999999;
 }
 
-header .active {
+header .activee {
   background-color: rgba(0, 0, 0, 0.638) !important;
 }
 
@@ -127,27 +127,64 @@ header .navbar .navbar_links ul {
 header .navbar .navbar_links li {
   list-style: none;
   text-align: center;
-  padding: 1.7rem 1.7rem;
+  padding: 1rem;
 }
 
 header .navbar .navbar_links a {
   font-weight: 400;
   text-decoration: none;
-  color: #fff;
   display: block;
 }
 
+header .navbar .navbar_links #live {
+  color: #d00d0d;
+}
+
 header .navbar .navbar_links .account {
+  width: 80%;
+  margin: 1rem;
+  color: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  width: 80%;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin: auto;
+}
+
+header .navbar .navbar_links .account #user-in {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+}
+
+header .navbar .navbar_links .account #user-in:hover {
+  cursor: pointer;
+}
+
+header .navbar .navbar_links .account #user-in #user-dropdown {
+  position: absolute;
+  width: auto;
+  z-index: -11;
+  background: #fff;
+  color: #000;
+  opacity: 0;
+}
+
+header .navbar .navbar_links .account #user-in a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 header .navbar .active {
@@ -155,9 +192,9 @@ header .navbar .active {
   display: -ms-flexbox;
   display: flex;
   position: absolute;
-  height: 310px;
+  height: 250px;
   top: 60px;
-  left: 0px;
+  right: -200px;
   background: #fff;
   z-index: 99999;
 }
@@ -192,7 +229,11 @@ header .navbar .active a {
         -ms-flex-pack: end;
             justify-content: flex-end;
   }
+  header .navbar .navbar_links li {
+    padding: 1.7rem 1.7rem;
+  }
   header .navbar .navbar_links .account {
+    color: #fff;
     margin: 0;
     width: 20%;
     -ms-flex-wrap: nowrap;
@@ -200,6 +241,14 @@ header .navbar .active a {
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end;
+  }
+  header .navbar .navbar_links .account #user-in:hover #user-dropdown {
+    opacity: 0.9;
+    display: block;
+    z-index: 1;
+    top: 60px;
+    -webkit-transition: opacity 0.4s linear;
+    transition: opacity 0.4s linear;
   }
   header .navbar .toggle_button {
     display: none;
@@ -209,7 +258,7 @@ header .navbar .active a {
 .main {
   background: #000;
   text-align: center;
-  padding-top: 5rem;
+  padding-top: 15rem;
   height: 100vh;
 }
 

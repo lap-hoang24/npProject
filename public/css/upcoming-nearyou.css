@@ -21,7 +21,7 @@ header {
   z-index: 99999999;
 }
 
-header .active {
+header .activee {
   background-color: rgba(0, 0, 0, 0.638) !important;
 }
 
@@ -126,27 +126,64 @@ header .navbar .navbar_links ul {
 header .navbar .navbar_links li {
   list-style: none;
   text-align: center;
-  padding: 1.7rem 1.7rem;
+  padding: 1rem;
 }
 
 header .navbar .navbar_links a {
   font-weight: 400;
   text-decoration: none;
-  color: #fff;
   display: block;
 }
 
+header .navbar .navbar_links #live {
+  color: #d00d0d;
+}
+
 header .navbar .navbar_links .account {
+  width: 80%;
+  margin: 1rem;
+  color: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  width: 80%;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin: auto;
+}
+
+header .navbar .navbar_links .account #user-in {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+}
+
+header .navbar .navbar_links .account #user-in:hover {
+  cursor: pointer;
+}
+
+header .navbar .navbar_links .account #user-in #user-dropdown {
+  position: absolute;
+  width: auto;
+  z-index: -11;
+  background: #fff;
+  color: #000;
+  opacity: 0;
+}
+
+header .navbar .navbar_links .account #user-in a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 header .navbar .active {
@@ -154,9 +191,9 @@ header .navbar .active {
   display: -ms-flexbox;
   display: flex;
   position: absolute;
-  height: 310px;
+  height: 250px;
   top: 60px;
-  left: 0px;
+  right: -200px;
   background: #fff;
   z-index: 99999;
 }
@@ -191,7 +228,11 @@ header .navbar .active a {
         -ms-flex-pack: end;
             justify-content: flex-end;
   }
+  header .navbar .navbar_links li {
+    padding: 1.7rem 1.7rem;
+  }
   header .navbar .navbar_links .account {
+    color: #fff;
     margin: 0;
     width: 20%;
     -ms-flex-wrap: nowrap;
@@ -199,6 +240,14 @@ header .navbar .active a {
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end;
+  }
+  header .navbar .navbar_links .account #user-in:hover #user-dropdown {
+    opacity: 0.9;
+    display: block;
+    z-index: 1;
+    top: 60px;
+    -webkit-transition: opacity 0.4s linear;
+    transition: opacity 0.4s linear;
   }
   header .navbar .toggle_button {
     display: none;
@@ -301,6 +350,75 @@ main #events_lists .event_item .event_description .event_name {
 @media (min-width: 769px) {
   body {
     font-size: 15px;
+  }
+  main .jumbotron {
+    height: 70vh;
+  }
+  main .jumbotron_text {
+    font-size: 4rem;
+    font-weight: 700;
+  }
+  main #events_lists {
+    margin-top: 2rem;
+  }
+  main #events_lists .event_item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    height: 90px;
+    margin-top: 1rem;
+  }
+  main #events_lists .event_item .performers_picture {
+    height: 90px;
+    width: 100px;
+    margin-left: 5px;
+    position: relative;
+  }
+  main #events_lists .event_item .performers_picture .date_time {
+    font-size: 11px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #fff;
+    height: 30px;
+    width: 30px;
+    border-radius: 3px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  main #events_lists .event_item .performers_picture .date_time .day {
+    text-align: center;
+    height: 50%;
+    width: 80%;
+    border-bottom: 1px solid black;
+  }
+  main #events_lists .event_item .performers_picture img {
+    height: 100%;
+    width: 100%;
+    display: block;
+  }
+  main #events_lists .event_item .event_description {
+    margin-left: 10px;
+    width: calc(100vw - 110px);
+  }
+  main #events_lists .event_item .event_description a {
+    text-decoration: none;
+    font-weight: 500;
+    color: #000;
+    border-bottom: 2px solid #000;
+  }
+  main #events_lists .event_item .event_description .event_name {
+    text-transform: uppercase;
+    padding-bottom: 0.3rem;
   }
 }
 /*# sourceMappingURL=upcoming-nearyou.css.map */

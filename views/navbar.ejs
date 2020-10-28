@@ -1,28 +1,35 @@
-    <nav class="navbar">
-      <div class="brand_logo"> <a href="/">Grooove</a> </div>
+<nav class="navbar">
+  <div class="brand_logo"><a href="/">Grooove</a></div>
 
-      <a href="#" class="toggle_button">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </a>
-      
-      <div class="navbar_links">
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/events/near-you">Events near You</a></li>
-          <li><a href="/events/upcoming">Upcoming Events</a></li>
-          <li><a href="#">LIVE</a></li>
-          <div class="account">
-            <% if (user) { %>
-              <li id="user-in"><a href=""><%= user.username.toUpperCase() %></a>  </li>
-              <li><a href="/users/logout">Sign Out</a></li>
-           <% } else { %>
-             <li><a href="/users/login">Sign In</a></li>
-             <li><a href="/users/register">Sign Up</a></li>
-          <% } %>
-          </div>
-        </ul>
+  <a href="#" class="toggle_button">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </a>
+
+  <div class="navbar_links">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/events/near-you">Events near You</a></li>
+      <li><a href="/events/upcoming">Upcoming Events</a></li>
+      <li ><a  id="live" href="/events/live"><i class="fas fa-sm fa-circle"></i>LIVE</a></li>
+      <div class="account">
+        <% if (user) { %>
+        <li id="user-in">
+          <i class="fas fa-lg fa-user-alt" user-id="<%= user._id%>"></i>
+          <ul id="user-dropdown">
+            <li><%= user.username %></li>
+            <li>BB</li>
+            <li>CC</li>
+            <li>DD</li>
+          </ul>
+        </li>
+        <li><a href="/users/logout">Sign Out</a></li>
+        <% } else { %>
+        <li><a href="/users/login">Sign In</a></li>
+        <li><a href="/users/register">Sign Up</a></li>
+        <% } %>
       </div>
-    </nav>
-
+    </ul>
+  </div>
+</nav>

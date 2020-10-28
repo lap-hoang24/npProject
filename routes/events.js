@@ -5,6 +5,10 @@ const fetch = require('node-fetch');
 
 // =========================
 
+//Bring in COMMENT Model
+
+const Comment = require('../models/Comments');
+
 router.get('/upcoming', async (req, res) => {
     try {
         const api = "https://api.seatgeek.com/2/events?taxonomies.name=concert&";
@@ -31,7 +35,7 @@ router.get('/near-you', async (req, res) => {
     api = "https://api.songkick.com/api/3.0/events.json?location=ip:" + ip;
     apiKey = "&apikey=iQvmMn3zAKS85ja5";
     perPage = "40";
-    
+
     response = await fetch(api + apiKey);
     data = await response.json();
     data = data.resultsPage.results.event;
@@ -42,6 +46,31 @@ router.get('/near-you', async (req, res) => {
     } catch (err) {
         console.log(err);
     }
+})
+
+
+router.get('/comment', (req, res) => {
+    console.log(req.user);
+    res.render('comment', {
+        errors: false
+    })
+})
+router.post('/comment', (req, res) => {
+    let comment = new Comment();
+
+    comment.user_id = req.user._id;
+    comment.content = req.body.content;
+
+    comment.save((err) => {
+        if (err) {
+            console.log(err);
+            return;
+        } else {
+            console.log(req.body);
+            req.flash('success', 'comment posted');
+            res.redirect('/');
+        }
+    })
 })
 
 
