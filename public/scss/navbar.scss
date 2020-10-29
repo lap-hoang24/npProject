@@ -42,7 +42,7 @@ header {
         }
         .toggle_button {
             position: absolute;
-            top: 1.2rem;
+            top: 1.5rem;
             right: 1.5rem;
             display: flex;
             flex-direction: column;
@@ -87,9 +87,10 @@ header {
                 color: rgb(208, 13, 13);
             }
             .account {
+                display: flex;
+                flex-direction: column;
                 width: 80%;
-                margin: 1rem;
-                color: #fff;
+                color: #000;
                 display: flex;
 
                 #user-in {
@@ -121,9 +122,8 @@ header {
         .active {
             display: flex;
             position: absolute;
-            height: 250px;
+            height: 310px;
             top: 60px;
-            right: -200px;
             background: #fff;
             z-index: 99999;
             a {
@@ -159,8 +159,8 @@ header {
                     color: #fff;
                     margin: 0;
                     width: 20%;
-                    flex-wrap: nowrap;
-                    justify-content: flex-end;
+                   flex-direction: row;
+                   justify-content: flex-end;
 
                     #user-in {
 

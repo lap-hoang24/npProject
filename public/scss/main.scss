@@ -5,7 +5,7 @@
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
 
 body {
     font-size: 13px;
@@ -14,7 +14,7 @@ body {
 
 // ======== NAV BAR =============
 
-@import 'navbar';
+@import "navbar";
 
 // ============ JUMBOTRON ============
 main {
@@ -89,12 +89,9 @@ main {
     }
 }
 
+// ========= FOOTER ==============================
 
-
-
-
-
-
+@import "footer";
 
 // ========= MEDIA QUERIES ==============
 
@@ -104,33 +101,33 @@ main {
     }
 
     // ======== NAV BAR =============
-    header {
-        top: 1rem;
+    // header {
+    //     top: 1rem;
 
-        .navbar {
-            flex-direction: row;
+    //     .navbar {<%- include('footer.ejs') -%>
+    //         flex-direction: row;
 
-            .navbar_links {
-                display: flex;
+    //         .navbar_links {
+    //             display: flex;
 
-                ul {
-                    flex-direction: row;
-                    flex-wrap: nowrap;
-                    justify-content: flex-end;
-                }
-                .account {
-                    margin: 0;
-                    width: 20%;
-                    flex-wrap: nowrap;
-                    justify-content: flex-end;
-                }
-            }
+    //             ul {
+    //                 flex-direction: row;
+    //                 flex-wrap: nowrap;
+    //                 justify-content: flex-end;
+    //             }
+    //             .account {
+    //                 margin: 0;
+    //                 width: 20%;
+    //                 flex-wrap: nowrap;
+    //                 justify-content: flex-end;
+    //             }
+    //         }
 
-            .toggle_button {
-                display: none;
-            }
-        }
-    }
+    //         .toggle_button {
+    //             display: none;
+    //         }
+    //     }
+    // }
 
     main {
         // ======= JUMBOTRON ========
