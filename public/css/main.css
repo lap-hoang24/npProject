@@ -109,6 +109,28 @@ header .navbar .navbar_links {
   display: none;
 }
 
+header .navbar .navbar_links #search-bar {
+  width: 15rem;
+  color: #000;
+}
+
+header .navbar .navbar_links #search-bar #search-input {
+  width: 90%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(177, 177, 177, 0.597);
+  color: #000;
+  font-size: 1rem;
+}
+
+header .navbar .navbar_links #search-bar #search-input:focus {
+  outline: none;
+}
+
+header .navbar .navbar_links #search-bar #search-button:hover {
+  cursor: pointer;
+}
+
 header .navbar .navbar_links ul {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -219,6 +241,18 @@ header .navbar .active a {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+  }
+  header .navbar .navbar_links #search-bar {
+    width: 15rem;
+    color: #fff;
+  }
+  header .navbar .navbar_links #search-bar #search-input {
+    width: 90%;
+    font-size: 1rem;
+    color: #fff;
+  }
+  header .navbar .navbar_links #search-bar #search-button:hover {
+    cursor: pointer;
   }
   header .navbar .navbar_links ul {
     -webkit-box-orient: horizontal;

@@ -81,7 +81,7 @@ header .navbar .transform {
 
 header .navbar .toggle_button {
   position: absolute;
-  top: 1.2rem;
+  top: 1.5rem;
   right: 1.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -108,6 +108,28 @@ header .navbar .navbar_links {
   width: 100%;
   height: 100%;
   display: none;
+}
+
+header .navbar .navbar_links #search-bar {
+  width: 15rem;
+  color: #000;
+}
+
+header .navbar .navbar_links #search-bar #search-input {
+  width: 90%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(177, 177, 177, 0.597);
+  color: #000;
+  font-size: 1rem;
+}
+
+header .navbar .navbar_links #search-bar #search-input:focus {
+  outline: none;
+}
+
+header .navbar .navbar_links #search-bar #search-button:hover {
+  cursor: pointer;
 }
 
 header .navbar .navbar_links ul {
@@ -141,11 +163,15 @@ header .navbar .navbar_links #live {
 }
 
 header .navbar .navbar_links .account {
-  width: 80%;
-  margin: 1rem;
-  color: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 80%;
+  color: #000;
   display: flex;
 }
 
@@ -192,9 +218,8 @@ header .navbar .active {
   display: -ms-flexbox;
   display: flex;
   position: absolute;
-  height: 250px;
+  height: 310px;
   top: 60px;
-  right: -200px;
   background: #fff;
   z-index: 99999;
 }
@@ -218,6 +243,18 @@ header .navbar .active a {
     display: -ms-flexbox;
     display: flex;
   }
+  header .navbar .navbar_links #search-bar {
+    width: 15rem;
+    color: #fff;
+  }
+  header .navbar .navbar_links #search-bar #search-input {
+    width: 90%;
+    font-size: 1rem;
+    color: #fff;
+  }
+  header .navbar .navbar_links #search-bar #search-button:hover {
+    cursor: pointer;
+  }
   header .navbar .navbar_links ul {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -236,8 +273,10 @@ header .navbar .active a {
     color: #fff;
     margin: 0;
     width: 20%;
-    -ms-flex-wrap: nowrap;
-        flex-wrap: nowrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end;

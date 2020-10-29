@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Groooooove it hard, Bitch!</title>
     <link rel="stylesheet" href="/css/main.css" />
-    <script src="https://kit.fontawesome.com/ade53cd309.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/ade53cd309.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <header><%- include('navbar.ejs') -%></header>
@@ -21,15 +24,13 @@
           <div id="title">news and events</div>
           <div id="down-arrow"><i class="fas fa-arrow-down"></i></div>
         </div>
-        
-        <div class="news-events">
-
-        </div>
+        <div class="news-events"></div>
+        <div id="search_results"></div>
       </section>
-
     </main>
 
     <%- include('footer.ejs') -%>
     <script src="/js/navbar.js"></script>
+    <script src="/js/getSearch.js"></script>
   </body>
 </html>

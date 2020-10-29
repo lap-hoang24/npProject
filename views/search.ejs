@@ -1,20 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/search.css">
-</head>
-<body>
-    <form action="/search" method="POST">
-        <input id='search' name="search_query" type="search" placeholder="Search your artists">
-    </form>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upcoming Events</title>
+    <link rel="stylesheet" href="/css/upcoming-nearyou.css" />
+    <script src="https://kit.fontawesome.com/ade53cd309.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header><%- include('navbar.ejs') -%></header>
+    <!-- MAIN -->
+    <main>
+      <section class="jumbotron">
+        <div class="jumbotron_text">Exciting Upcoming Events!</div>
+      </section>
 
-    <div id="search_results">
+      <section id="events_lists">
+        <% for (let i = 0; i < data.length; i++) { %>
+        <div class="event_item">
+          <div class="performers_picture">
+            <img src="<%= data[i].image %>" alt="concert crowd" />
+            <!-- <div class="date_time" date-time="<%= data[i].datetime_utc %>">
+              <div class="day"></div>
+              <div class="month"></div>
+            </div> -->
+          </div>
+          <div class="event_description">
+            <!-- <div
+              class="event_name"
+              event_name="<%= data[i].displayName %>"
+            ></div> -->
+            <!-- <div class="event_name">
+              <a class="event_link" href="<%= data[i].url %>"
+                ><%= data[i].short_title %></a
+              >
+            </div> -->
+            <div class="performers_name"><%= data[i].name %></div>
+  
+          </div>
+        </div>
+        <% } %>
+      </section>
+    </main>
+    <!-- FOOTER -->
+    <%- include('footer.ejs') -%>
+<!-- 
+    <script src="../js/navbar.js"></script>
+    <script src="../js/date_time.js"></script> -->
+    <script src="/js/getSearch.js"></script>
 
-    </div>
-
-    <script src="../js/getSearch.js"></script>
-</body>
+  </body>
 </html>

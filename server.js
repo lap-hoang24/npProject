@@ -83,8 +83,8 @@ app.use('/users', users);
 const events = require('./routes/events');
 app.use('/events', events)
 
-const search = require('./routes/search');
-app.use('/', search);
+// const search = require('./routes/search');
+// app.use('/', search);
 
 // === RENDER HOME PAGE ===
 

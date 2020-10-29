@@ -73,6 +73,28 @@ router.post('/comment', (req, res) => {
     })
 })
 
+router.get('/search/:value', async (req, res) => {
+
+    const api = "https://api.seatgeek.com/2/performers?q="
+    const client_id = '&client_id=MjEzNjIzNTl8MTYwMzM3ODg3OS42NDc4ODU2';
+    const query = req.params.value;
+
+    console.log(query)
+    const response = await fetch(api + query + "&per_page=50" + client_id)
+    let data = await response.json();
+    data = data.performers;
+    // console.log(data);
+
+    try {
+        res.render('search', {
+            data: data
+        })
+    } catch (err) {
+        console.log(err);
+    }
+
+} )
+
 
 
 

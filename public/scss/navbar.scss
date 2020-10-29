@@ -63,6 +63,32 @@ header {
             height: 100%;
             display: none;
 
+            #search-bar {
+                width: 15rem;
+                color: #000;
+                #search-input {
+                    width: 90%;
+                    background: transparent;
+                    border: none;
+                    border-bottom: 1px solid rgba(177, 177, 177, 0.597);
+                    color: #000;
+                    font-size: 1rem;
+                    &:focus {
+                        outline: none;
+                    }
+                }
+
+                #search-button {
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+
+                
+            }
+
+
+
             ul {
                 display: flex;
                 flex-direction: column;
@@ -143,6 +169,24 @@ header {
 
             .navbar_links {
                 display: flex;
+
+                #search-bar {
+                    width: 15rem;
+                    color: #fff;
+                    #search-input {
+                        width: 90%;
+                        font-size: 1rem;
+                        color: #fff;
+                    }
+    
+                    #search-button {
+                        &:hover {
+                            cursor: pointer;
+                        }
+                    }
+    
+                    
+                }
 
                 ul {
                     flex-direction: row;
