@@ -20,21 +20,26 @@
       </section>
 
       <section id="events_lists">
-          <h1>UPCOMING EVENTS</h1>
+        <h1>UPCOMING EVENTS</h1>
         <div class="upcoming-events">
-          <% for (let i = 0; i < data.length; i++) { %>
+          <% if (typeof (data) != 'undefined') {%> <% for (let i = 0; i <
+          data.length; i++) { %>
           <div class="artist-result">
             <div class="artist-name">
               <a href="<%= data[i].uri %>"> <%= data[i].displayName %></a>
             </div>
           </div>
+          <% } } else {%>
+          <div class="no-event">
+            There are no upcoming events for this artist
+          </div>
           <% } %>
         </div>
 
-
-        <h1>PAST EVETNS</h1>
+        <h1>PAST EVENTS</h1>
         <div class="past-events">
-          <% for (let i = 0; i < dataPast.length; i++) { %>
+          <% if (typeof (dataPast) != 'undefined') {%> <% for (let i = 0; i <
+          dataPast.length; i++) { %>
           <div class="artist-result">
             <div class="artist-name">
               <a href="<%= dataPast[i].uri %>">
@@ -42,15 +47,18 @@
               >
             </div>
           </div>
+          <% } } else {%>
+          <div class="no-event">
+            There are no past events for this artist from 2016
+          </div>
           <% } %>
         </div>
       </section>
     </main>
     <!-- FOOTER -->
     <%- include('footer.ejs') -%>
-    <!-- 
-    <script src="../js/navbar.js"></script>
-    <script src="../js/date_time.js"></script> -->
+    <script src="/js/navbar.js"></script>
+    <!-- <script src="../js/date_time.js"></script>  -->
     <script src="/js/getSearch.js"></script>
   </body>
 </html>

@@ -86,7 +86,7 @@ router.get('/search/:value', async (req, res) => {
     // console.log(data);
 
     try {
-        res.render('search', {
+        res.render('search_results', {
             data: data
         })
     } catch (err) {
@@ -103,7 +103,7 @@ router.get('/artist=:artist_id', async (req, res) => {
     const response = await fetch(api + apiKey);
 
     let data = await response.json();
-    console.log(artist_id);
+    // console.log(artist_id);
     data = data.resultsPage.results.event;
 
     const apiPast = "https://api.songkick.com/api/3.0/artists/" + artist_id +" /gigography.json?apikey=iQvmMn3zAKS85ja5&min_date=2016-01-01&order=desc";
