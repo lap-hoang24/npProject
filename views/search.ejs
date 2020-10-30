@@ -13,41 +13,22 @@
     <!-- MAIN -->
     <main>
       <section class="jumbotron">
-        <div class="jumbotron_text">Exciting Upcoming Events!</div>
+        <div class="jumbotron_text">Your search results!</div>
       </section>
 
       <section id="events_lists">
         <% for (let i = 0; i < data.length; i++) { %>
-        <div class="event_item">
-          <div class="performers_picture">
-            <img src="<%= data[i].image %>" alt="concert crowd" />
-            <!-- <div class="date_time" date-time="<%= data[i].datetime_utc %>">
-              <div class="day"></div>
-              <div class="month"></div>
-            </div> -->
-          </div>
-          <div class="event_description">
-            <!-- <div
-              class="event_name"
-              event_name="<%= data[i].displayName %>"
-            ></div> -->
-            <!-- <div class="event_name">
-              <a class="event_link" href="<%= data[i].url %>"
-                ><%= data[i].short_title %></a
-              >
-            </div> -->
-            <div class="performers_name"><%= data[i].name %></div>
-  
-          </div>
-        </div>
+       <div class="artist-result">
+         <div class="artist-name"> <a href="/events/artist=<%= data[i].id %>"> <%= data[i].displayName %></a></div>
+       </div>
         <% } %>
       </section>
     </main>
     <!-- FOOTER -->
     <%- include('footer.ejs') -%>
-<!-- 
-    <script src="../js/navbar.js"></script>
-    <script src="../js/date_time.js"></script> -->
+
+    <script src="/js/navbar.js"></script>
+    <!-- <script src="../js/date_time.js"></script> -->
     <script src="/js/getSearch.js"></script>
 
   </body>

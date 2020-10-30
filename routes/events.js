@@ -75,14 +75,14 @@ router.post('/comment', (req, res) => {
 
 router.get('/search/:value', async (req, res) => {
 
-    const api = "https://api.seatgeek.com/2/performers?q="
-    const client_id = '&client_id=MjEzNjIzNTl8MTYwMzM3ODg3OS42NDc4ODU2';
-    const query = req.params.value;
+    const api = "https://api.songkick.com/api/3.0/search/artists.json?"
+    const apiKey = 'apikey=iQvmMn3zAKS85ja5';
+    const query = "&query=" + req.params.value;
 
-    console.log(query)
-    const response = await fetch(api + query + "&per_page=50" + client_id)
+    // console.log(query)
+    const response = await fetch(api + apiKey + query);
     let data = await response.json();
-    data = data.performers;
+    data = data.resultsPage.results.artist;
     // console.log(data);
 
     try {
@@ -93,8 +93,34 @@ router.get('/search/:value', async (req, res) => {
         console.log(err);
     }
 
-} )
+})
 
+
+router.get('/artist=:artist_id', async (req, res) => {
+    const artist_id = req.params.artist_id;
+    const api = "https://api.songkick.com/api/3.0/artists/" + artist_id + "/calendar.json?"
+    const apiKey = 'apikey=iQvmMn3zAKS85ja5';
+    const response = await fetch(api + apiKey);
+
+    let data = await response.json();
+    console.log(artist_id);
+    data = data.resultsPage.results.event;
+
+    const apiPast = "https://api.songkick.com/api/3.0/artists/" + artist_id +" /gigography.json?apikey=iQvmMn3zAKS85ja5&min_date=2016-01-01&order=desc";
+
+    const responsePast = await fetch(apiPast);
+    let dataPast = await responsePast.json();
+    dataPast = dataPast.resultsPage.results.event;
+
+    try {
+        res.render('artist_events', {
+            data: data,
+            dataPast: dataPast
+        })
+    } catch (err) {
+        console.log(err);
+    }
+})
 
 
 
