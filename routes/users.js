@@ -36,7 +36,7 @@ router.post('/recover_password', UserController.postPwdRecoverForm);
 
 // RENDER CHANGE PASSWORD PAGE
 
-router.get('/change_password/:id', checkAuth ,UserController.getPwdChangeForm);
+router.get('/change_password/:id',UserController.getPwdChangeForm);
 
 router.post('/change_password/:id', Validator.pwdChangeVal , UserController.postPwdChangeForm);
 

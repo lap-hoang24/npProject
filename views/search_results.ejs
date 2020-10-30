@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Upcoming Events</title>
     <link rel="stylesheet" href="/css/search_results.css" />
-    <script src="https://kit.fontawesome.com/ade53cd309.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/ade53cd309.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <!-- HEADER -->
@@ -19,16 +22,20 @@
       <section id="artists-lists">
         <h1>Your artists search results</h1>
         <% for (let i = 0; i < data.length; i++) { %>
-         <div class="artist-name"> <a href="/events/artist=<%= data[i].id %>"> <%= data[i].displayName %></a></div>
+        <div class="artist-name">
+          <a class="artist-link" href="/events/artist=<%= data[i].id %>" tour-status="<%= data[i].onTourUntil %>">
+            <%= data[i].displayName %><span class="tour-status ">on tour</span></a
+          >
+          
+        </div>
+
         <% } %>
       </section>
     </main>
     <!-- FOOTER -->
     <%- include('footer.ejs') -%>
 
-    <script src="/js/navbar.js"></script>
-    <!-- <script src="../js/date_time.js"></script> -->
-    <script src="/js/getSearch.js"></script>
 
+    <script src="/js/main.js"></script>
   </body>
 </html>

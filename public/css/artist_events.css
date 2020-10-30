@@ -315,173 +315,25 @@ main .jumbotron_text {
   font-size: 1.5rem;
 }
 
-main #artists-lists {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+main #events_lists h1 {
+  font-size: 2rem;
+  margin: 1.5rem 0rem;
+  text-align: center;
 }
 
-main #artists-lists h1 {
-  padding: 1rem 0;
-  font-size: 1.5rem;
-  border-bottom: 2px solid #ccc;
-}
-
-main #artists-lists .artist-name {
+main #events_lists .artist-result {
   text-align: left;
   font-size: 1.2rem;
-  width: 90%;
+  width: auto;
   padding: 0.5rem 0;
-  margin: 0.5rem auto;
+  margin: 0.5rem 0;
   font-weight: 600;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  border-top: 1px solid rgba(191, 191, 191, 0.942);
 }
 
-main #artists-lists .artist-name:hover {
-  background: #d0d0d0;
-}
-
-main #artists-lists .artist-name a {
-  display: inline-block;
-  text-decoration: none;
+main #events_lists .artist-result a {
   color: rgba(21, 38, 150, 0.942);
-}
-
-main #artists-lists .artist-name .on-tour {
-  padding: 0.1rem 0.2rem;
-  font-size: 12px;
-  vertical-align: super;
   display: inline-block;
-  background: #fc4141;
-  border-radius: 3px;
-  color: #fff;
-}
-
-main #artists-lists .artist-name .off-tour {
-  padding: 0.1rem 0.2rem;
-  font-size: 12px;
-  vertical-align: super;
-  display: inline-block;
-  background: darkgray;
-  border-radius: 3px;
-  color: #fff;
-}
-
-@media (min-width: 769px) {
-  body {
-    font-size: 15px;
-  }
-  main .jumbotron {
-    height: 70vh;
-  }
-  main .jumbotron_text {
-    font-size: 4rem;
-    font-weight: 700;
-  }
-}
-
-footer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background: #000;
-  padding: 2rem 0;
-  border-top: 1px solid rgba(111, 111, 111, 0.798);
-}
-
-footer a {
   text-decoration: none;
-  color: #fff;
 }
-
-footer .footer-nav ul,
-footer .footer-medias ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin: 1rem 0rem;
-}
-
-footer .footer-nav ul li,
-footer .footer-medias ul li {
-  list-style: none;
-}
-
-footer .footer-nav ul li {
-  padding: 0.3rem 1rem;
-}
-
-footer .footer-nav ul li a:hover {
-  color: red;
-}
-
-footer .footer-nav ul li:nth-child(1), footer .footer-nav ul li:nth-child(2), footer .footer-nav ul li:nth-child(3) {
-  border-right: 2px solid #fff;
-}
-
-footer .footer-medias ul .media-icon {
-  font-size: 1.2rem;
-  margin: 0 0.7rem;
-}
-
-footer .footer-medias ul .media-icon:hover {
-  -webkit-transform: translateY(-0.4rem);
-          transform: translateY(-0.4rem);
-  -webkit-transition: -webkit-transform 0.2s linear;
-  transition: -webkit-transform 0.2s linear;
-  transition: transform 0.2s linear;
-  transition: transform 0.2s linear, -webkit-transform 0.2s linear;
-}
-
-footer .logo {
-  font-family: "Monoton", cursive;
-  font-size: 2rem;
-  color: #fff;
-}
-
-@media (min-width: 769px) {
-  footer .logo {
-    font-size: 2.2rem;
-  }
-  footer .footer-nav ul li {
-    padding: 0.3rem 3rem;
-  }
-  footer .footer-nav ul li a:hover {
-    color: red;
-  }
-  footer .footer-nav ul li:nth-child(1), footer .footer-nav ul li:nth-child(2), footer .footer-nav ul li:nth-child(3) {
-    border-right: 2px solid #fff;
-  }
-  footer .footer-medias ul .media-icon {
-    font-size: 2rem;
-    margin: 0 1.7rem;
-  }
-}
-/*# sourceMappingURL=search_results.css.map */
+/*# sourceMappingURL=artist_events.css.map */
