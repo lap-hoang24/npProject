@@ -1,3 +1,5 @@
+@import "global";
+
 header {
     position: fixed;
     top: 0px;
@@ -7,7 +9,7 @@ header {
     z-index: 99999999;
 
     .activee {
-        background-color: rgba(0, 0, 0, 0.638) !important;
+        background-color: rgba($base-black, 0.638) !important;
     }
 
     .navbar {
@@ -20,15 +22,14 @@ header {
         z-index: 100;
 
         a {
-            text-decoration: none;
-            color: #fff;
+            color: $base-white;
         }
 
         .brand_logo {
             font-family: "Monoton", cursive;
             font-size: 1.8rem;
             padding: 1rem;
-            color: #fff;
+            color: $base-white;
         }
         .reverse-transform {
             transform: rotate(0deg);
@@ -53,7 +54,7 @@ header {
             .bar {
                 height: 3px;
                 width: 100%;
-                background-color: #fff;
+                background-color: $base-white;
                 border-radius: 10px;
             }
         }
@@ -65,13 +66,13 @@ header {
 
             #search-bar {
                 width: 15rem;
-                color: #000;
+                color: $base-black;
                 #search-input {
                     width: 90%;
                     background: transparent;
                     border: none;
                     border-bottom: 1px solid rgba(177, 177, 177, 0.597);
-                    color: #000;
+                    color: $base-black;
                     font-size: 1rem;
                     &:focus {
                         outline: none;
@@ -97,26 +98,23 @@ header {
             }
 
             li {
-                list-style: none;
                 text-align: center;
                 padding: 1rem;
             }
 
             a {
                 font-weight: 400;
-                text-decoration: none;
-                // color: #000;
                 display: block;
             }
 
             #live {
-                color: rgb(208, 13, 13);
+                color: $red;
             }
             .account {
                 display: flex;
                 flex-direction: column;
                 width: 80%;
-                color: #000;
+                color: $base-black;
                 display: flex;
 
                 #user-in {
@@ -131,8 +129,8 @@ header {
                         position: absolute;
                         width: auto;
                         z-index: -11;
-                        background: #fff;
-                        color: #000;
+                        background: $base-white;
+                        color: $base-black;
                         opacity: 0;
                     }
 
@@ -150,10 +148,10 @@ header {
             position: absolute;
             height: 310px;
             top: 60px;
-            background: #fff;
+            background: $base-white;
             z-index: 99999;
             a {
-                color: #000;
+                color: $base-black;
             }
         }
     }
@@ -172,11 +170,11 @@ header {
 
                 #search-bar {
                     width: 15rem;
-                    color: #fff;
+                    color: $base-white;
                     #search-input {
                         width: 90%;
                         font-size: 1rem;
-                        color: #fff;
+                        color: $base-white;
                     }
     
                     #search-button {
@@ -200,7 +198,7 @@ header {
                 }
     
                 .account {
-                    color: #fff;
+                    color: $base-white;
                     margin: 0;
                     width: 20%;
                    flex-direction: row;

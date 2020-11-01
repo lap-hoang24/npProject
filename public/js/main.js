@@ -1,4 +1,5 @@
 
+
 // =========== SHOW TOUR STATUS FUNCTION =================
 
 (function () {
@@ -41,6 +42,8 @@
 
 
 // ========= SHOW DATE - TIME ===================
+
+
 
 
 (function () {

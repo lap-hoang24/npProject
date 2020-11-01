@@ -1,5 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -7,10 +9,53 @@
   padding: 0;
 }
 
+* a {
+  text-decoration: none;
+}
+
+* a:hover {
+  cursor: pointer;
+}
+
+* li {
+  list-style: none;
+}
+
+* img {
+  display: block;
+}
+
 body {
   font-size: 13px;
   font-family: "Montserrat", sans-serif;
-  color: #fff;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+* a {
+  text-decoration: none;
+}
+
+* a:hover {
+  cursor: pointer;
+}
+
+* li {
+  list-style: none;
+}
+
+* img {
+  display: block;
+}
+
+body {
+  font-size: 13px;
+  font-family: "Montserrat", sans-serif;
 }
 
 header {
@@ -46,15 +91,14 @@ header .navbar {
 }
 
 header .navbar a {
-  text-decoration: none;
-  color: #fff;
+  color: rgba(241, 238, 238, 0.997);
 }
 
 header .navbar .brand_logo {
   font-family: "Monoton", cursive;
   font-size: 1.8rem;
   padding: 1rem;
-  color: #fff;
+  color: rgba(241, 238, 238, 0.997);
 }
 
 header .navbar .reverse-transform {
@@ -100,7 +144,7 @@ header .navbar .toggle_button {
 header .navbar .toggle_button .bar {
   height: 3px;
   width: 100%;
-  background-color: #fff;
+  background-color: rgba(241, 238, 238, 0.997);
   border-radius: 10px;
 }
 
@@ -112,7 +156,7 @@ header .navbar .navbar_links {
 
 header .navbar .navbar_links #search-bar {
   width: 15rem;
-  color: #000;
+  color: rgba(0, 0, 0, 0.99);
 }
 
 header .navbar .navbar_links #search-bar #search-input {
@@ -120,7 +164,7 @@ header .navbar .navbar_links #search-bar #search-input {
   background: transparent;
   border: none;
   border-bottom: 1px solid rgba(177, 177, 177, 0.597);
-  color: #000;
+  color: rgba(0, 0, 0, 0.99);
   font-size: 1rem;
 }
 
@@ -147,14 +191,12 @@ header .navbar .navbar_links ul {
 }
 
 header .navbar .navbar_links li {
-  list-style: none;
   text-align: center;
   padding: 1rem;
 }
 
 header .navbar .navbar_links a {
   font-weight: 400;
-  text-decoration: none;
   display: block;
 }
 
@@ -171,7 +213,7 @@ header .navbar .navbar_links .account {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 80%;
-  color: #000;
+  color: rgba(0, 0, 0, 0.99);
   display: flex;
 }
 
@@ -196,8 +238,8 @@ header .navbar .navbar_links .account #user-in #user-dropdown {
   position: absolute;
   width: auto;
   z-index: -11;
-  background: #fff;
-  color: #000;
+  background: rgba(241, 238, 238, 0.997);
+  color: rgba(0, 0, 0, 0.99);
   opacity: 0;
 }
 
@@ -220,12 +262,12 @@ header .navbar .active {
   position: absolute;
   height: 310px;
   top: 60px;
-  background: #fff;
+  background: rgba(241, 238, 238, 0.997);
   z-index: 99999;
 }
 
 header .navbar .active a {
-  color: #000;
+  color: rgba(0, 0, 0, 0.99);
 }
 
 @media (min-width: 769px) {
@@ -245,12 +287,12 @@ header .navbar .active a {
   }
   header .navbar .navbar_links #search-bar {
     width: 15rem;
-    color: #fff;
+    color: rgba(241, 238, 238, 0.997);
   }
   header .navbar .navbar_links #search-bar #search-input {
     width: 90%;
     font-size: 1rem;
-    color: #fff;
+    color: rgba(241, 238, 238, 0.997);
   }
   header .navbar .navbar_links #search-bar #search-button:hover {
     cursor: pointer;
@@ -270,7 +312,7 @@ header .navbar .active a {
     padding: 1.7rem 1.7rem;
   }
   header .navbar .navbar_links .account {
-    color: #fff;
+    color: rgba(241, 238, 238, 0.997);
     margin: 0;
     width: 20%;
     -webkit-box-orient: horizontal;
@@ -295,7 +337,7 @@ header .navbar .active a {
 }
 
 .main {
-  background: #000;
+  background: rgba(0, 0, 0, 0.99);
   text-align: center;
   padding-top: 15rem;
   height: 100vh;
@@ -303,13 +345,13 @@ header .navbar .active a {
 
 .main .title {
   text-align: center;
-  color: #fff;
+  color: rgba(241, 238, 238, 0.997);
   font-size: 2rem;
   margin-bottom: 2rem;
 }
 
 .main .error {
-  color: red;
+  color: #d00d0d;
   font-weight: bold;
 }
 
@@ -339,7 +381,7 @@ header .navbar .active a {
 
 .main a {
   text-decoration: none;
-  color: #000;
+  color: rgba(0, 0, 0, 0.99);
 }
 
 .main #sign_button {

@@ -1,16 +1,8 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
 
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
 
-body {
-    font-size: 13px;
-    font-family: "Montserrat", sans-serif;
-}
+// ======== GLOBAL STYLING ==========
+
+@import "global";
 
 // ===== HEADER ==============================
 
@@ -28,7 +20,7 @@ main {
         align-items: center;
 
         &_text {
-            color: #fff;
+            color: $base-white;
             text-transform: uppercase;
             font-size: 1.5rem;
         }
@@ -54,25 +46,25 @@ main {
                     position: absolute;
                     top: 0;
                     right: 0;
-                    background: #fff;
+                    background: $base-white;
                     height: 30px;
                     width: 30px;
                     border-radius: 3px;
                     display: flex;
                     flex-direction: column;
                     align-items: center;
+
                     .day {
                         text-align: center;
                         height: 50%;
                         width: 80%;
-                        border-bottom: 1px solid black;
+                        border-bottom: 1px solid $base-black;
                     }
                 }
 
                 img {
                     height: 100%;
                     width: 100%;
-                    display: block;
                 }
             }
 
@@ -81,10 +73,11 @@ main {
                 width: calc(100vw - 110px);
 
                 a {
-                    text-decoration: none;
-                    font-weight: 500;
-                    color: #000;
-                    border-bottom: 2px solid #000;
+                    font-size: 0.9rem;
+                    font-weight: 600;
+                    color: $blue-link;
+                    border-bottom: 2px solid $blue-link;
+
                 }
 
                 .event_name {
@@ -135,7 +128,7 @@ main {
                         position: absolute;
                         top: 0;
                         right: 0;
-                        background: #fff;
+                        background: $base-white;
                         height: 30px;
                         width: 30px;
                         border-radius: 3px;
@@ -146,7 +139,7 @@ main {
                             text-align: center;
                             height: 50%;
                             width: 80%;
-                            border-bottom: 1px solid black;
+                            border-bottom: 1px solid $base-black;
                         }
                     }
 
@@ -164,8 +157,8 @@ main {
                     a {
                         text-decoration: none;
                         font-weight: 500;
-                        color: #000;
-                        border-bottom: 2px solid #000;
+                        color: $base-black;
+                        border-bottom: 2px solid $base-black;
                     }
 
                     .event_name {

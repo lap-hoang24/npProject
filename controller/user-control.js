@@ -110,8 +110,8 @@ exports.postPwdRecoverForm = (req, res) => {
         } else {
             mailer(user);
             console.log(user)
-            res.render('index', {
-                user: user
+            res.render('email_sent', {
+                user: false
             })
         }
     })

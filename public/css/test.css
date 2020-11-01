@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+* a {
+  text-decoration: none;
+}
+
+* a:hover {
+  cursor: pointer;
+}
+
+* li {
+  list-style: none;
+}
+
+* img {
+  display: block;
+}
+
+body {
+  font-size: 13px;
+  font-family: "Montserrat", sans-serif;
+}
+
+#gaga {
+  color: #d00d0d;
+  background: #d00d0d;
+  border: #d00d0d;
+}
+
+h2 {
+  color: rgba(0, 0, 0, 0.99);
+  background: rgba(241, 238, 238, 0.997);
+  border: #d00d0d;
+}
+
+h3 {
+  color: rgba(0, 0, 0, 0.99);
+  background: rgba(241, 238, 238, 0.997);
+  border: rgba(76, 76, 76, 0.949);
+}
+/*# sourceMappingURL=test.css.map */

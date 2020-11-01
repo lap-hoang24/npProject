@@ -3,6 +3,7 @@ const router = express.Router();
 const RequestIp = require('@supercharge/request-ip')
 const fetch = require('node-fetch');
 
+const apifetch = require('../controller/api');
 // =========================
 
 //Bring in COMMENT Model
@@ -76,18 +77,22 @@ router.post('/comment', (req, res) => {
 router.get('/search/:value', async (req, res) => {
 
     const api = "https://api.songkick.com/api/3.0/search/artists.json?"
-    const apiKey = 'apikey=iQvmMn3zAKS85ja5';
+    const apiKey = 'apikey=iQvmMn3zAKS85ja5&query=' + req.params.value;
     const query = "&query=" + req.params.value;
 
+
+
+    let artist = await apifetch.getData(api, apiKey);
+
     // console.log(query)
-    const response = await fetch(api + apiKey + query);
-    let data = await response.json();
-    data = data.resultsPage.results.artist;
+    // const response = await fetch(api + apiKey + query);
+    // let data = await response.json();
+    artist = artist.resultsPage.results.artist;
     // console.log(data);
 
     try {
         res.render('search_results', {
-            data: data
+            data: artist
         })
     } catch (err) {
         console.log(err);
@@ -100,8 +105,8 @@ router.get('/artist=:artist_id', async (req, res) => {
     const artist_id = req.params.artist_id;
     const api = "https://api.songkick.com/api/3.0/artists/" + artist_id + "/calendar.json?"
     const apiKey = 'apikey=iQvmMn3zAKS85ja5';
-    const response = await fetch(api + apiKey);
 
+    const response = await fetch(api + apiKey);
     let data = await response.json();
     // console.log(artist_id);
     data = data.resultsPage.results.event;
