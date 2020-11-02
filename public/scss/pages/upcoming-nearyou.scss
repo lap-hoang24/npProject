@@ -1,13 +1,13 @@
 
-
 // ======== GLOBAL STYLING ==========
 
-@import "global";
+@import 'base/global';
 
-// ===== HEADER ==============================
+@import "layouts/navbar";
 
-@import "navbar";
+@import "layouts/footer";
 
+@import "utilities/variables";
 // ===== MAIN ================================
 main {
     .jumbotron {
@@ -170,8 +170,3 @@ main {
         }
     }
 }
-
-
-// ========== FOOTER =============
-
-@import "footer";

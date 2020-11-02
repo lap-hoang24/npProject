@@ -1,11 +1,14 @@
 
 // ======== GLOBAL STYLING ==========
 
-@import 'global';
+@import 'base/global';
 
-// ======== NAV BAR =============
+@import "layouts/navbar";
 
-@import "navbar";
+@import "layouts/footer";
+
+@import "utilities/variables";
+
 
 // ============ JUMBOTRON ============
 main {
@@ -80,9 +83,6 @@ main {
     }
 }
 
-// ========= FOOTER ==============================
-
-@import "footer";
 
 // ========= MEDIA QUERIES ==============
 

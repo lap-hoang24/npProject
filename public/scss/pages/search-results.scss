@@ -1,11 +1,13 @@
 
 // ======== GLOBAL STYLING ==========
 
-@import 'global';
+@import 'base/global';
 
-// ===== HEADER ==============================
+@import "layouts/navbar";
 
-@import "navbar";
+@import "layouts/footer";
+
+@import "utilities/variables";
 
 // ===== MAIN ================================
 main {
@@ -97,6 +99,3 @@ main {
     }
 }
 
-// ========== FOOTER =============
-
-@import "footer";

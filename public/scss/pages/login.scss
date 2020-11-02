@@ -1,12 +1,13 @@
 
 // ======== GLOBAL STYLING ==========
 
-@import 'global';
 
-// =======  HEADER  =========
+@import 'base/global';
 
-@import "navbar";
+@import "layouts/navbar";
 
+@import "layouts/footer";
+@import "utilities/variables";
 // =======  MAIN  =============
 
 .main {
@@ -53,10 +54,6 @@
         margin-top: 1rem;
         padding: 0.5rem 1rem;
     }
-}
-
-@media (min-width: 769px) {
-
 }
 
 // ========= MEDIA QUERIES ==============
