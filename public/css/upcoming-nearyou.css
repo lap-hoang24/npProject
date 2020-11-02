@@ -2,6 +2,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -336,6 +338,125 @@ header .navbar .active a {
   }
 }
 
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+* a {
+  text-decoration: none;
+}
+
+* a:hover {
+  cursor: pointer;
+}
+
+* li {
+  list-style: none;
+}
+
+* img {
+  display: block;
+}
+
+body {
+  font-size: 13px;
+  font-family: "Montserrat", sans-serif;
+}
+
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #000;
+  padding: 2rem 0;
+  border-top: 1px solid rgba(111, 111, 111, 0.798);
+}
+
+footer a {
+  text-decoration: none;
+  color: #fff;
+}
+
+footer .footer-nav ul,
+footer .footer-medias ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 1rem 0rem;
+}
+
+footer .footer-nav ul li,
+footer .footer-medias ul li {
+  list-style: none;
+}
+
+footer .footer-nav ul li {
+  padding: 0.3rem 1rem;
+}
+
+footer .footer-nav ul li a:hover {
+  color: red;
+}
+
+footer .footer-nav ul li:nth-child(1), footer .footer-nav ul li:nth-child(2), footer .footer-nav ul li:nth-child(3) {
+  border-right: 2px solid #fff;
+}
+
+footer .footer-medias ul .media-icon {
+  font-size: 1.2rem;
+  margin: 0 0.7rem;
+}
+
+footer .footer-medias ul .media-icon:hover {
+  -webkit-transform: translateY(-0.4rem);
+          transform: translateY(-0.4rem);
+  -webkit-transition: -webkit-transform 0.2s linear;
+  transition: -webkit-transform 0.2s linear;
+  transition: transform 0.2s linear;
+  transition: transform 0.2s linear, -webkit-transform 0.2s linear;
+}
+
+footer .logo {
+  font-family: "Monoton", cursive;
+  font-size: 2rem;
+  color: #fff;
+}
+
+@media (min-width: 769px) {
+  footer .logo {
+    font-size: 2.2rem;
+  }
+  footer .footer-nav ul li {
+    padding: 0.3rem 3rem;
+  }
+  footer .footer-nav ul li a:hover {
+    color: red;
+  }
+  footer .footer-nav ul li:nth-child(1), footer .footer-nav ul li:nth-child(2), footer .footer-nav ul li:nth-child(3) {
+    border-right: 2px solid #fff;
+  }
+  footer .footer-medias ul .media-icon {
+    font-size: 2rem;
+    margin: 0 1.7rem;
+  }
+}
+
 main .jumbotron {
   width: 100%;
   background-image: url("/images/kovid-rathee[upcoming-event].jpg");
@@ -432,6 +553,10 @@ main #events_lists .event_item .event_description .event_name {
   body {
     font-size: 15px;
   }
+  main .container {
+    width: 70%;
+    margin: 0 auto;
+  }
   main .jumbotron {
     height: 70vh;
   }
@@ -443,44 +568,13 @@ main #events_lists .event_item .event_description .event_name {
     margin-top: 2rem;
   }
   main #events_lists .event_item {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
     width: 100%;
-    height: 90px;
-    margin-top: 1rem;
+    height: 200px;
   }
   main #events_lists .event_item .performers_picture {
-    height: 90px;
-    width: 100px;
-    margin-left: 5px;
-    position: relative;
-  }
-  main #events_lists .event_item .performers_picture .date_time {
-    font-size: 11px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: rgba(241, 238, 238, 0.997);
-    height: 30px;
-    width: 30px;
-    border-radius: 3px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-  main #events_lists .event_item .performers_picture .date_time .day {
-    text-align: center;
-    height: 50%;
-    width: 80%;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.99);
+    height: 180px;
+    width: 350px;
+    margin-left: 1rem;
   }
   main #events_lists .event_item .performers_picture img {
     height: 100%;
@@ -492,105 +586,18 @@ main #events_lists .event_item .event_description .event_name {
     width: calc(100vw - 110px);
   }
   main #events_lists .event_item .event_description a {
-    text-decoration: none;
+    font-size: 1.5rem;
     font-weight: 500;
-    color: rgba(0, 0, 0, 0.99);
-    border-bottom: 2px solid rgba(0, 0, 0, 0.99);
+    color: rgba(10, 2, 225, 0.983);
+    border-bottom: 2px solid rgba(8, 2, 174, 0.983);
   }
-  main #events_lists .event_item .event_description .event_name {
+  main #events_lists .event_item .event_description .event-name {
     text-transform: uppercase;
     padding-bottom: 0.3rem;
   }
-}
-
-footer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background: #000;
-  padding: 2rem 0;
-  border-top: 1px solid rgba(111, 111, 111, 0.798);
-}
-
-footer a {
-  text-decoration: none;
-  color: #fff;
-}
-
-footer .footer-nav ul,
-footer .footer-medias ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin: 1rem 0rem;
-}
-
-footer .footer-nav ul li,
-footer .footer-medias ul li {
-  list-style: none;
-}
-
-footer .footer-nav ul li {
-  padding: 0.3rem 1rem;
-}
-
-footer .footer-nav ul li a:hover {
-  color: red;
-}
-
-footer .footer-nav ul li:nth-child(1), footer .footer-nav ul li:nth-child(2), footer .footer-nav ul li:nth-child(3) {
-  border-right: 2px solid #fff;
-}
-
-footer .footer-medias ul .media-icon {
-  font-size: 1.2rem;
-  margin: 0 0.7rem;
-}
-
-footer .footer-medias ul .media-icon:hover {
-  -webkit-transform: translateY(-0.4rem);
-          transform: translateY(-0.4rem);
-  -webkit-transition: -webkit-transform 0.2s linear;
-  transition: -webkit-transform 0.2s linear;
-  transition: transform 0.2s linear;
-  transition: transform 0.2s linear, -webkit-transform 0.2s linear;
-}
-
-footer .logo {
-  font-family: "Monoton", cursive;
-  font-size: 2rem;
-  color: #fff;
-}
-
-@media (min-width: 769px) {
-  footer .logo {
-    font-size: 2.2rem;
-  }
-  footer .footer-nav ul li {
-    padding: 0.3rem 3rem;
-  }
-  footer .footer-nav ul li a:hover {
-    color: red;
-  }
-  footer .footer-nav ul li:nth-child(1), footer .footer-nav ul li:nth-child(2), footer .footer-nav ul li:nth-child(3) {
-    border-right: 2px solid #fff;
-  }
-  footer .footer-medias ul .media-icon {
-    font-size: 2rem;
-    margin: 0 1.7rem;
+  main #events_lists .event_item .event_description .performers_name, main #events_lists .event_item .event_description .venue_state {
+    font-size: 1.2rem;
+    color: rgba(76, 76, 76, 0.949);
   }
 }
 /*# sourceMappingURL=upcoming-nearyou.css.map */

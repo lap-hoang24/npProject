@@ -10,13 +10,12 @@ const { check, validationResult } = require('express-validator');
 // ==== Bring in USER MODEL ======================================
 let User = require('../models/Users');
 
-
 // ====== REGISTER  ==============================================
 exports.getRegisterForm = (req, res) => {
     req.logout();
     console.log(req.user);
 
-    res.render('register', {
+    res.render('pages/register', {
         errors: false
     })
 }
@@ -30,7 +29,7 @@ exports.postRegisterForm = (req, res) => {
     if (!errors.isEmpty()) {
         errors = errors.errors;
 
-        res.render('register', {
+        res.render('pages/register', {
             errors: errors,
             user: false
         })
@@ -70,7 +69,7 @@ exports.postRegisterForm = (req, res) => {
 // ====== LOGIN  ==============================================
 
 exports.getLoginForm = (req, res) => {
-    res.render('login');
+    res.render('pages/login');
 }
 
 
@@ -96,7 +95,7 @@ exports.getLogout = (req, res) => {
 // ==== PASSWORD RECOVERY PROCESS  ============================
 
 exports.getPwdRecoverForm = (req, res) => {
-    res.render('email_recovery', {
+    res.render('pages/email_recovery', {
         user: false
     })
 }
@@ -110,7 +109,7 @@ exports.postPwdRecoverForm = (req, res) => {
         } else {
             mailer(user);
             console.log(user)
-            res.render('email_sent', {
+            res.render('pages/email_sent', {
                 user: false
             })
         }
@@ -125,7 +124,7 @@ exports.getPwdChangeForm = (req, res) => {
         if (err) {
             console.log(err)
         } else {
-            res.render('change_password', {
+            res.render('pages/change_password', {
                 user: user
             })
         }
@@ -140,7 +139,7 @@ exports.postPwdChangeForm = (req, res) => {
     if (!errors.isEmpty()) {
         errors = errors.errors;
 
-        res.render('/change_password/:id', {
+        res.render('pages/change_password/:id', {
             errors: errors,
             user: false
         })

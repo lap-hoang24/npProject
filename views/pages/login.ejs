@@ -5,27 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register to Grooooves!</title>
     <link rel="stylesheet" href="/css/login.css">
-    <link rel="stylesheet" href="/css/main.css">
     <script src="https://kit.fontawesome.com/ade53cd309.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
-    <% include('navbar.ejs') %>
-    </header>
+
+    <header><%- include('../layouts/navbar.ejs') -%></header>
+
     <main class="main">
         <div class="title">Grooove in!</div>
         <%- messages('messages-template', locals) %>
-        <div><%= user.username %></div>
-        <form id="login_form" action="/users/change_password/<%= user._id %>" method="POST">
+        <form id="login_form" action="/users/login" method="POST">
+            <input class="form_item" type="text" name="username" placeholder="grooover name" required>
             <input class="form_item" type="password" name="password" placeholder="password" required>
-            <input class="form_item" type="password" name="password2" placeholder="confirm password" required>
-            <button class="form_item" id='change_button' type="submit">Submit</button>
+            <button class="form_item" id='login_button' type="submit">Grooove In</button>
         </form>
+        <div>Not a Grooover yet?</div>
+        <a href="/users/register"><button id="sign_button">Grooove up</a></button> 
+        <div>Forgot your password?</div>
+        <a href="/users/recover_password"><button id="recover_button">Recover password</a></button>
     </main>
 
-    <footer>
-
-    </footer>
+    <!-- FOOTER -->
+    <%- include('../layouts/footer.ejs') -%>
    
     <script src="/js/main.js"></script>
 </body>

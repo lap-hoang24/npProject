@@ -8,9 +8,7 @@
     <script src="https://kit.fontawesome.com/ade53cd309.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
-        <%- include('navbar.ejs') -%>
-    </header>
+    <header><%- include('../layouts/navbar.ejs') -%></header>
     <main class="main">
         <div class="title">Be a Grooover!</div>
 
@@ -30,9 +28,8 @@
         <a href="/users/login"><button id="sign_button">Grooove in</a></button> 
     </main>
 
-    <footer>
-
-    </footer>
+    <!-- FOOTER -->
+    <%- include('../layouts/footer.ejs') -%>
 
     <script src="/js/main.js"></script>
 </body>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register to Grooooves!</title>
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <script src="https://kit.fontawesome.com/ade53cd309.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header><%- include('../layouts/navbar.ejs') -%></header>
+    <main class="main">
+        <div class="title">Grooove in!</div>
+        <%- messages('messages-template', locals) %>
+        <form id="login_form" action="/users/recover_password" method="POST">
+            <input class="form_item" type="text" name="email" placeholder="email" required>
+            <button class="form_item" id="recovery_button" type="submit">Get recover link</button>
+        </form>
+ 
+    </main>
+
+     <!-- FOOTER -->
+     <%- include('../layouts/footer.ejs') -%>
+    <script src="/js/main.js"></script>
+</body>
+</html>

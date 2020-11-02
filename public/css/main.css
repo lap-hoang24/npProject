@@ -1,5 +1,37 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+* a {
+  text-decoration: none;
+}
+
+* a:hover {
+  cursor: pointer;
+}
+
+* li {
+  list-style: none;
+}
+
+* img {
+  display: block;
+}
+
+body {
+  font-size: 13px;
+  font-family: "Montserrat", sans-serif;
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -61,14 +93,14 @@ header .navbar {
 }
 
 header .navbar a {
-  color: #fff;
+  color: rgba(241, 238, 238, 0.997);
 }
 
 header .navbar .brand_logo {
   font-family: "Monoton", cursive;
   font-size: 1.8rem;
   padding: 1rem;
-  color: #fff;
+  color: rgba(241, 238, 238, 0.997);
 }
 
 header .navbar .reverse-transform {
@@ -114,7 +146,7 @@ header .navbar .toggle_button {
 header .navbar .toggle_button .bar {
   height: 3px;
   width: 100%;
-  background-color: #fff;
+  background-color: rgba(241, 238, 238, 0.997);
   border-radius: 10px;
 }
 
@@ -126,7 +158,7 @@ header .navbar .navbar_links {
 
 header .navbar .navbar_links #search-bar {
   width: 15rem;
-  color: #000;
+  color: rgba(0, 0, 0, 0.99);
 }
 
 header .navbar .navbar_links #search-bar #search-input {
@@ -134,7 +166,7 @@ header .navbar .navbar_links #search-bar #search-input {
   background: transparent;
   border: none;
   border-bottom: 1px solid rgba(177, 177, 177, 0.597);
-  color: #000;
+  color: rgba(0, 0, 0, 0.99);
   font-size: 1rem;
 }
 
@@ -183,7 +215,7 @@ header .navbar .navbar_links .account {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 80%;
-  color: #000;
+  color: rgba(0, 0, 0, 0.99);
   display: flex;
 }
 
@@ -208,8 +240,8 @@ header .navbar .navbar_links .account #user-in #user-dropdown {
   position: absolute;
   width: auto;
   z-index: -11;
-  background: #fff;
-  color: #000;
+  background: rgba(241, 238, 238, 0.997);
+  color: rgba(0, 0, 0, 0.99);
   opacity: 0;
 }
 
@@ -232,12 +264,12 @@ header .navbar .active {
   position: absolute;
   height: 310px;
   top: 60px;
-  background: #fff;
+  background: rgba(241, 238, 238, 0.997);
   z-index: 99999;
 }
 
 header .navbar .active a {
-  color: #000;
+  color: rgba(0, 0, 0, 0.99);
 }
 
 @media (min-width: 769px) {
@@ -257,12 +289,12 @@ header .navbar .active a {
   }
   header .navbar .navbar_links #search-bar {
     width: 15rem;
-    color: #fff;
+    color: rgba(241, 238, 238, 0.997);
   }
   header .navbar .navbar_links #search-bar #search-input {
     width: 90%;
     font-size: 1rem;
-    color: #fff;
+    color: rgba(241, 238, 238, 0.997);
   }
   header .navbar .navbar_links #search-bar #search-button:hover {
     cursor: pointer;
@@ -282,7 +314,7 @@ header .navbar .active a {
     padding: 1.7rem 1.7rem;
   }
   header .navbar .navbar_links .account {
-    color: #fff;
+    color: rgba(241, 238, 238, 0.997);
     margin: 0;
     width: 20%;
     -webkit-box-orient: horizontal;
@@ -306,80 +338,32 @@ header .navbar .active a {
   }
 }
 
-main #jumbotron {
-  width: 100%;
-  height: 50vh;
-  background-image: url("../images/danny-howe.jpg");
-  background-size: cover;
-  background-position: 45%;
-  position: relative;
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-main #jumbotron #slogan {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 0.7rem;
-  font-size: 1.7rem;
-  font-weight: 700;
-  background-color: rgba(0, 0, 0, 0.535);
-  color: rgba(241, 238, 238, 0.997);
-  text-transform: uppercase;
-  text-align: center;
-  width: 100%;
-  height: 100%;
+* a {
+  text-decoration: none;
 }
 
-main #jumbotron #live-button {
-  color: rgba(241, 238, 238, 0.997);
-  font-size: 0.9rem;
-  position: absolute;
-  z-index: 99999;
-  background: #d00d0d;
-  padding: 0.7rem 1rem;
-  border-radius: 15px;
-  top: 67%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-}
-
-main #jumbotron #live-button:hover {
+* a:hover {
   cursor: pointer;
 }
 
-main #jumbotron #bottom-blur {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100px;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.056)), color-stop(50%, rgba(0, 0, 0, 0.645)), to(black));
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.056) 0%, rgba(0, 0, 0, 0.645) 50%, black 100%);
+* li {
+  list-style: none;
 }
 
-main .content-wrapper {
-  background: rgba(0, 0, 0, 0.99);
-  height: 100vh;
+* img {
+  display: block;
 }
 
-main .content-wrapper #title {
-  color: rgba(241, 238, 238, 0.997);
-  text-transform: uppercase;
-  font-size: 1.2rem;
-  text-align: center;
-  text-decoration: underline;
-  background-color: rgba(0, 0, 0, 0.611);
-}
-
-main .content-wrapper #down-arrow {
-  display: none;
+body {
+  font-size: 13px;
+  font-family: "Montserrat", sans-serif;
 }
 
 footer {
@@ -471,6 +455,82 @@ footer .logo {
     font-size: 2rem;
     margin: 0 1.7rem;
   }
+}
+
+main #jumbotron {
+  width: 100%;
+  height: 50vh;
+  background-image: url("../images/danny-howe.jpg");
+  background-size: cover;
+  background-position: 45%;
+  position: relative;
+}
+
+main #jumbotron #slogan {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.7rem;
+  font-size: 1.7rem;
+  font-weight: 700;
+  background-color: rgba(0, 0, 0, 0.535);
+  color: rgba(241, 238, 238, 0.997);
+  text-transform: uppercase;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+main #jumbotron #live-button {
+  color: rgba(241, 238, 238, 0.997);
+  font-size: 0.9rem;
+  position: absolute;
+  z-index: 99999;
+  background: #d00d0d;
+  padding: 0.7rem 1rem;
+  border-radius: 15px;
+  top: 67%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+main #jumbotron #live-button:hover {
+  cursor: pointer;
+}
+
+main #jumbotron #bottom-blur {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.056)), color-stop(50%, rgba(0, 0, 0, 0.645)), to(black));
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.056) 0%, rgba(0, 0, 0, 0.645) 50%, black 100%);
+}
+
+main .content-wrapper {
+  background: rgba(0, 0, 0, 0.99);
+  height: 100vh;
+}
+
+main .content-wrapper #title {
+  color: rgba(241, 238, 238, 0.997);
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  text-align: center;
+  text-decoration: underline;
+  background-color: rgba(0, 0, 0, 0.611);
+}
+
+main .content-wrapper #down-arrow {
+  display: none;
 }
 
 @media (min-width: 769px) {

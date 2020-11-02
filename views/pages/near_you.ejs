@@ -7,10 +7,7 @@
     <link rel="stylesheet" href="/css/upcoming-nearyou.css" />
   </head>
   <body>
-    <header>
-        <%- include('navbar.ejs') -%>
-    </header>
-
+    <header><%- include('../layouts/navbar.ejs') -%></header>
     <main>
       <section class="jumbotron">
         <div class="jumbotron_text">Exciting Upcoming Events!</div>
@@ -40,7 +37,7 @@
       </section>
     </main>
 
-
+    <%- include('../layouts/footer.ejs') -%>
     <script src="../js/main.js"></script>
   </body>
 </html>
