@@ -1,1 +1,14 @@
 
+// ========= FLEX BOX ========================
+
+@mixin flex($dir,$x,$y) {
+    display: flex;
+    flex-wrap:wrap;
+    
+    flex-direction: $dir;
+    justify-content: $x;
+    align-items: $y;
+}
+
+
+// ================

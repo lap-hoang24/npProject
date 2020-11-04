@@ -32,6 +32,17 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+body .container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+@media (min-width: 769px) {
+  body .container {
+    width: 70%;
+  }
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -58,6 +69,17 @@ body {
 body {
   font-size: 13px;
   font-family: "Montserrat", sans-serif;
+}
+
+body .container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+@media (min-width: 769px) {
+  body .container {
+    width: 70%;
+  }
 }
 
 header {
@@ -366,6 +388,17 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+body .container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+@media (min-width: 769px) {
+  body .container {
+    width: 70%;
+  }
+}
+
 footer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -457,6 +490,286 @@ footer .logo {
   }
 }
 
+.m-1 {
+  margin: 1rem;
+}
+
+.mx-1 {
+  margin: 0 1rem;
+}
+
+.my-1 {
+  margin: 1rem 0;
+}
+
+.mt-1 {
+  margin: 1rem 0 0 0;
+}
+
+.mb-1 {
+  margin: 0 0 1rem 0;
+}
+
+.ml-1 {
+  margin: 0 0 0 1rem;
+}
+
+.mr-1 {
+  margin: 0 1rem 0 0;
+}
+
+.p-1 {
+  padding: 1rem;
+}
+
+.px-1 {
+  padding: 0 1rem;
+}
+
+.py-1 {
+  padding: 1rem 0;
+}
+
+.pt-1 {
+  padding: 1rem 0 0 0;
+}
+
+.pb-1 {
+  padding: 0 0 1rem 0;
+}
+
+.pl-1 {
+  padding: 0 0 0 1rem;
+}
+
+.pr-1 {
+  padding: 0 1rem 0 0;
+}
+
+.m-2 {
+  margin: 2rem;
+}
+
+.mx-2 {
+  margin: 0 2rem;
+}
+
+.my-2 {
+  margin: 2rem 0;
+}
+
+.mt-2 {
+  margin: 2rem 0 0 0;
+}
+
+.mb-2 {
+  margin: 0 0 2rem 0;
+}
+
+.ml-2 {
+  margin: 0 0 0 2rem;
+}
+
+.mr-2 {
+  margin: 0 2rem 0 0;
+}
+
+.p-2 {
+  padding: 2rem;
+}
+
+.px-2 {
+  padding: 0 2rem;
+}
+
+.py-2 {
+  padding: 2rem 0;
+}
+
+.pt-2 {
+  padding: 2rem 0 0 0;
+}
+
+.pb-2 {
+  padding: 0 0 2rem 0;
+}
+
+.pl-2 {
+  padding: 0 0 0 2rem;
+}
+
+.pr-2 {
+  padding: 0 2rem 0 0;
+}
+
+.m-3 {
+  margin: 3rem;
+}
+
+.mx-3 {
+  margin: 0 3rem;
+}
+
+.my-3 {
+  margin: 3rem 0;
+}
+
+.mt-3 {
+  margin: 3rem 0 0 0;
+}
+
+.mb-3 {
+  margin: 0 0 3rem 0;
+}
+
+.ml-3 {
+  margin: 0 0 0 3rem;
+}
+
+.mr-3 {
+  margin: 0 3rem 0 0;
+}
+
+.p-3 {
+  padding: 3rem;
+}
+
+.px-3 {
+  padding: 0 3rem;
+}
+
+.py-3 {
+  padding: 3rem 0;
+}
+
+.pt-3 {
+  padding: 3rem 0 0 0;
+}
+
+.pb-3 {
+  padding: 0 0 3rem 0;
+}
+
+.pl-3 {
+  padding: 0 0 0 3rem;
+}
+
+.pr-3 {
+  padding: 0 3rem 0 0;
+}
+
+.m-4 {
+  margin: 4rem;
+}
+
+.mx-4 {
+  margin: 0 4rem;
+}
+
+.my-4 {
+  margin: 4rem 0;
+}
+
+.mt-4 {
+  margin: 4rem 0 0 0;
+}
+
+.mb-4 {
+  margin: 0 0 4rem 0;
+}
+
+.ml-4 {
+  margin: 0 0 0 4rem;
+}
+
+.mr-4 {
+  margin: 0 4rem 0 0;
+}
+
+.p-4 {
+  padding: 4rem;
+}
+
+.px-4 {
+  padding: 0 4rem;
+}
+
+.py-4 {
+  padding: 4rem 0;
+}
+
+.pt-4 {
+  padding: 4rem 0 0 0;
+}
+
+.pb-4 {
+  padding: 0 0 4rem 0;
+}
+
+.pl-4 {
+  padding: 0 0 0 4rem;
+}
+
+.pr-4 {
+  padding: 0 4rem 0 0;
+}
+
+.m-5 {
+  margin: 5rem;
+}
+
+.mx-5 {
+  margin: 0 5rem;
+}
+
+.my-5 {
+  margin: 5rem 0;
+}
+
+.mt-5 {
+  margin: 5rem 0 0 0;
+}
+
+.mb-5 {
+  margin: 0 0 5rem 0;
+}
+
+.ml-5 {
+  margin: 0 0 0 5rem;
+}
+
+.mr-5 {
+  margin: 0 5rem 0 0;
+}
+
+.p-5 {
+  padding: 5rem;
+}
+
+.px-5 {
+  padding: 0 5rem;
+}
+
+.py-5 {
+  padding: 5rem 0;
+}
+
+.pt-5 {
+  padding: 5rem 0 0 0;
+}
+
+.pb-5 {
+  padding: 0 0 5rem 0;
+}
+
+.pl-5 {
+  padding: 0 0 0 5rem;
+}
+
+.pr-5 {
+  padding: 0 5rem 0 0;
+}
+
 main .jumbotron {
   width: 100%;
   background-image: url("/images/kovid-rathee[upcoming-event].jpg");
@@ -483,6 +796,8 @@ main #artists-lists {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -493,19 +808,21 @@ main #artists-lists {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  border-right: 1px solid rgba(153, 153, 153, 0.949);
+  border-left: 1px solid rgba(153, 153, 153, 0.949);
 }
 
 main #artists-lists h1 {
   padding: 1rem 0;
-  font-size: 1.5rem;
   border-bottom: 2px solid #ccc;
+  font-size: 2rem;
 }
 
 main #artists-lists .artist-name {
   text-align: left;
-  font-size: 1.2rem;
-  width: 90%;
-  padding: 0.5rem 0;
+  font-size: 1.5rem;
+  width: 100%;
+  padding: 1rem 0;
   margin: 0.5rem auto;
   font-weight: 600;
   display: -webkit-box;
@@ -516,7 +833,9 @@ main #artists-lists .artist-name {
 }
 
 main #artists-lists .artist-name:hover {
-  background: #d0d0d0;
+  -webkit-box-shadow: 3px 3px 10px rgba(76, 76, 76, 0.949);
+          box-shadow: 3px 3px 10px rgba(76, 76, 76, 0.949);
+  border-radius: 5px;
 }
 
 main #artists-lists .artist-name a {
@@ -524,24 +843,21 @@ main #artists-lists .artist-name a {
   color: rgba(10, 2, 225, 0.983);
 }
 
-main #artists-lists .artist-name .on-tour {
+main #artists-lists .artist-name .on-tour, main #artists-lists .artist-name .off-tour {
   padding: 0.1rem 0.2rem;
   font-size: 12px;
   vertical-align: super;
   display: inline-block;
-  background: #d00d0d;
   border-radius: 3px;
   color: rgba(241, 238, 238, 0.997);
 }
 
+main #artists-lists .artist-name .on-tour {
+  background: #d00d0d;
+}
+
 main #artists-lists .artist-name .off-tour {
-  padding: 0.1rem 0.2rem;
-  font-size: 12px;
-  vertical-align: super;
-  display: inline-block;
   background: darkgray;
-  border-radius: 3px;
-  color: rgba(241, 238, 238, 0.997);
 }
 
 @media (min-width: 769px) {

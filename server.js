@@ -9,11 +9,15 @@ const passport = require('passport');
 const config = require('./config/database');
 const cookieParser = require('cookie-parser');
 const PORT = process.env.PORT || 3000;
+require('dotenv').config();
+const jwt = require('jsonwebtoken');
 
-
+const authToken = require('./middlewares/auth-token');
+// const LocalStorage = require('node-localstorage').LocalStorage;
+// localStorage = new LocalStorage('./scratch');
 // === import Authentication Check ===
 
-const checkAuth = require('./controller/auth');
+const checkAuth = require('./middlewares/auth');
 
 // === SETTING UP MONGODB CONNECTION ===
 mongoose.connect(config.database, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -38,6 +42,7 @@ app.use(cookieParser());
 
 mongoose.set('useFindAndModify', false);
 
+app.use(express.json());
 
 // === Express MESSAGES Middleware ===
 
@@ -83,20 +88,39 @@ app.use('/users', users);
 const events = require('./routes/events');
 app.use('/events', events)
 
-// const search = require('./routes/search');
-// app.use('/', search);
-
 // === RENDER HOME PAGE ===
-
+const posts = [
+    {
+        username: 'laplap',
+        title: 'Post 1'
+    },
+    {
+        username: 'laphoang',
+        title: 'Post 2'
+    }
+];
 app.get('/', (req, res) => {
-        res.render('index', {
 
-        })
+    // console.log(res.locals.user);
+    // const user = req.body;
+    
+    // // const user = {user: res.locals.user._id};
+    // console.log(user);
 
+    // const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
+    // localStorage.setItem('jwt', accessToken);
+    // console.log(accessToken);
+
+    res.render('index', {
+
+    })
+})
+app.get('/posts', authToken, (req, res) => {
+    res.json(posts.filter(post => post.username === req.user.username));
 })
 
 // ====== SERVER PORT ======
 
 app.listen(PORT, () => {
-    console.log(`Listening on ${ PORT }`);
+    console.log(`Listening on ${PORT}`);
 })

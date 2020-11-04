@@ -25,4 +25,18 @@
 body {
     font-size: 13px; // mobile view
     font-family: "Montserrat", sans-serif;
+
+    .container {
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
+
+@media (min-width: 769px) {
+    body {
+        .container {
+            width: 70%;
+        }
+    }
 }

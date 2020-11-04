@@ -19,14 +19,13 @@
         <div class="jumbotron_text">Your search results!</div>
       </section>
 
-      <section id="artists-lists">
-        <h1>Your artists search results</h1>
+      <section class="container" id="artists-lists">
+        <h1 class="my-2">Your artists search results</h1>
         <% for (let i = 0; i < data.length; i++) { %>
         <div class="artist-name">
           <a class="artist-link" href="/events/artist=<%= data[i].id %>" tour-status="<%= data[i].onTourUntil %>">
             <%= data[i].displayName %><span class="tour-status ">on tour</span></a
           >
-          
         </div>
 
         <% } %>

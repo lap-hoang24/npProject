@@ -2,13 +2,17 @@
 
 // ======== GLOBAL STYLING ==========
 
-@import '../base/global';
+@import "../base/global";
 
 @import "../layouts/navbar";
 
 @import "../layouts/footer";
 
 @import "../utilities/variables";
+
+@import "../utilities/mixins";
+
+@import "../utilities/functions";
 // =======  MAIN  =============
 
 .main {

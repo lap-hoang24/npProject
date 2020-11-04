@@ -2,6 +2,7 @@ const RequestIp = require('@supercharge/request-ip');
 const fetch = require('node-fetch');
 const apifetch = require('../controller/api');
 
+
 exports.getUpcomingEvents = async (req, res) => {
     try {
         const api = "https://api.seatgeek.com/2/events?taxonomies.name=concert&";

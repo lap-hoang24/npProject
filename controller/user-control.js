@@ -6,6 +6,10 @@ const mailer = require('../controller/mailer');
 const passport = require('passport');
 const bcryptjs = require('bcryptjs');
 const { check, validationResult } = require('express-validator');
+const jwt = require('jsonwebtoken');
+const LocalStorage = require('node-localstorage').LocalStorage;
+localStorage = new LocalStorage('./scratch');
+
 
 // ==== Bring in USER MODEL ======================================
 let User = require('../models/Users');
@@ -18,6 +22,7 @@ exports.getRegisterForm = (req, res) => {
     res.render('pages/register', {
         errors: false
     })
+    // res.redirect('/users/register');
 }
 
 
@@ -65,7 +70,6 @@ exports.postRegisterForm = (req, res) => {
     }
 }
 
-
 // ====== LOGIN  ==============================================
 
 exports.getLoginForm = (req, res) => {
@@ -74,20 +78,37 @@ exports.getLoginForm = (req, res) => {
 
 
 exports.postLoginForm = (req, res, next) => {
+    // Authenticate User 
 
-    passport.authenticate('local', {
-        successRedirect: '/',
-        failureRedirect: '/users/login',
-        failureFlash: true,
-        successFlash: true
-    })(req, res, next);
+    passport.authenticate('local', {session: false}, (err, user, info) => {
+        if (err || !user) {
+            return res.status(400).json({
+                message: 'Something is not right',
+                user   : user
+            });
+        }
+
+       req.login(user, {session: false}, (err) => {
+           if (err) {
+               res.send(err);
+           }
+           user = {user: user._id};
+           console.log(user);
+           // generate a signed son web token with the contents of user object and return it in the response
+           const token = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
+           return res.json({user, token});
+        });
+    })(req, res);
+    // console.log(req.locals.user);
+    // const user = req.body;
+    // const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
+    // localStorage.setItem('jwt', accessToken);
 }
 
 // ====== LOGOUT  ==============================================
 
 exports.getLogout = (req, res) => {
     req.logout();
-    console.log(req.user);
     req.flash('success', 'You are logged out');
     res.redirect('/');
 }
@@ -173,3 +194,4 @@ exports.postPwdChangeForm = (req, res) => {
 
     }
 }
+
