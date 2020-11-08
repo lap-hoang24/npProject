@@ -792,11 +792,11 @@ main .jumbotron_text {
   font-size: 1.5rem;
 }
 
-main #events_lists {
+main #events-lists {
   margin-top: 2rem;
 }
 
-main #events_lists .event_item {
+main #events-lists .event-item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -805,14 +805,14 @@ main #events_lists .event_item {
   margin-top: 1rem;
 }
 
-main #events_lists .event_item .performers_picture {
+main #events-lists .event-item .performers-picture {
   height: 90px;
   width: 100px;
   margin-left: 5px;
   position: relative;
 }
 
-main #events_lists .event_item .performers_picture .date_time {
+main #events-lists .event-item .performers-picture .date_time {
   font-size: 11px;
   position: absolute;
   top: 0;
@@ -824,40 +824,45 @@ main #events_lists .event_item .performers_picture .date_time {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
 
-main #events_lists .event_item .performers_picture .date_time .day {
+main #events-lists .event-item .performers-picture .date_time .day {
   text-align: center;
   height: 50%;
   width: 80%;
   border-bottom: 1px solid rgba(0, 0, 0, 0.99);
 }
 
-main #events_lists .event_item .performers_picture img {
+main #events-lists .event-item .performers-picture img {
   height: 100%;
   width: 100%;
 }
 
-main #events_lists .event_item .event_description {
+main #events-lists .event-item .event-description {
   margin-left: 10px;
   width: calc(100vw - 110px);
 }
 
-main #events_lists .event_item .event_description a {
+main #events-lists .event-item .event-description a {
   font-size: 0.9rem;
   font-weight: 600;
   color: rgba(10, 2, 225, 0.983);
   border-bottom: 2px solid rgba(10, 2, 225, 0.983);
 }
 
-main #events_lists .event_item .event_description .event_name {
+main #events-lists .event-item .event-description .event-name {
   text-transform: uppercase;
   padding-bottom: 0.3rem;
 }
@@ -866,10 +871,6 @@ main #events_lists .event_item .event_description .event_name {
   body {
     font-size: 15px;
   }
-  main .container {
-    width: 70%;
-    margin: 0 auto;
-  }
   main .jumbotron {
     height: 70vh;
   }
@@ -877,40 +878,69 @@ main #events_lists .event_item .event_description .event_name {
     font-size: 4rem;
     font-weight: 700;
   }
-  main #events_lists {
+  main .container {
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 300px calc(100% - 300px);
+        grid-template-columns: 300px calc(100% - 300px);
+  }
+  main #filter {
+    grid-area: 0/0/1/1;
+    height: 500px;
+    width: 300px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 100px;
+    border: 2px grey solid;
+    border-radius: 5px;
+  }
+  main #events-lists {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-area: 0/1/1/2;
     margin-top: 2rem;
   }
-  main #events_lists .event_item {
-    width: 100%;
+  main #events-lists .event-item {
     height: 200px;
   }
-  main #events_lists .event_item .performers_picture {
+  main #events-lists .event-item .performers-picture {
     height: 180px;
     width: 350px;
     margin-left: 1rem;
   }
-  main #events_lists .event_item .performers_picture img {
+  main #events-lists .event-item .performers-picture img {
     height: 100%;
     width: 100%;
     display: block;
   }
-  main #events_lists .event_item .event_description {
+  main #events-lists .event-item .event-description {
     margin-left: 10px;
     width: calc(100vw - 110px);
   }
-  main #events_lists .event_item .event_description a {
+  main #events-lists .event-item .event-description a {
     font-size: 1.5rem;
     font-weight: 500;
     color: rgba(10, 2, 225, 0.983);
     border-bottom: 2px solid rgba(8, 2, 174, 0.983);
   }
-  main #events_lists .event_item .event_description .event-name {
+  main #events-lists .event-item .event-description .event-name {
     text-transform: uppercase;
     padding-bottom: 0.3rem;
+    margin: 1rem 0;
   }
-  main #events_lists .event_item .event_description .performers_name, main #events_lists .event_item .event_description .venue_state {
+  main #events-lists .event-item .event-description .performers-name, main #events-lists .event-item .event-description .venue-state {
     font-size: 1.2rem;
     color: rgba(76, 76, 76, 0.949);
+    margin: 1rem 0;
+  }
+  main #events-lists .event-item .event-description .venue-state i {
+    padding: 0 4px;
+  }
+  main #events-lists .event-item .event-description i {
+    margin-right: 1rem;
   }
 }
 /*# sourceMappingURL=upcoming-nearyou.css.map */

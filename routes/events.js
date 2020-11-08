@@ -1,14 +1,57 @@
 const express = require('express');
 const router = express.Router();
-
+const fetch = require('node-fetch');
 const Event = require('../controller/events-control');
 // =========================
-
+const Filter = require('../controller/events-filter');
 
 
 router.get('/upcoming', Event.getUpcomingEvents);
 
 router.get('/near-you', Event.getNearyouEvents);
+
+
+
+
+router.get('/filter', async (req, res) => {
+    let from, to, popularity, eventType, data;
+
+    const query = req.query;
+    popularity = query.popularity;
+    eventType = query.event_type;
+    // console.log(eventType);
+
+    if (query.from != "" & query.to != "") {
+        from = "&datetime_utc.gte=" + query.from;
+        to = "&datetime_utc.lte=" + query.to;
+    } else {
+        from = "";
+        to = "";
+    }
+
+    const newapi = "https://api.seatgeek.com/2/events?" + from + to + "&client_id=MjEzNjIzNTl8MTYwMzM3ODg3OS42NDc4ODU2&per_page=500";
+    const response = await fetch(newapi);
+    data = await response.json();
+    data = data.events;
+
+    // =========== FILTER ==========
+    if (popularity != "") {
+        data = Filter.popularityFilter(data);
+    }
+
+    if(eventType != "") {
+        data = Filter.typeFilter(data, eventType);
+    }
+
+
+    res.render('pages/upcoming_events', {
+        data: data,
+        user: false
+    })
+
+});
+
+
 
 
 router.get('/comment', (req, res) => {

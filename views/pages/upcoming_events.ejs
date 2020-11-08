@@ -15,39 +15,70 @@
       <section class="jumbotron">
         <div class="jumbotron_text">Exciting Upcoming Events!</div>
       </section>
-
-      <section class="container" id="events_lists">
-        <% for (let i = 0; i < data.length; i++) { %>
-        <div class="event_item">
-          <div class="performers_picture">
-           <a href="<%= data[i].url %>"> <img src="<%= data[i].performers[0].image %>" alt="concert crowd" /></a>
-            <div class="date_time" date-time="<%= data[i].datetime_utc %>">
-              <div class="day"></div>
-              <div class="month"></div>
-            </div>
-          </div>
-          <div class="event_description">
-            <div
-              class="event_name"
-              event_name="<%= data[i].displayName %>"
-            ></div>
-            <div class="event-name">
-              <a class="event_link" href="<%= data[i].url %>"
-                ><%= data[i].short_title %></a
-              >
-            </div>
-            <div class="performers_name"><%= data[i].performers[0].name %></div>
-            <div class="venue_state">
-              <%= data[i].venue.name %> - <%= data[i].venue.display_location %>
-            </div>
-          </div>
+  
+      <section class="container" >
+        <div id="filter">
+          <div>filter by:</div>
+          <form action="/events/filter/" method="GET">
+            <label for="fromdate">from</label>
+            <input id="fromdate" type="date" name="from">
+          </br>
+            <label for="todate">to</label>
+            <input id="todate" type="date" name="to">
+        </br>
+        <label for="popularity">Popularity</label>
+        <select name="popularity" id="popularity">
+          <option value="">Random</option>
+          <option value="high-popularity">High Popularity</option>
+        </select>
+      </br>
+        <label for="type">Event Type</label>
+        <select name="event_type" id="type">
+          <option value="">Random</option>
+          <option value="concert">Concert</option>
+          <option value="nfl">NFL</option>
+          <option value="theater">Theater</option>
+          <option value="classical">Classical</option>
+          <option value="comedy">Comedy</option>
+        </select>
+            <button id="filternow" type="submit">Filter now!</button>
+          </form>
         </div>
-        <% } %>
+        <div id="events-lists">
+          <% if(typeof data != "undefined") { %>
+          <% for (let i = 0; i < data.length; i++) { %>
+          <div class="event-item">
+            <div class="performers-picture">
+             <a href="<%= data[i].url %>"> <img src="<%= data[i].performers[0].image %>" alt="concert crowd" /></a>
+              <div class="date_time" date-time="<%= data[i].datetime_utc %>">
+                <div class="day"></div>
+                <div class="month"></div>
+              </div>
+            </div>
+            <div class="event-description">
+              <div
+                class="event_name"
+                event_name="<%= data[i].displayName %>"
+              ></div>
+              <div class="event-name">
+                <a class="event_link" href="<%= data[i].url %>"
+                  ><%= data[i].short_title %></a
+                >
+              </div>
+              <div class="performers-name"><i class="far fa-star"></i><%= data[i].performers[0].name %></div>
+              <div class="venue-state"><i class="fas fa-map-marker-alt"></i><%= data[i].venue.name %> - <%= data[i].venue.display_location %>
+              </div>
+            </div>
+          </div>
+          <% } %>
+          <% } %>
+        </div>
       </section>
     </main>
     <!-- FOOTER -->
     <%- include('../layouts/footer.ejs') -%>
 
     <script src="/js/main.js"></script>
+    <!-- <script src="/js/api.js"></script> -->
   </body>
 </html>

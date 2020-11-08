@@ -92,6 +92,7 @@ exports.postLoginForm = (req, res, next) => {
            if (err) {
                res.send(err);
            }
+           
            user = {user: user._id};
            console.log(user);
            // generate a signed son web token with the contents of user object and return it in the response

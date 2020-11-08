@@ -1,4 +1,3 @@
-
 // ======== GLOBAL STYLING ==========
 
 @import "../base/global";
@@ -30,16 +29,16 @@ main {
         }
     }
 
-    #events_lists {
+    #events-lists {
         margin-top: 2rem;
 
-        .event_item {
+        .event-item {
             display: flex;
             width: 100%;
             height: 90px;
             margin-top: 1rem;
 
-            .performers_picture {
+            .performers-picture {
                 height: 90px;
                 width: 100px;
                 margin-left: 5px;
@@ -54,9 +53,7 @@ main {
                     height: 30px;
                     width: 30px;
                     border-radius: 3px;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
+                    @include flex(column, center, center);
 
                     .day {
                         text-align: center;
@@ -72,7 +69,7 @@ main {
                 }
             }
 
-            .event_description {
+            .event-description {
                 margin-left: 10px;
                 width: calc(100vw - 110px);
 
@@ -81,10 +78,9 @@ main {
                     font-weight: 600;
                     color: $blue-link;
                     border-bottom: 2px solid $blue-link;
-
                 }
 
-                .event_name {
+                .event-name {
                     text-transform: uppercase;
                     padding-bottom: 0.3rem;
                 }
@@ -93,20 +89,16 @@ main {
     }
 }
 
-
 // ============ MEDIA QUERIES ==============
 
 @media (min-width: 769px) {
-
     body {
         font-size: 15px;
     }
 
     main {
-       .container {
-           width: 70%;
-           margin: 0 auto;
-       }
+      
+
         .jumbotron {
             height: 70vh;
 
@@ -115,19 +107,56 @@ main {
                 font-weight: 700;
             }
         }
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            position: relative;
+            display: grid;
+            grid-template-columns: 300px calc(100% - 300px);
+        }
 
-        #events_lists {
+        #filter {
+            grid-area: 0/0/1/1;
+            height: 500px;
+            width: 300px;
+            position: sticky;
+            top: 100px;
+            border: 2px grey solid;
+            border-radius: 5px;
+
+        }
+
+        #events-lists {
+
+            grid-area: 0/1/1/2;
             margin-top: 2rem;
-
-            .event_item {
-                width: 100%;
+            .event-item {
+                // width: 100%;
                 height: 200px;
 
-                .performers_picture {
+                .performers-picture {
                     height: 180px;
                     width: 350px;
                     margin-left: 1rem;
 
+                    // .date_time {
+                    //     font-size: 11px;
+                    //     position: absolute;
+                    //     top: 0;
+                    //     right: 0;
+                    //     background: $base-white;
+                    //     height: 50px;
+                    //     width: 50px;
+                    //     border-radius: 3px;
+                    //     @include flex(column, center, center);
+
+                    //     .day {
+                    //         text-align: center;
+                    //         height: 50%;
+                    //         width: 80%;
+                    //         border-bottom: 1px solid $base-black;
+                    //     }
+                    // }
                     img {
                         height: 100%;
                         width: 100%;
@@ -135,7 +164,7 @@ main {
                     }
                 }
 
-                .event_description {
+                .event-description {
                     margin-left: 10px;
                     width: calc(100vw - 110px);
 
@@ -149,20 +178,29 @@ main {
                     .event-name {
                         text-transform: uppercase;
                         padding-bottom: 0.3rem;
+                        margin: 1rem 0;
                     }
 
                     %perve {
                         font-size: 1.2rem;
                         color: $base-grey;
+                        margin: 1rem 0;
                     }
 
-                    .performers_name {
+                    .performers-name {
                         @extend %perve;
                     }
 
-                    .venue_state {
+                    .venue-state {
                         @extend %perve;
-                    }   
+                        i {
+                            padding: 0 4px;
+                        }
+                    }
+
+                    i {
+                        margin-right: 1rem;
+                    }
                 }
             }
         }
