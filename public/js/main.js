@@ -9,9 +9,8 @@
 
     for (let i = 0; i < tourStatus.length; i++) {
         if (tourStatus[i].getAttribute('tour-status') != "") {
-            tourStatusSpan[i].classList.add('on-tour')
-        } else {
-            tourStatusSpan[i].classList.add('off-tour')
+            tourStatusSpan[i].innerHTML = "on tour";
+            tourStatusSpan[i].classList.add('on-tour');
         }
     }
 })();

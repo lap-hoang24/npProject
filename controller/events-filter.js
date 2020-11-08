@@ -27,17 +27,23 @@ exports.popularityFilter = (data) => {
 exports.typeFilter = (data, eventType) => {
     let typeSorted = [];
 
-    data.filter((dataa) => {
-        if (dataa.type === eventType) {
-            typeSorted.push(dataa)
+    data.filter((dataset) => {
+        if (dataset.type === eventType) {
+            typeSorted.push(dataset)
         }
     })
-    // data.forEach((dataset) => {
-    //     if(dataset.type === eventType) {
-    //         typeSorted.push(dataset);
-    //     }
-    // })
     return typeSorted;
+}
+
+
+exports.stateFilter = (data, state) => {
+    let stateSorted = [];
+    data.filter((dataset) => {
+        if (dataset.venue.state === state) {
+            stateSorted.push(dataset);
+        }
+    })
+    return stateSorted;
 }
 
 

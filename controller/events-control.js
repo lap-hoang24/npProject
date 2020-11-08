@@ -1,7 +1,7 @@
 const RequestIp = require('@supercharge/request-ip');
 const fetch = require('node-fetch');
 const apifetch = require('../controller/api');
-
+const Filter = require('../controller/events-filter');
 
 exports.getUpcomingEvents = async (req, res) => {
     try {
@@ -51,17 +51,8 @@ exports.getSearchResults = async (req, res) => {
 
     const api = "https://api.songkick.com/api/3.0/search/artists.json?"
     const apiKey = 'apikey=iQvmMn3zAKS85ja5&query=' + req.params.value;
-    const query = "&query=" + req.params.value;
-
-
-
     let artist = await apifetch.getData(api, apiKey);
-
-    // console.log(query)
-    // const response = await fetch(api + apiKey + query);
-    // let data = await response.json();
     artist = artist.resultsPage.results.artist;
-    // console.log(data);
 
     try {
         res.render('pages/search_results', {
@@ -77,13 +68,10 @@ exports.getArtistsEvents = async (req, res) => {
     const api = "https://api.songkick.com/api/3.0/artists/" + artist_id + "/calendar.json?"
     const apiKey = 'apikey=iQvmMn3zAKS85ja5';
 
-    const response = await fetch(api + apiKey);
-    let data = await response.json();
-    // console.log(artist_id);
-    data = data.resultsPage.results.event;
+    let events = await apifetch.getData(api, apiKey);
+    data = events.resultsPage.results.event;
 
     const apiPast = "https://api.songkick.com/api/3.0/artists/" + artist_id +" /gigography.json?apikey=iQvmMn3zAKS85ja5&min_date=2016-01-01&order=desc";
-
     const responsePast = await fetch(apiPast);
     let dataPast = await responsePast.json();
     dataPast = dataPast.resultsPage.results.event;
@@ -96,4 +84,45 @@ exports.getArtistsEvents = async (req, res) => {
     } catch (err) {
         console.log(err);
     }
+}
+
+
+exports.getFilteredEvents = async (req, res) => {
+    let from, to, popularity, eventType, state,api, apiKey, data;
+
+    const query = req.query;
+    popularity = query.popularity;
+    eventType = query.event_type;
+    state = query.state;
+
+    if (query.from != "" & query.to != "") {
+        from = "&datetime_utc.gte=" + query.from;
+        to = "&datetime_utc.lte=" + query.to;
+    } else {
+        from = "";
+        to = "";
+    }
+
+    api = "https://api.seatgeek.com/2/events?" + from + to + "&per_page=200";
+    apiKey = "&client_id=MjEzNjIzNTl8MTYwMzM3ODg3OS42NDc4ODU2";
+    let events = await apifetch.getData(api, apiKey);
+    data = events.events;
+
+    // =========== FILTER ==========
+    if (popularity != "") {
+        data = Filter.popularityFilter(data);
+    }
+
+    if(eventType != "") {
+        data = Filter.typeFilter(data, eventType);
+    }
+
+    if(state != "") {
+        data = Filter.stateFilter(data, state);
+    }
+
+    res.render('pages/upcoming_events', {
+        data: data,
+        user: false
+    })
 }

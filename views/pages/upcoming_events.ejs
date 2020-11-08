@@ -1,84 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Upcoming Events</title>
-    <link rel="stylesheet" href="/css/upcoming-nearyou.css" />
-    <script src="https://kit.fontawesome.com/ade53cd309.js" crossorigin="anonymous"></script>
-  </head>
-  <body>
-    <!-- HEADER -->
-    <header><%- include('../layouts/navbar.ejs') -%></header>
-    <!-- MAIN -->
-    <main>
-      <section class="jumbotron">
-        <div class="jumbotron_text">Exciting Upcoming Events!</div>
-      </section>
-  
-      <section class="container" >
-        <div id="filter">
-          <div>filter by:</div>
-          <form action="/events/filter/" method="GET">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Upcoming Events</title>
+  <link rel="stylesheet" href="/css/upcoming-nearyou.css" />
+  <script src="https://kit.fontawesome.com/ade53cd309.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header><%- include('../layouts/navbar.ejs') -%></header>
+  <!-- MAIN -->
+  <main>
+    <section class="jumbotron">
+      <div class="jumbotron_text">Exciting Upcoming Events!</div>
+    </section>
+
+    <section class="container">
+      <!-- Filter -->
+      <div id="filter">
+        <div>filter by:</div>
+        <form action="/events/filter/" method="GET">
+          <div>
             <label for="fromdate">from</label>
             <input id="fromdate" type="date" name="from">
-          </br>
             <label for="todate">to</label>
             <input id="todate" type="date" name="to">
-        </br>
-        <label for="popularity">Popularity</label>
-        <select name="popularity" id="popularity">
-          <option value="">Random</option>
-          <option value="high-popularity">High Popularity</option>
-        </select>
-      </br>
-        <label for="type">Event Type</label>
-        <select name="event_type" id="type">
-          <option value="">Random</option>
-          <option value="concert">Concert</option>
-          <option value="nfl">NFL</option>
-          <option value="theater">Theater</option>
-          <option value="classical">Classical</option>
-          <option value="comedy">Comedy</option>
-        </select>
-            <button id="filternow" type="submit">Filter now!</button>
-          </form>
-        </div>
-        <div id="events-lists">
-          <% if(typeof data != "undefined") { %>
-          <% for (let i = 0; i < data.length; i++) { %>
-          <div class="event-item">
-            <div class="performers-picture">
-             <a href="<%= data[i].url %>"> <img src="<%= data[i].performers[0].image %>" alt="concert crowd" /></a>
-              <div class="date_time" date-time="<%= data[i].datetime_utc %>">
-                <div class="day"></div>
-                <div class="month"></div>
-              </div>
-            </div>
-            <div class="event-description">
-              <div
-                class="event_name"
-                event_name="<%= data[i].displayName %>"
-              ></div>
-              <div class="event-name">
-                <a class="event_link" href="<%= data[i].url %>"
-                  ><%= data[i].short_title %></a
-                >
-              </div>
-              <div class="performers-name"><i class="far fa-star"></i><%= data[i].performers[0].name %></div>
-              <div class="venue-state"><i class="fas fa-map-marker-alt"></i><%= data[i].venue.name %> - <%= data[i].venue.display_location %>
-              </div>
+          </div>
+          <div>
+
+            <label for="popularity">Popularity</label>
+            <select name="popularity" id="popularity">
+              <option value="">Random</option>
+              <option value="high-popularity">High Popularity</option>
+            </select>
+          </div>
+          <div>
+
+            <label for="type">Event Type</label>
+            <select name="event_type" id="type">
+              <option value="">Random</option>
+              <option value="concert">Concert</option>
+              <option value="nfl">NFL</option>
+              <option value="theater">Theater</option>
+              <option value="classical">Classical</option>
+              <option value="comedy">Comedy</option>
+            </select>
+          </div>
+          <div>
+            <label for="states">States</label>
+            <select name="state" id="states">
+              <option value="">Choose State</option>
+              <option value="AL">Alabama</option>
+              <option value="AK">Alaska</option>
+              <option value="AZ">Arizona</option>
+              <option value="AR">Arkansas</option>
+              <option value="CA">California</option>
+              <option value="CO">Colorado</option>
+              <option value="CT">Connecticut</option>
+              <option value="DE">Delaware</option>
+              <option value="DC">District Of Columbia</option>
+              <option value="FL">Florida</option>
+              <option value="GA">Georgia</option>
+              <option value="HI">Hawaii</option>
+              <option value="ID">Idaho</option>
+              <option value="IL">Illinois</option>
+              <option value="IN">Indiana</option>
+              <option value="IA">Iowa</option>
+              <option value="KS">Kansas</option>
+              <option value="KY">Kentucky</option>
+              <option value="LA">Louisiana</option>
+              <option value="ME">Maine</option>
+              <option value="MD">Maryland</option>
+              <option value="MA">Massachusetts</option>
+              <option value="MI">Michigan</option>
+              <option value="MN">Minnesota</option>
+              <option value="MS">Mississippi</option>
+              <option value="MO">Missouri</option>
+              <option value="MT">Montana</option>
+              <option value="NE">Nebraska</option>
+              <option value="NV">Nevada</option>
+              <option value="NH">New Hampshire</option>
+              <option value="NJ">New Jersey</option>
+              <option value="NM">New Mexico</option>
+              <option value="NY">New York</option>
+              <option value="NC">North Carolina</option>
+              <option value="ND">North Dakota</option>
+              <option value="OH">Ohio</option>
+              <option value="OK">Oklahoma</option>
+              <option value="OR">Oregon</option>
+              <option value="PA">Pennsylvania</option>
+              <option value="RI">Rhode Island</option>
+              <option value="SC">South Carolina</option>
+              <option value="SD">South Dakota</option>
+              <option value="TN">Tennessee</option>
+              <option value="TX">Texas</option>
+              <option value="UT">Utah</option>
+              <option value="VT">Vermont</option>
+              <option value="VA">Virginia</option>
+              <option value="WA">Washington</option>
+              <option value="WV">West Virginia</option>
+              <option value="WI">Wisconsin</option>
+              <option value="WY">Wyoming</option>
+            </select>
+          </div>
+          <button id="filternow" type="submit">Filter now!</button>
+        </form>
+      </div>
+      <div id="events-lists">
+        <% if(typeof data != "undefined") { %>
+        <% for (let i = 0; i < data.length; i++) { %>
+        <div class="event-item">
+          <div class="performers-picture">
+            <a href="<%= data[i].url %>"> <img src="<%= data[i].performers[0].image %>" alt="concert crowd" /></a>
+            <div class="date_time" date-time="<%= data[i].datetime_utc %>">
+              <div class="day"></div>
+              <div class="month"></div>
             </div>
           </div>
-          <% } %>
-          <% } %>
+          <div class="event-description">
+            <div class="event_name" event_name="<%= data[i].displayName %>"></div>
+            <div class="event-name">
+              <a class="event_link" href="<%= data[i].url %>"><%= data[i].short_title %></a>
+            </div>
+            <div class="performers-name"><i class="far fa-star"></i><%= data[i].performers[0].name %></div>
+            <div class="venue-state"><i class="fas fa-map-marker-alt"></i><%= data[i].venue.name %> -
+              <%= data[i].venue.display_location %>
+            </div>
+          </div>
         </div>
-      </section>
-    </main>
-    <!-- FOOTER -->
-    <%- include('../layouts/footer.ejs') -%>
+        <% } %>
+        <% } %>
+        <% if (typeof data[0] == "undefined" || typeof data[0] == null) { %>
+          <h1>no events</h1>
+        <% } %> 
+      </div>
+    </section>
+  </main>
+  <!-- FOOTER -->
+  <%- include('../layouts/footer.ejs') -%>
 
-    <script src="/js/main.js"></script>
-    <!-- <script src="/js/api.js"></script> -->
-  </body>
+  <script src="/js/main.js"></script>
+  <!-- <script src="/js/api.js"></script> -->
+</body>
+
 </html>
