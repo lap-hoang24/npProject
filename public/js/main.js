@@ -1,84 +1,169 @@
 
 
-// =========== SHOW TOUR STATUS FUNCTION =================
+const UIController = (function () {
 
-(function () {
+    const DOMstrings = {
+        class: {
+            artistLink: "artist-link",
+            tourStatus: "tour-status",
+            onTour: "on-tour",
+            dateTime: "date_time",
+            day: "day",
+            month: "month",
+            toggleButton: "toggle_button",
+            navbarLink: "navbar_links",
+            active: "active",
+            eventName: "event_name",
+            upcomingEventLink: "upcoming-event_link",
+            nearyouEventLink: "nearyou-event_link"
 
-    const tourStatus = document.getElementsByClassName('artist-link');
-    const tourStatusSpan = document.getElementsByClassName('tour-status');
+        },
 
-    for (let i = 0; i < tourStatus.length; i++) {
-        if (tourStatus[i].getAttribute('tour-status') != "") {
-            tourStatusSpan[i].innerHTML = "on tour";
-            tourStatusSpan[i].classList.add('on-tour');
+        id: {
+            searchInput: "search-input",
+            searchForm: "search-form",
+        },
+
+        attr: {
+            tourStatus: "tour-status",
+            eventName: "event_name",
+            dateTime: "date-time"
+        }
+    }
+
+    return {
+        // =========== SHOW TOUR STATUS FUNCTION / artist search page ==============
+
+        addOnTour: () => {
+
+            const tourStatus = document.getElementsByClassName(DOMstrings.class.artistLink);
+            const tourStatusSpan = document.getElementsByClassName(DOMstrings.class.tourStatus);
+
+            for (let i = 0; i < tourStatus.length; i++) {
+                if (tourStatus[i].getAttribute(DOMstrings.attr.tourStatus) != "") {
+                    tourStatusSpan[i].innerHTML = "on tour";
+                    tourStatusSpan[i].classList.add(DOMstrings.class.onTour);
+                }
+            }
+        },
+
+
+        // ========= DISPLAY DATE - TIME // upcoming and near you pages ==================
+
+        showDateTime: () => {
+            let dateTime, months, dayDiv, monthDiv;
+
+            dateTime = document.getElementsByClassName(DOMstrings.class.dateTime);
+            dayDiv = document.getElementsByClassName(DOMstrings.class.day);
+            monthDiv = document.getElementsByClassName(DOMstrings.class.month);
+
+            months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+            for (let i = 0; i < dateTime.length; i++) {
+                let dateTimeValue, month, day;
+
+                dateTimeValue = dateTime[i].getAttribute(DOMstrings.attr.dateTime);
+                day = dateTimeValue.slice(8, 10);
+                month = dateTimeValue.slice(5, 7);
+                month = months[month - 1];
+
+                dayDiv[i].innerHTML = day;
+                monthDiv[i].innerHTML = month
+            }
+        },
+
+        // ======== REMOVE DATE TIME FROM NEAR YOU PAGE ====================
+
+        removeDateTime: () => {
+
+
+            const eventNameClass = document.getElementsByClassName(DOMstrings.class.eventName);
+            const eventLinkClass = document.getElementsByClassName(DOMstrings.class.nearyouEventLink);
+
+            for (let i = 0; i < eventNameClass.length; i++) {
+                let newEventName;
+                let eventName = eventNameClass[i].getAttribute(DOMstrings.attr.eventName);
+
+                console.log(eventName.slice(-12));
+
+                if (eventName.slice(-12) == "(CANCELLED) ") {
+                    newEventName = eventName.slice(0, -32);
+                } else {
+                    newEventName = eventName.slice(0, -19);
+                }
+
+                eventLinkClass[i].innerHTML = newEventName;
+            }
+
+        },
+
+        getDOMstrings: function () {
+            return DOMstrings;
         }
     }
 })();
 
 
-// =========== SEARCH FUNCTION ===================
+const appController = ((UICtrl) => {
+    // Import all DOM strings from UIController
 
-(function () {
-    const searchButton = document.getElementById('search-input');
+    const DOM = UICtrl.getDOMstrings();
 
-    searchButton.addEventListener('keypress', (event) => {
+    // Declare controller local variables
+
+    let hamburgerButton, searchButton;
+
+    hamburgerButton = document.getElementsByClassName(DOM.class.toggleButton)[0];
+    searchButton = document.getElementById('search-input');
+
+    // setting up all events listeners of web app
+
+    const setupEventListeners = () => {
+        hamburgerButton.addEventListener('click', hamburgerEvent);
+        searchButton.addEventListener('keypress', searchEvent);
+    }
+
+
+    //App Controller functions =============
+
+    const hamburgerEvent = (event) => {
+        const navLinks = document.getElementsByClassName(DOM.class.navbarLink)[0];
+        navLinks.classList.toggle(DOM.class.active);
+    }
+
+    const searchEvent = (event) => {
 
         if (event.code == 'Enter') {
-            // event.preventDefault();
-
-            const form = document.getElementById('search-form');
-            const value = document.getElementById('search-input').value;
+            const form = document.getElementById(DOM.id.searchForm);
+            const value = document.getElementById(DOM.id.searchInput).value;
 
             let url = "/events/search/" + value;
             console.log(url);
             form.method = "get";
             form.action = url;
-
         }
-    })
-
-})();
-
-
-// ========= SHOW DATE - TIME ===================
-
-
-
-
-(function () {
-
-    let dateTime, months, dayDiv, monthDiv;
-
-    dateTime = document.getElementsByClassName('date_time');
-    dayDiv = document.getElementsByClassName('day');
-    monthDiv = document.getElementsByClassName('month');
-    months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
-    for (let i = 0; i < dateTime.length; i++) {
-        let dateTimeValue, month, day;
-
-        dateTimeValue = dateTime[i].getAttribute('date-time');
-        day = dateTimeValue.slice(8, 10);
-        month = dateTimeValue.slice(5, 7);
-        month = months[month - 1];
-
-        dayDiv[i].innerHTML = day;
-        monthDiv[i].innerHTML = month
     }
-})();
+
+    // App Initialization===========
+    return {
+        init: () => {
+            console.log('App started');
+
+            UICtrl.showDateTime();
+            UICtrl.addOnTour();
+            UICtrl.removeDateTime();
+            
+            setupEventListeners();
+        }
+    }
+
+})(UIController)
 
 
-// ====== HAMBURGER BUTTON CLICK EVENT =========================
+appController.init();
 
-(function () {
-    const toggleButton = document.getElementsByClassName('toggle_button')[0];
-    const navbarLinks = document.getElementsByClassName('navbar_links')[0];
 
-    toggleButton.addEventListener('click', (event) => {
-        navbarLinks.classList.toggle('active');
-        console.log(event.target);
-    })
-})();
+
 
 
 // ========= NAV BAR SCROLLING EFFECT ============
