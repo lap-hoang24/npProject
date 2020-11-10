@@ -101,16 +101,6 @@ const posts = [
 ];
 app.get('/', (req, res) => {
 
-    // console.log(res.locals.user);
-    // const user = req.body;
-    
-    // // const user = {user: res.locals.user._id};
-    // console.log(user);
-
-    // const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
-    // localStorage.setItem('jwt', accessToken);
-    // console.log(accessToken);
-
     res.render('index', {
 
     })

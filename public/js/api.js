@@ -1,30 +1,18 @@
 
 
-filterButton  = document.getElementById('filternow');
+filterButton = document.getElementsByClassName('city-filter');
 
-filterButton.addEventListener('click', async (event) => {
-    // event.preventDefault();
-    const from = document.getElementById('fromdate').value;
-    const to = document.getElementById('todate').value;
+for (let i = 0; i < filterButton.length; i++) {
+    filterButton[i].addEventListener('click', (event) => {
+        const ip = event.target.getAttribute('ip');
+        console.log(ip);
 
-    
-    const res = await fetch("https://api.seatgeek.com/2/events?datetime_utc.gte=" + from + "&datetime_utc.lte=" + to + "&client_id=MjEzNjIzNTl8MTYwMzM3ODg3OS42NDc4ODU2&per_page=1");
+        fetch("/events/near-you/filter/" + ip, {
+            method: "POST"
+            // headers: { 'Content-Type': 'application/json' }
+        }).then(res => {if (res.ok) return res.json()})
+        .then(data => console.log(data))
+        .catch(err => console.error(err))
+    })
+}
 
-    let data = await res.json();
-
-    data = data.events;
-
-    console.log(data);
-
-    // fetch("/events/filter/", {
-    //     method: "POST",
-    //     headers: { 'Content-Type': 'application/json' },
-    //     body: JSON.stringify({
-    //         data: data
-    //     })
-    // }).then(res => {
-    //     if (res.ok) return res.json()
-    // }).then(data => console.log(data)).catch(err => console.error(err));
-
-    
-})

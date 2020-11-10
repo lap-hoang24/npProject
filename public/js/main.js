@@ -16,7 +16,6 @@ const UIController = (function () {
             eventName: "event_name",
             upcomingEventLink: "upcoming-event_link",
             nearyouEventLink: "nearyou-event_link"
-
         },
 
         id: {
@@ -76,7 +75,6 @@ const UIController = (function () {
 
         removeDateTime: () => {
 
-
             const eventNameClass = document.getElementsByClassName(DOMstrings.class.eventName);
             const eventLinkClass = document.getElementsByClassName(DOMstrings.class.nearyouEventLink);
 
@@ -126,18 +124,20 @@ const appController = ((UICtrl) => {
 
     //App Controller functions =============
 
-    const hamburgerEvent = (event) => {
+    // Hamburger menu event
+
+    const hamburgerEvent = () => {
         const navLinks = document.getElementsByClassName(DOM.class.navbarLink)[0];
         navLinks.classList.toggle(DOM.class.active);
     }
+    // Search bar event
 
     const searchEvent = (event) => {
-
         if (event.code == 'Enter') {
             const form = document.getElementById(DOM.id.searchForm);
-            const value = document.getElementById(DOM.id.searchInput).value;
+            const searchQuery = document.getElementById(DOM.id.searchInput).value;
 
-            let url = "/events/search/" + value;
+            let url = "/events/search/" + searchQuery;
             console.log(url);
             form.method = "get";
             form.action = url;

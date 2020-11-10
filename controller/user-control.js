@@ -7,14 +7,16 @@ const passport = require('passport');
 const bcryptjs = require('bcryptjs');
 const { check, validationResult } = require('express-validator');
 const jwt = require('jsonwebtoken');
+
+
 const LocalStorage = require('node-localstorage').LocalStorage;
 localStorage = new LocalStorage('./scratch');
 
 
-// ==== Bring in USER MODEL ======================================
+// ==== Bring in USER MODEL =================================
 let User = require('../models/Users');
 
-// ====== REGISTER  ==============================================
+// ====== REGISTER  =========================================
 exports.getRegisterForm = (req, res) => {
     req.logout();
     console.log(req.user);
@@ -70,7 +72,7 @@ exports.postRegisterForm = (req, res) => {
     }
 }
 
-// ====== LOGIN  ==============================================
+// ====== LOGIN  ==============================
 
 exports.getLoginForm = (req, res) => {
     res.render('pages/login');
@@ -79,34 +81,41 @@ exports.getLoginForm = (req, res) => {
 
 exports.postLoginForm = (req, res, next) => {
     // Authenticate User 
+    passport.authenticate('local', {
+        successRedirect: '/',
+        failureRedirect: '/users/login',
+        failureFlash: true,
+        successFlash: 'Welcome!'
+    })(req, res, next);
+   
+    // passport.authenticate('login', { session: true }, (err, user, info) => {
+    //     if (err || !user) {
+    //         return res.status(400).json({
+    //             message: 'Something is not right',
+    //             user: user
+    //         });
+    //     }
+    //     req.login(user, { session: false }, (err) => {
+    //         if (err) {
+    //             res.send(err);
+    //         }
+    //         user_id = { user_id: user._id };
 
-    passport.authenticate('local', {session: false}, (err, user, info) => {
-        if (err || !user) {
-            return res.status(400).json({
-                message: 'Something is not right',
-                user   : user
-            });
-        }
+    //         // generate a signed json web token with the contents of user object and return it in the response
+    //         const token = jwt.sign(user_id, process.env.ACCESS_TOKEN_SECRET);
+    //         console.log(token);
+    //         // save token in localStorage
+            
+    //         res.render("index", {
+    //             user: user
+    //         });
 
-       req.login(user, {session: false}, (err) => {
-           if (err) {
-               res.send(err);
-           }
-           
-           user = {user: user._id};
-           console.log(user);
-           // generate a signed son web token with the contents of user object and return it in the response
-           const token = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
-           return res.json({user, token});
-        });
-    })(req, res);
-    // console.log(req.locals.user);
-    // const user = req.body;
-    // const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
-    // localStorage.setItem('jwt', accessToken);
+    //     });
+    // })(req, res);
+
 }
 
-// ====== LOGOUT  ==============================================
+// ====== LOGOUT  =====================================
 
 exports.getLogout = (req, res) => {
     req.logout();
@@ -114,7 +123,7 @@ exports.getLogout = (req, res) => {
     res.redirect('/');
 }
 
-// ==== PASSWORD RECOVERY PROCESS  ============================
+// ==== PASSWORD RECOVERY PROCESS  ====================
 
 exports.getPwdRecoverForm = (req, res) => {
     res.render('pages/email_recovery', {
@@ -139,7 +148,7 @@ exports.postPwdRecoverForm = (req, res) => {
 }
 
 
-// ====== PASSWORD CHANGE PROCESS  ===========================================
+// ====== PASSWORD CHANGE PROCESS  ========================
 
 exports.getPwdChangeForm = (req, res) => {
     User.findOne({ _id: req.params.id }, (err, user) => {
@@ -192,7 +201,6 @@ exports.postPwdChangeForm = (req, res) => {
                 })
             })
         })
-
     }
 }
 

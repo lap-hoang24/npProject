@@ -198,6 +198,13 @@ main {
                         }
                     }
 
+                    .date_time {
+                        @extend %perve;
+                        i {
+                            padding: 0 4px;
+                        }
+                    }
+
                     i {
                         margin-right: 1rem;
                     }

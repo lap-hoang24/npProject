@@ -48,7 +48,6 @@ exports.getNearyouEvents = async (req, res) => {
     data = await response.json();
     data = data.resultsPage.results.event;
 
-    console.log(data[0]);
     try {
         res.render('pages/near_you', {
             data: data

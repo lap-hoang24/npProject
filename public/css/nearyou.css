@@ -355,6 +355,34 @@ header .navbar .active a {
     -webkit-transition: opacity 0.4s linear;
     transition: opacity 0.4s linear;
   }
+  header .navbar .navbar_links #nearyou-event {
+    position: relative;
+  }
+  header .navbar .navbar_links #nearyou-event li {
+    padding: 0.7rem;
+  }
+  header .navbar .navbar_links #nearyou-event:hover #city-list {
+    position: absolute;
+    top: 60px;
+    width: 200px;
+    height: auto;
+    background: rgba(241, 238, 238, 0.997);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 0;
+  }
+  header .navbar .navbar_links #nearyou-event #city-list {
+    display: none;
+  }
   header .navbar .toggle_button {
     display: none;
   }
@@ -879,11 +907,13 @@ main #events-lists .event-item .event-description .event-name {
     font-weight: 700;
   }
   main .container {
-    width: 90%;
+    width: 80%;
     margin: 0 auto;
     position: relative;
     display: -ms-grid;
     display: grid;
+    -webkit-column-gap: 3rem;
+            column-gap: 3rem;
     -ms-grid-columns: 300px calc(100% - 300px);
         grid-template-columns: 300px calc(100% - 300px);
   }
@@ -946,4 +976,4 @@ main #events-lists .event-item .event-description .event-name {
     margin-right: 1rem;
   }
 }
-/*# sourceMappingURL=upcoming-nearyou.css.map */
+/*# sourceMappingURL=nearyou.css.map */
