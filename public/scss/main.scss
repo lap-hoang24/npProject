@@ -47,7 +47,7 @@ main {
             z-index: 99999;
             background: rgb(208, 13, 13);
             padding: 0.7rem 1rem;
-            border-radius: 15px;
+            border-radius: 60px;
             top: 67%;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -76,14 +76,72 @@ main {
         #title {
             color: $base-white;
             text-transform: uppercase;
-            font-size: 1.2rem;
+            font-size: 2.3rem;
+            font-weight: 700;
             text-align: center;
-            text-decoration: underline;
             background-color: rgba($base-black, 0.611);
+            margin: 0 0 2rem 0;
         }
+        .carousel {
+            width: 70%;
+            margin: 0 auto;
+            height: 70%;
+            .carousel-content {
+                background: rgba($base-black, 0.411);
+                width: 50%;
+                height: 100%;
+                float: left;
+                position: relative;
 
-        #down-arrow {
-            display: none;
+                .carousel-title {
+                    text-transform: uppercase;
+                    font-size: 2rem;
+                    font-weight: 700;
+                    margin: 2rem 0;
+                }
+
+                p {
+                    font-size: 1.1rem;
+                    letter-spacing: 1px;
+                    margin: 0 2rem;
+                }
+
+                a {
+                    position: absolute;
+                    background: rgba(249, 195, 1, 0.99);
+                    border-radius: 60px;
+                    padding: 0.7rem 1.5rem;
+                    bottom: 50px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    color: $base-black;
+                    font-weight: 700;
+                }
+            }
+
+
+            #one {
+                background: url('/images/Matthew-Kalapuch.jpeg');
+                background-size: cover;
+                background-position: center 40%;
+            }
+
+            #two {
+                background: url('/images/Horizon.jpeg');
+                background-size: cover;
+            }
+
+            #three {
+                background: url('/images/Foo-fighter.jpg');
+                background-size: cover;
+                background-position: center 10%;
+            }
+
+            #four {
+                background: url('/images/Tony-Pham.jpeg');
+                background-size: cover;
+                background-position: center 40%;
+            }
         }
     }
 }

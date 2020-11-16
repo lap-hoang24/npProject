@@ -1,38 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Groooooove it hard, Bitch!</title>
-    <link rel="stylesheet" href="/css/main.css" />
-    <script
-      src="https://kit.fontawesome.com/ade53cd309.js"
-      crossorigin="anonymous"
-    ></script>
-  </head>
-  <body>
-    <header><%- include('layouts/navbar.ejs') -%></header>
-    <main>
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Groooooove it hard, Bitch!</title>
+   <link rel="stylesheet" href="/css/materialize.css">
+   <link rel="stylesheet" href="/css/main.css" />
+   <script src="https://kit.fontawesome.com/ade53cd309.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+   <header><%- include('layouts/navbar.ejs') -%></header>
+   <main>
       <section id="jumbotron">
-        <div id="slogan">Feel the Groooves</div>
-        <a href="/events/live"><div id="live-button">Join LIVE</div></a>
-        <div id="bottom-blur"></div>
+         <div id="slogan">Feel the Groooves</div>
+         <a href="/events/live">
+            <div id="live-button">Join LIVE</div>
+         </a>
+         <div id="bottom-blur"></div>
       </section>
 
       <section class="content-wrapper">
-        <div class="title-wrapper">
-          <div id="title">news and events</div>
-          <div id="down-arrow"><i class="fas fa-arrow-down"></i></div>
-        </div>
-        <div class="news-events"></div>
-        <div id="search_results"></div>
+         <div class="title-wrapper">
+            <div id="title">news and events</div>
+         </div>
+         <div class="carousel carousel-slider center">
+            <div id="one" class="carousel-item red white-text" href="#one!">
+               <div class="carousel-content">
+                  <div class="carousel-title">Radiohead to release their next album - the bonker</div>
+                  <p class="white-text">Ed O’Brien has reassured Radiohead fans that the prospect of the band
+                     reconvening
+                     to make a new album “will definitely happen”.
+                     The guitarist told NME back in April that he and the band were having “online meetings” and
+                     “talking
+                     about stuff”. While he stressed that “for the foreseeable future, everyone is doing their own
+                     thing,”
+                     O’Brien did add that “when it feels right to plug back into Radiohead, then we will.”</p>
+                     <a href="">Read more!</a>
+               </div>
+            </div>
+            <div id="two" class="carousel-item amber white-text" href="#two!">
+               <div class="carousel-content">
+                  <div class="carousel-title">Brussels Airlines flies the People Of Tomorrow from Frankfurt to Brussels
+                  </div>
+                  <p class="white-text">For the eighth consecutive year, Brussels Airlines organized party flights from
+                     all over the world to bring more than thirteen thousand festival goers to Tomorrowland in Boom,
+                     Belgium.
+
+                     The Belgian airline operated 293 flights to fly festival goers from every corner of the world to
+                     Belgium, including 11 party flights with a live DJ on board and 56 party flights with music on
+                     board.</p>
+                     <a href="">Read more!</a>
+               </div>
+            </div>
+            <div id="three" class="carousel-item green white-text" href="#three!">
+               <div class="carousel-content">
+                  <div class="carousel-title">We watched Foo Fighters concert livestream from the Roxy: Here’s what it
+                     was like</div>
+                  <p class="white-text">Dave Grohl and Foo Fighters had big plans this year to mark the 25th anniversary
+                     of the band.
+
+                     “That’s right, 2020 was going to be the best year ever!” he said from the stage of the Roxy Theater
+                     in West Hollywood on Saturday evening.
+
+                     “And here we are.”
+
+                     Here, playing a live-streamed concert for fans around the world, a show both thrilling and strange,
+                     but for fans and Foo Fighters alike, a welcome relief from the drudgery of this unexpected year.
+                  </p>
+                  <a href="">Read more!</a>
+               </div>
+            </div>
+            <div id="four" class="carousel-item blue white-text" href="#four!">
+               <div class="carousel-content">
+                  <div class="carousel-title">See Metallica Play ‘Blackened,’ ‘Disposable Heroes’ on Helping Hands
+                     Livestream</div>
+                  <p class="white-text">Band performs all-acoustic and surprise electric sets from Metallica HQ gig in
+                     support of All Within My Hands foundation.
+                     Metallica held their second Helping Hands Concert & Auction charity event Saturday, a livestream
+                     from the band’s Bay Area headquarters that included the advertised all-acoustic set as well as a
+                     surprise electric performance from the heavy metal legends.</p>
+                     <a href="">Read more!</a>
+               </div>
+            </div>
+         </div>
       </section>
-    </main>
+   </main>
 
-    <%- include('layouts/footer.ejs') -%>
-    
-    <script src="/js/main.js"></script>
-    <script src="/js/api.js"></script>
+   <%- include('layouts/footer.ejs') -%>
 
-  </body>
+   <script src="/js/main.js"></script>
+   <script src="/js/materialize.js"></script>
+   <script src="/js/materialize-init.js"></script>
+
+</body>
+
 </html>

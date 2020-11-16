@@ -15,15 +15,16 @@
 main {
     .jumbotron {
         width: 100%;
-        background-image: url("/images/kovid-rathee[upcoming-event].jpg");
+        background-image: url("/images/Tim-Toomey.jpeg");
         background-size: cover;
+        background-position: center 30%;
         height: 250px;
         display: flex;
         justify-content: center;
         align-items: center;
 
         &_text {
-            color: $base-white;
+            color: rgba(249, 195, 1, 0.99);
             text-transform: uppercase;
             font-size: 1.5rem;
         }
@@ -33,11 +34,21 @@ main {
         margin-top: 2rem;
 
         .event-item {
-            display: flex;
+
+            &:nth-child(odd) {
+                background: lighten($base-grey, 60%);
+            }
+
+            &:nth-child(even) {
+                background: lighten($base-grey, 65%);
+            }
+
+            @include flex(column, center, flex-start);
+            border-radius: 6px;
             width: 100%;
             height: 90px;
             margin-top: 1rem;
-
+            
             .performers-picture {
                 height: 90px;
                 width: 100px;
@@ -107,33 +118,18 @@ main {
                 font-weight: 700;
             }
         }
+
         .container {
-            width: 80%;
+            width: 60%;
             margin: 0 auto;
             position: relative;
-            display: grid;
-            column-gap: 3rem;
-            grid-template-columns: 300px calc(100% - 300px);
-        }
-
-        #filter {
-            grid-area: 0/0/1/1;
-            height: 500px;
-            width: 300px;
-            position: sticky;
-            top: 100px;
-            border: 2px grey solid;
-            border-radius: 5px;
-
         }
 
         #events-lists {
-
-            grid-area: 0/1/1/2;
-           
             margin-top: 2rem;
+
             .event-item {
-                // width: 100%;
+                
                 height: 200px;
 
                 .performers-picture {
@@ -141,24 +137,6 @@ main {
                     width: 350px;
                     margin-left: 1rem;
 
-                    // .date_time {
-                    //     font-size: 11px;
-                    //     position: absolute;
-                    //     top: 0;
-                    //     right: 0;
-                    //     background: $base-white;
-                    //     height: 50px;
-                    //     width: 50px;
-                    //     border-radius: 3px;
-                    //     @include flex(column, center, center);
-
-                    //     .day {
-                    //         text-align: center;
-                    //         height: 50%;
-                    //         width: 80%;
-                    //         border-bottom: 1px solid $base-black;
-                    //     }
-                    // }
                     img {
                         height: 100%;
                         width: 100%;
@@ -168,7 +146,7 @@ main {
 
                 .event-description {
                     margin-left: 10px;
-                    width: calc(100vw - 110px);
+                    width: 100%;
 
                     a {
                         font-size: 1.5rem;

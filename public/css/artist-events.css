@@ -39,7 +39,7 @@ body .container {
 
 @media (min-width: 769px) {
   body .container {
-    width: 70%;
+    width: 60%;
   }
 }
 
@@ -78,7 +78,7 @@ body .container {
 
 @media (min-width: 769px) {
   body .container {
-    width: 70%;
+    width: 60%;
   }
 }
 
@@ -91,8 +91,8 @@ header {
   z-index: 99999999;
 }
 
-header .activee {
-  background-color: rgba(0, 0, 0, 0.638) !important;
+header .actived {
+  background-color: rgba(0, 0, 0, 0.99) !important;
 }
 
 header .navbar {
@@ -123,28 +123,6 @@ header .navbar .brand_logo {
   font-size: 1.8rem;
   padding: 1rem;
   color: rgba(241, 238, 238, 0.997);
-}
-
-header .navbar .reverse-transform {
-  -webkit-transform: rotate(0deg);
-          transform: rotate(0deg);
-  -webkit-transition: -webkit-transform 0.5s ease-in-out;
-  transition: -webkit-transform 0.5s ease-in-out;
-  transition: transform 0.5s ease-in-out;
-  transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
-  -webkit-transform-origin: 0%;
-          transform-origin: 0%;
-}
-
-header .navbar .transform {
-  -webkit-transform: rotate(30deg);
-          transform: rotate(30deg);
-  -webkit-transition: -webkit-transform 0.5s ease-in-out;
-  transition: -webkit-transform 0.5s ease-in-out;
-  transition: transform 0.5s ease-in-out;
-  transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
-  -webkit-transform-origin: 0%;
-          transform-origin: 0%;
 }
 
 header .navbar .toggle_button {
@@ -180,7 +158,23 @@ header .navbar .navbar_links {
 
 header .navbar .navbar_links #search-bar {
   width: 15rem;
-  color: rgba(0, 0, 0, 0.99);
+  color: rgba(241, 238, 238, 0.997);
+}
+
+header .navbar .navbar_links #search-bar ::-webkit-input-placeholder {
+  color: rgba(241, 238, 238, 0.997);
+}
+
+header .navbar .navbar_links #search-bar :-ms-input-placeholder {
+  color: rgba(241, 238, 238, 0.997);
+}
+
+header .navbar .navbar_links #search-bar ::-ms-input-placeholder {
+  color: rgba(241, 238, 238, 0.997);
+}
+
+header .navbar .navbar_links #search-bar ::placeholder {
+  color: rgba(241, 238, 238, 0.997);
 }
 
 header .navbar .navbar_links #search-bar #search-input {
@@ -279,7 +273,7 @@ header .navbar .navbar_links .account #user-in a {
           justify-content: center;
 }
 
-header .navbar .active {
+header .navbar .hamburger-active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -290,7 +284,7 @@ header .navbar .active {
   z-index: 99999;
 }
 
-header .navbar .active a {
+header .navbar .hamburger-active a {
   color: rgba(0, 0, 0, 0.99);
 }
 
@@ -308,9 +302,10 @@ header .navbar .active a {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    margin: auto 0;
   }
   header .navbar .navbar_links #search-bar {
-    width: 15rem;
+    width: 20rem;
     color: rgba(241, 238, 238, 0.997);
   }
   header .navbar .navbar_links #search-bar #search-input {
@@ -331,9 +326,6 @@ header .navbar .active a {
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end;
-  }
-  header .navbar .navbar_links li {
-    padding: 1.7rem 1.7rem;
   }
   header .navbar .navbar_links .account {
     color: rgba(241, 238, 238, 0.997);
@@ -423,7 +415,7 @@ body .container {
 
 @media (min-width: 769px) {
   body .container {
-    width: 70%;
+    width: 60%;
   }
 }
 
@@ -798,47 +790,56 @@ footer .logo {
   padding: 0 5rem 0 0;
 }
 
-main .jumbotron {
-  width: 100%;
-  background-image: url("/images/kovid-rathee[upcoming-event].jpg");
-  background-size: cover;
-  height: 250px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+header {
+  background: rgba(0, 0, 0, 0.99);
 }
 
-main .jumbotron_text {
-  color: #fff;
-  text-transform: uppercase;
-  font-size: 1.5rem;
+main #events_lists {
+  margin: 0 auto;
 }
 
 main #events_lists h1 {
   font-size: 2rem;
   margin: 1.5rem 0rem;
+  padding: 1rem;
   text-align: center;
+  border-top: 10px solid rgba(0, 0, 0, 0.99);
+  border-bottom: 10px solid rgba(0, 0, 0, 0.99);
 }
 
 main #events_lists .artist-result {
-  text-align: left;
+  border-radius: 4px;
   font-size: 1.2rem;
-  width: auto;
-  padding: 0.5rem 0;
-  margin: 0.5rem 0;
+  padding: 0.7rem 0;
+  margin: 0.8rem 0;
   font-weight: 600;
-  border-top: 1px solid rgba(191, 191, 191, 0.942);
+}
+
+main #events_lists .artist-result:nth-child(odd) {
+  background: rgba(229, 229, 229, 0.949);
+}
+
+main #events_lists .artist-result:nth-child(even) {
+  background: rgba(242, 242, 242, 0.949);
 }
 
 main #events_lists .artist-result a {
-  color: rgba(21, 38, 150, 0.942);
-  display: inline-block;
-  text-decoration: none;
+  color: rgba(10, 2, 225, 0.983);
+}
+
+@media (min-width: 769px) {
+  main body {
+    font-size: 15px;
+  }
+  main #events_lists {
+    margin: 10rem auto 0 auto;
+  }
+  main #events_lists h1 {
+    font-size: 2.5rem;
+    padding: 1.5rem;
+  }
+  main #events_lists .artist-result {
+    font-size: 1.5rem;
+  }
 }
 /*# sourceMappingURL=artist-events.css.map */

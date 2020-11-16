@@ -1,63 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Artists Past and Upcoming Events</title>
-    <link rel="stylesheet" href="/css/artist-events.css" />
-    <script
-      src="https://kit.fontawesome.com/ade53cd309.js"
-      crossorigin="anonymous"
-    ></script>
-  </head>
-  <body>
-    <!-- HEADER -->
-    <header><%- include('../layouts/navbar.ejs') -%></header>
-    <!-- MAIN -->
-    <main>
-      <section class="jumbotron">
-        <div class="jumbotron_text">Artists Past and Upcoming Events</div>
-      </section>
 
-      <section id="events_lists">
-        <h1>UPCOMING EVENTS</h1>
-        <div class="upcoming-events">
-          <% if (typeof (data) != 'undefined') {%> <% for (let i = 0; i <
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Artists Past and Upcoming Events</title>
+   <link rel="stylesheet" href="/css/artist-events.css" />
+   <script src="https://kit.fontawesome.com/ade53cd309.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+   <!-- HEADER -->
+   <header><%- include('../layouts/navbar.ejs') -%></header>
+   <!-- MAIN -->
+   <main>
+      <section class="container"  id="events_lists">
+         <h1>UPCOMING EVENTS</h1>
+         <div class="upcoming-events">
+            <% if (typeof (data) != 'undefined') {%> <% for (let i = 0; i <
           data.length; i++) { %>
-          <div class="artist-result">
-            <div class="artist-name">
-              <a href="<%= data[i].uri %>"> <%= data[i].displayName %></a>
+            <div class="artist-result">
+               <div class="artist-name">
+                  <a href="<%= data[i].uri %>"> <%= data[i].displayName %></a>
+               </div>
             </div>
-          </div>
-          <% } } else {%>
-          <div class="no-event">
-            There are no upcoming events for this artist
-          </div>
-          <% } %>
-        </div>
+            <% } } else {%>
+            <div class="no-event">
+               There are no upcoming events for this artist
+            </div>
+            <% } %>
+         </div>
 
-        <h1>PAST EVENTS</h1>
-        <div class="past-events">
-          <% if (typeof (dataPast) != 'undefined') {%> <% for (let i = 0; i <
+         <h1>PAST EVENTS</h1>
+         <div class="past-events">
+            <% if (typeof (dataPast) != 'undefined') {%> <% for (let i = 0; i <
           dataPast.length; i++) { %>
-          <div class="artist-result">
-            <div class="artist-name">
-              <a href="<%= dataPast[i].uri %>">
-                <%= dataPast[i].displayName %></a
-              >
+            <div class="artist-result">
+               <div class="artist-name">
+                  <a href="<%= dataPast[i].uri %>">
+                     <%= dataPast[i].displayName %></a>
+               </div>
             </div>
-          </div>
-          <% } } else {%>
-          <div class="no-event">
-            There are no past events for this artist from 2016
-          </div>
-          <% } %>
-        </div>
+            <% } } else {%>
+            <div class="no-event">
+               There are no past events for this artist from 2016
+            </div>
+            <% } %>
+         </div>
       </section>
-    </main>
-    <!-- FOOTER -->
-    <%- include('../layouts/footer.ejs') -%>
- 
-    <script src="/js/main.js"></script>
-  </body>
+   </main>
+   <!-- FOOTER -->
+   <%- include('../layouts/footer.ejs') -%>
+
+   <script src="/js/main.js"></script>
+</body>
+
 </html>

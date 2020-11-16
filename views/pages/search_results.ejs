@@ -20,7 +20,7 @@
       </section>
 
       <section class="container" id="artists-lists">
-        <h1 class="my-2">Your artists search results</h1>
+        <h1 class="title">Your artists search results</h1>
         <% for (let i = 0; i < data.length; i++) { %>
         <div class="artist-name">
           <a class="artist-link" href="/events/artist=<%= data[i].id %>" tour-status="<%= data[i].onTourUntil %>">
@@ -34,7 +34,8 @@
     <!-- FOOTER -->
     <%- include('../layouts/footer.ejs') -%>
 
+    <script src="/js/searchresults.js"></script>
+    <script src="/js/searchresults.js"></script>
 
-    <script src="/js/main.js"></script>
   </body>
 </html>

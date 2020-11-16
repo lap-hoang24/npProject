@@ -1,4 +1,3 @@
-
 // ======== GLOBAL STYLING ==========
 
 @import "../base/global";
@@ -13,41 +12,58 @@
 
 @import "../utilities/functions";
 // ===== MAIN ================================
-main {
-    .jumbotron {
-        width: 100%;
-        background-image: url("/images/kovid-rathee[upcoming-event].jpg");
-        background-size: cover;
-        height: 250px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
 
-        &_text {
-            color: #fff;
-            text-transform: uppercase;
-            font-size: 1.5rem;
-        }
-    }
+header {
+        background: $base-black;
+}
+main {
 
     #events_lists {
+        margin: 0 auto;
         h1 {
             font-size: 2rem;
             margin: 1.5rem 0rem;
+            padding: 1rem;
             text-align: center;
+            border-top: 10px solid $base-black;
+            border-bottom: 10px solid $base-black;
         }
         .artist-result {
-            text-align: left;
+            &:nth-child(odd) {
+                background: lighten($base-grey, 60%);
+            }
+
+            &:nth-child(even) {
+                background: lighten($base-grey, 65%);
+            }
+
+            border-radius: 4px;
             font-size: 1.2rem;
-            width: auto;
-            padding: 0.5rem 0;
-            margin: 0.5rem 0;
+            padding: 0.7rem 0;
+            margin: 0.8rem 0;
             font-weight: 600;
-            border-top: 1px solid rgba(191, 191, 191, 0.942);
+
             a {
-                color: rgba(21, 38, 150, 0.942);
-                display: inline-block;
-                text-decoration: none;
+                color: $blue-link;
+            }
+        }
+    }
+}
+
+@media (min-width: 769px) {
+    main {
+        body {
+            font-size: 15px;
+        }
+
+        #events_lists {
+            margin: 10rem auto 0 auto;
+            h1 {
+                font-size: 2.5rem;
+                padding: 1.5rem;
+            }
+            .artist-result {
+                font-size: 1.5rem;
             }
         }
     }

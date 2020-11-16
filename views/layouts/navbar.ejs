@@ -1,53 +1,41 @@
 <nav class="navbar">
-  <div class="brand_logo"><a href="/">Grooove</a></div>
+   <div class="brand_logo"><a href="/">Grooove</a></div>
 
-  <a href="#" class="toggle_button">
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
-  </a>
+   <a href="#" class="toggle_button">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+   </a>
 
-  <div class="navbar_links">
-    <ul>
-      <li>
-        <div id="search-bar">
-          <form id="search-form">
-            <input name="search-query" id="search-input" type="text" placeholder="Search your artists">
-            <i id="search-button" class="fa fa-lg fa-search"></i>
-          </form>
-        </div>
-      </li>
-      <li id="nearyou-event"><a href="/events/near-you">Events near You<i class="fas fa-angle-down"></i></a>
-        <ul id="city-list">
-          <li class="city-filter" ip="167.98.119.77"> <a href=""></a>London</li>
-          <li class="city-filter"> <a href=""></a>Paris</li>
-          <li class="city-filter"> <a href=""></a>Barcelona</li>
-          <li class="city-filter"> <a href=""></a>Madrid</li>
-          <li class="city-filter"> <a href=""></a>Franfurt</li>
-          <li class="city-filter"> <a href=""></a>California</li>
-          <li class="city-filter"> <a href=""></a>Amsterdam</li>
-          <li class="city-filter"> <a href=""></a>Rome</li>
-          <li class="city-filter"> <a href=""></a>Lisbon</li>
-          <li class="city-filter"> <a href=""></a>Tokyo</li>
-        </ul>
-      </li>
-      <li><a href="/events/upcoming">Upcoming Events</a></li>
-      <li ><a  id="live" href="/events/live"><i class="fas fa-sm fa-circle"></i>LIVE</a></li>
-      <div class="account">
-        <% if (user) { %>
-        <li id="user-in">
-          <i class="fas fa-lg fa-user-alt" user-id="<%= user._id%>"></i>
-          <ul id="user-dropdown">
-            <li><%= user.username %></li>
-            <li>BB</li>
-          </ul>
-        </li>
-        <li><a href="/users/logout">Sign Out</a></li>
-        <% } else { %>
-        <li><a href="/users/login">Sign In</a></li>
-        <li><a href="/users/register">Sign Up</a></li>
-        <% } %>
-      </div>
-    </ul>
-  </div>
+   <div class="navbar_links">
+      <ul>
+         <li>
+            <div id="search-bar">
+               <form id="search-form">
+                  <input name="search-query" id="search-input" type="text" placeholder="Search your artists">
+                  <i id="search-button" class="fa fa-lg fa-search"></i>
+               </form>
+            </div>
+         </li>
+         <li id="nearyou-event"><a href="/events/near-you">Events near You</a>
+         </li>
+         <li><a href="/events/upcoming">Upcoming Events</a></li>
+         <li><a id="live" href="/events/live"><i class="fas fa-sm fa-circle"></i>LIVE</a></li>
+         <div class="account">
+            <% if (user) { %>
+            <li id="user-in">
+               <i class="fas fa-lg fa-user-alt" user-id="<%= user._id%>"></i>
+               <ul id="user-dropdown">
+                  <li><%= user.username %></li>
+                  <li>BB</li>
+               </ul>
+            </li>
+            <li><a href="/users/logout">Sign Out</a></li>
+            <% } else { %>
+            <li><a href="/users/login">Sign In</a></li>
+            <li><a href="/users/register">Sign Up</a></li>
+            <% } %>
+         </div>
+      </ul>
+   </div>
 </nav>

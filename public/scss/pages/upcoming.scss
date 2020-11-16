@@ -11,12 +11,14 @@
 @import "../utilities/mixins";
 
 @import "../utilities/functions";
+
 // ===== MAIN ================================
 main {
     .jumbotron {
         width: 100%;
-        background-image: url("/images/kovid-rathee[upcoming-event].jpg");
+        background-image: url("/images/Noiseporn.jpeg");
         background-size: cover;
+        background-position: center 30%;
         height: 250px;
         display: flex;
         justify-content: center;
@@ -33,7 +35,15 @@ main {
         margin-top: 2rem;
 
         .event-item {
-            display: flex;
+            &:nth-child(odd) {
+                background: lighten($base-grey, 60%);
+            }
+
+            &:nth-child(even) {
+                background: lighten($base-grey, 65%);
+            }
+            @include flex(column, center, flex-start);
+            border-radius: 6px;
             width: 100%;
             height: 90px;
             margin-top: 1rem;
@@ -97,8 +107,6 @@ main {
     }
 
     main {
-      
-
         .jumbotron {
             height: 70vh;
 
@@ -108,35 +116,75 @@ main {
             }
         }
         .container {
-            width: 90%;
+            width: 70%;
             margin: 0 auto;
             position: relative;
             display: grid;
-            grid-template-columns: 300px calc(100% - 300px);
+            column-gap: 2rem;
+            grid-template-columns: 250px calc(100% - 2rem - 250px);
         }
 
         #filter {
             grid-area: 0/0/1/1;
-            height: 500px;
-            width: 300px;
+            height: 295px;
+            width: 250px;
             position: sticky;
             top: 100px;
-            border: 2px grey solid;
+            border: 3px lighten($base-grey, 30%) solid;
             border-radius: 5px;
+            &-title {
+                font-weight: 600;
+                text-align: center;
+                font-size: 1.1rem;
+                margin: 0.5rem 0;
+            }
 
+            %form-style {
+                font-size: 0.8rem;
+                text-transform: uppercase;
+            }
+
+            .form-item {
+                font-weight: 600;
+                padding: 0.7rem 0;
+                @extend %form-style;
+                @include flex(row, space-between, center);
+                input,
+                select {
+                    width: 9rem;
+                    height: 1.3rem;
+                    @extend %form-style;
+                }
+            }
+
+            #filter-btn {
+                font-size: 1rem;
+                padding: 0.3rem 3rem;
+                border: 1px $base-black solid;
+                background: $base-black;
+                border-radius: 3px;
+                color: $base-white;
+                margin: 1.5rem auto;
+                display: block;
+                &:hover {
+                    cursor: pointer;
+                    border: 1px lighten($base-black, 10%) solid;
+                    background: rgb(255, 255, 255);
+                    color: $base-black;
+                }
+            }
         }
 
         #events-lists {
-
             grid-area: 0/1/1/2;
             margin-top: 2rem;
+
             .event-item {
-                // width: 100%;
                 height: 200px;
 
                 .performers-picture {
                     height: 180px;
-                    width: 350px;
+                    width: 240px;
                     margin-left: 1rem;
 
                     // .date_time {
@@ -166,7 +214,7 @@ main {
 
                 .event-description {
                     margin-left: 10px;
-                    width: calc(100vw - 110px);
+                    width: calc(100% - 350px);
 
                     a {
                         font-size: 1.5rem;
@@ -209,6 +257,13 @@ main {
                         margin-right: 1rem;
                     }
                 }
+            }
+
+            .unavailable-event {
+                font-size: 2rem;
+                font-style: italic;
+                color: lighten($base-grey, 10%);
+                text-align: center;
             }
         }
     }

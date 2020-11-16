@@ -39,7 +39,7 @@ body .container {
 
 @media (min-width: 769px) {
   body .container {
-    width: 70%;
+    width: 60%;
   }
 }
 
@@ -78,7 +78,7 @@ body .container {
 
 @media (min-width: 769px) {
   body .container {
-    width: 70%;
+    width: 60%;
   }
 }
 
@@ -91,8 +91,8 @@ header {
   z-index: 99999999;
 }
 
-header .activee {
-  background-color: rgba(0, 0, 0, 0.638) !important;
+header .actived {
+  background-color: rgba(0, 0, 0, 0.99) !important;
 }
 
 header .navbar {
@@ -123,28 +123,6 @@ header .navbar .brand_logo {
   font-size: 1.8rem;
   padding: 1rem;
   color: rgba(241, 238, 238, 0.997);
-}
-
-header .navbar .reverse-transform {
-  -webkit-transform: rotate(0deg);
-          transform: rotate(0deg);
-  -webkit-transition: -webkit-transform 0.5s ease-in-out;
-  transition: -webkit-transform 0.5s ease-in-out;
-  transition: transform 0.5s ease-in-out;
-  transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
-  -webkit-transform-origin: 0%;
-          transform-origin: 0%;
-}
-
-header .navbar .transform {
-  -webkit-transform: rotate(30deg);
-          transform: rotate(30deg);
-  -webkit-transition: -webkit-transform 0.5s ease-in-out;
-  transition: -webkit-transform 0.5s ease-in-out;
-  transition: transform 0.5s ease-in-out;
-  transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
-  -webkit-transform-origin: 0%;
-          transform-origin: 0%;
 }
 
 header .navbar .toggle_button {
@@ -180,7 +158,23 @@ header .navbar .navbar_links {
 
 header .navbar .navbar_links #search-bar {
   width: 15rem;
-  color: rgba(0, 0, 0, 0.99);
+  color: rgba(241, 238, 238, 0.997);
+}
+
+header .navbar .navbar_links #search-bar ::-webkit-input-placeholder {
+  color: rgba(241, 238, 238, 0.997);
+}
+
+header .navbar .navbar_links #search-bar :-ms-input-placeholder {
+  color: rgba(241, 238, 238, 0.997);
+}
+
+header .navbar .navbar_links #search-bar ::-ms-input-placeholder {
+  color: rgba(241, 238, 238, 0.997);
+}
+
+header .navbar .navbar_links #search-bar ::placeholder {
+  color: rgba(241, 238, 238, 0.997);
 }
 
 header .navbar .navbar_links #search-bar #search-input {
@@ -279,7 +273,7 @@ header .navbar .navbar_links .account #user-in a {
           justify-content: center;
 }
 
-header .navbar .active {
+header .navbar .hamburger-active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -290,7 +284,7 @@ header .navbar .active {
   z-index: 99999;
 }
 
-header .navbar .active a {
+header .navbar .hamburger-active a {
   color: rgba(0, 0, 0, 0.99);
 }
 
@@ -308,9 +302,10 @@ header .navbar .active a {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    margin: auto 0;
   }
   header .navbar .navbar_links #search-bar {
-    width: 15rem;
+    width: 20rem;
     color: rgba(241, 238, 238, 0.997);
   }
   header .navbar .navbar_links #search-bar #search-input {
@@ -331,9 +326,6 @@ header .navbar .active a {
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end;
-  }
-  header .navbar .navbar_links li {
-    padding: 1.7rem 1.7rem;
   }
   header .navbar .navbar_links .account {
     color: rgba(241, 238, 238, 0.997);
@@ -423,7 +415,7 @@ body .container {
 
 @media (min-width: 769px) {
   body .container {
-    width: 70%;
+    width: 60%;
   }
 }
 
@@ -800,8 +792,9 @@ footer .logo {
 
 main .jumbotron {
   width: 100%;
-  background-image: url("/images/kovid-rathee[upcoming-event].jpg");
+  background-image: url("/images/Bruno-Emanuelle.jpeg");
   background-size: cover;
+  background-position: center 50%;
   height: 250px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -836,23 +829,22 @@ main #artists-lists {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-right: 1px solid rgba(153, 153, 153, 0.949);
-  border-left: 1px solid rgba(153, 153, 153, 0.949);
 }
 
-main #artists-lists h1 {
+main #artists-lists .title {
   padding: 1rem 0;
   border-bottom: 2px solid #ccc;
-  font-size: 2rem;
+  font-size: 1.2rem;
 }
 
 main #artists-lists .artist-name {
   text-align: left;
   font-size: 1.5rem;
-  width: 100%;
-  padding: 1rem 0;
-  margin: 0.5rem auto;
-  font-weight: 600;
+  width: 90%;
+  border-radius: 6px;
+  padding: 0.5rem 0;
+  margin: 0.8rem auto;
+  font-weight: 500;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -860,10 +852,12 @@ main #artists-lists .artist-name {
       flex-wrap: wrap;
 }
 
-main #artists-lists .artist-name:hover {
-  -webkit-box-shadow: 3px 3px 10px rgba(76, 76, 76, 0.949);
-          box-shadow: 3px 3px 10px rgba(76, 76, 76, 0.949);
-  border-radius: 5px;
+main #artists-lists .artist-name:nth-child(odd) {
+  background: rgba(221, 221, 221, 0.949);
+}
+
+main #artists-lists .artist-name:nth-child(even) {
+  background: rgba(242, 242, 242, 0.949);
 }
 
 main #artists-lists .artist-name a {
@@ -871,7 +865,7 @@ main #artists-lists .artist-name a {
   color: rgba(10, 2, 225, 0.983);
 }
 
-main #artists-lists .artist-name .on-tour, main #artists-lists .artist-name .off-tour {
+main #artists-lists .artist-name .on-tour {
   padding: 0.1rem 0.2rem;
   font-size: 12px;
   vertical-align: super;
@@ -884,10 +878,6 @@ main #artists-lists .artist-name .on-tour {
   background: #d00d0d;
 }
 
-main #artists-lists .artist-name .off-tour {
-  background: darkgray;
-}
-
 @media (min-width: 769px) {
   body {
     font-size: 15px;
@@ -898,6 +888,34 @@ main #artists-lists .artist-name .off-tour {
   main .jumbotron_text {
     font-size: 4rem;
     font-weight: 700;
+  }
+  main #artists-lists {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  main #artists-lists .title {
+    margin: 2rem 0;
+    font-size: 2rem;
+  }
+  main #artists-lists .artist-name {
+    text-align: left;
+    font-size: 1.8rem;
+    padding: 1rem 0;
+    margin: 0.5rem auto;
+    font-weight: 600;
   }
 }
 /*# sourceMappingURL=search-results.css.map */

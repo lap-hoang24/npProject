@@ -16,8 +16,9 @@
 main {
     .jumbotron {
         width: 100%;
-        background-image: url("/images/kovid-rathee[upcoming-event].jpg");
+        background-image: url("/images/Bruno-Emanuelle.jpeg");
         background-size: cover;
+        background-position: center 50%;
         height: 250px;
         display: flex;
         justify-content: center;
@@ -32,29 +33,34 @@ main {
 
     #artists-lists {
         @include flex(column, center, center);
-        border-right: 1px solid lighten($base-grey, 30%);
-        border-left: 1px solid lighten($base-grey, 30%);
-        h1 {
+
+        .title {
             padding: 1rem 0;
             border-bottom: 2px solid #ccc;
-            font-size: 2rem;
+            font-size: 1.2rem;
         }
 
         .artist-name {
             text-align: left;
             font-size: 1.5rem;
-            width: 100%;
+            width: 90%;
 
-            padding: 1rem 0;
-            margin: 0.5rem auto;
-            font-weight: 600;
+            &:nth-child(odd) {
+                background: lighten($base-grey, 57%);
+            }
+
+            &:nth-child(even) {
+                background: lighten($base-grey, 65%);
+            }
+            border-radius: 6px;
+
+            padding: 0.5rem 0;
+            margin: 0.8rem auto;
+            font-weight: 500;
             display: flex;
             flex-wrap: wrap;
 
-            &:hover {
-                box-shadow: 3px 3px 10px $base-grey;
-                border-radius: 5px;
-            }
+
             a {
                 display: inline-block;
                 color: $blue-link;
@@ -75,13 +81,10 @@ main {
                 @extend %tour-badge;
                 background: $red;
             }
-
-            .off-tour {
-                @extend %tour-badge;
-                background: rgb(169, 169, 169);
-            }
         }
     }
+
+    
 }
 
 // ========== MEDIA QUERIES ==============
@@ -97,6 +100,24 @@ main {
             &_text {
                 font-size: 4rem;
                 font-weight: 700;
+            }
+        }
+
+        #artists-lists {
+            @include flex(column, center, center);
+            
+            .title {
+                margin: 2rem 0;
+                font-size: 2rem;
+            }
+    
+            .artist-name {
+                text-align: left;
+                font-size: 1.8rem;
+    
+                padding: 1rem 0;
+                margin: 0.5rem auto;
+                font-weight: 600;
             }
         }
     }

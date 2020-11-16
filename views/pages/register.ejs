@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,30 +8,33 @@
     <link rel="stylesheet" href="/css/register.css">
     <script src="https://kit.fontawesome.com/ade53cd309.js" crossorigin="anonymous"></script>
 </head>
-<body>
-    <header><%- include('../layouts/navbar.ejs') -%></header>
-    <main class="main">
-        <div class="title">Be a Grooover!</div>
 
-        <% if (errors) { %>
-            <% errors.forEach((error) => { %>
+<body>
+    <main class="main">
+
+        <div class="register-wrapper">
+            <div class="title">Register!</div>
+            <div class="error-msg">
+                <% if (errors) { %>
+                <% errors.forEach((error) => { %>
                 <div class='error'> <%= error.msg %> </div>
-           <% })} %>
-    
-        <form id="register_form" action="/users/register" method="POST">
-            <input class="form_item" type="text" name="username" placeholder="grooover name" >
-            <input class="form_item" type="text" name="email" placeholder="groove@gmail.com"    >
-            <input class="form_item" type="password" name="password" placeholder="password" >
-            <input class="form_item" type="password" name="password2" placeholder="confirm password" >
-            <button class="form_item" id='register_button' type="submit">Register</button>
-        </form>
-        <div>Already a Grooover?</div>
-        <a href="/users/login"><button id="sign_button">Grooove in</a></button> 
+                <% })} %>
+            </div>
+
+            <form id="register_form" action="/users/register" method="POST">
+                <input class="form_item" type="text" name="username" placeholder="grooover name">
+                <input class="form_item" type="text" name="email" placeholder="groove@gmail.com">
+                <input class="form_item" type="password" name="password" placeholder="password">
+                <input class="form_item" type="password" name="password2" placeholder="confirm password">
+                <button class="form_item" id='register_button' type="submit">Register</button>
+            </form>
+            <div>Have an account?</div>
+            <button id="sign_button"><a href="/users/login">Sign in</a></button>
+        </div>
     </main>
 
-    <!-- FOOTER -->
-    <%- include('../layouts/footer.ejs') -%>
 
     <script src="/js/main.js"></script>
 </body>
+
 </html>

@@ -89,24 +89,10 @@ const events = require('./routes/events');
 app.use('/events', events)
 
 // === RENDER HOME PAGE ===
-const posts = [
-    {
-        username: 'laplap',
-        title: 'Post 1'
-    },
-    {
-        username: 'laphoang',
-        title: 'Post 2'
-    }
-];
+
 app.get('/', (req, res) => {
-
     res.render('index', {
-
     })
-})
-app.get('/posts', authToken, (req, res) => {
-    res.json(posts.filter(post => post.username === req.user.username));
 })
 
 // ====== SERVER PORT ======

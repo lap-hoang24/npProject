@@ -1,5 +1,4 @@
-
-@import '../base/global';
+@import "../base/global";
 
 @import "../utilities/variables";
 
@@ -11,9 +10,10 @@ header {
     background: transparent;
     z-index: 99999999;
 
-    .activee {
-        background-color: rgba($base-black, 0.638) !important;
+    .actived {
+        background-color: $base-black !important;
     }
+
 
     .navbar {
         display: flex;
@@ -34,16 +34,7 @@ header {
             padding: 1rem;
             color: $base-white;
         }
-        .reverse-transform {
-            transform: rotate(0deg);
-            transition: transform 0.5s ease-in-out;
-            transform-origin: 0%;
-        }
-        .transform {
-            transform: rotate(30deg);
-            transition: transform 0.5s ease-in-out;
-            transform-origin: 0%;
-        }
+
         .toggle_button {
             position: absolute;
             top: 1.5rem;
@@ -68,8 +59,13 @@ header {
             display: none;
 
             #search-bar {
+
                 width: 15rem;
-                color: $base-black;
+                color: $base-white;
+
+                ::placeholder {
+                    color: $base-white;
+                }
                 #search-input {
                     width: 90%;
                     background: transparent;
@@ -87,11 +83,7 @@ header {
                         cursor: pointer;
                     }
                 }
-
-                
             }
-
-
 
             ul {
                 display: flex;
@@ -144,9 +136,10 @@ header {
                     }
                 }
             }
+            
+            
         }
-
-        .active {
+        .hamburger-active {
             display: flex;
             position: absolute;
             height: 310px;
@@ -164,29 +157,27 @@ header {
     // ======== NAV BAR =============
     header {
         top: 1rem;
-
+        
         .navbar {
             flex-direction: row;
 
             .navbar_links {
                 display: flex;
-
+                margin: auto 0;
                 #search-bar {
-                    width: 15rem;
+                    width: 20rem;
                     color: $base-white;
                     #search-input {
                         width: 90%;
                         font-size: 1rem;
                         color: $base-white;
                     }
-    
+
                     #search-button {
                         &:hover {
                             cursor: pointer;
                         }
                     }
-    
-                    
                 }
 
                 ul {
@@ -194,21 +185,18 @@ header {
                     flex-wrap: nowrap;
                     justify-content: flex-end;
                 }
-                li {
+                // li {
+                //     padding: 1.7rem 1.7rem;
+                // }
 
-                    padding: 1.7rem 1.7rem;
-
-                }
-    
                 .account {
                     color: $base-white;
                     margin: 0;
                     width: 20%;
-                   flex-direction: row;
-                   justify-content: flex-end;
+                    flex-direction: row;
+                    justify-content: flex-end;
 
                     #user-in {
-
                         &:hover #user-dropdown {
                             opacity: 0.9;
                             display: block;
@@ -241,7 +229,6 @@ header {
                         display: none;
                     }
                 }
-
             }
 
             .toggle_button {

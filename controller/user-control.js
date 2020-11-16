@@ -85,9 +85,8 @@ exports.postLoginForm = (req, res, next) => {
         successRedirect: '/',
         failureRedirect: '/users/login',
         failureFlash: true,
-        successFlash: 'Welcome!'
+        successFlash: true
     })(req, res, next);
-   
     // passport.authenticate('login', { session: true }, (err, user, info) => {
     //     if (err || !user) {
     //         return res.status(400).json({

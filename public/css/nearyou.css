@@ -39,7 +39,7 @@ body .container {
 
 @media (min-width: 769px) {
   body .container {
-    width: 70%;
+    width: 60%;
   }
 }
 
@@ -78,7 +78,7 @@ body .container {
 
 @media (min-width: 769px) {
   body .container {
-    width: 70%;
+    width: 60%;
   }
 }
 
@@ -91,8 +91,8 @@ header {
   z-index: 99999999;
 }
 
-header .activee {
-  background-color: rgba(0, 0, 0, 0.638) !important;
+header .actived {
+  background-color: rgba(0, 0, 0, 0.99) !important;
 }
 
 header .navbar {
@@ -123,28 +123,6 @@ header .navbar .brand_logo {
   font-size: 1.8rem;
   padding: 1rem;
   color: rgba(241, 238, 238, 0.997);
-}
-
-header .navbar .reverse-transform {
-  -webkit-transform: rotate(0deg);
-          transform: rotate(0deg);
-  -webkit-transition: -webkit-transform 0.5s ease-in-out;
-  transition: -webkit-transform 0.5s ease-in-out;
-  transition: transform 0.5s ease-in-out;
-  transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
-  -webkit-transform-origin: 0%;
-          transform-origin: 0%;
-}
-
-header .navbar .transform {
-  -webkit-transform: rotate(30deg);
-          transform: rotate(30deg);
-  -webkit-transition: -webkit-transform 0.5s ease-in-out;
-  transition: -webkit-transform 0.5s ease-in-out;
-  transition: transform 0.5s ease-in-out;
-  transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
-  -webkit-transform-origin: 0%;
-          transform-origin: 0%;
 }
 
 header .navbar .toggle_button {
@@ -180,7 +158,23 @@ header .navbar .navbar_links {
 
 header .navbar .navbar_links #search-bar {
   width: 15rem;
-  color: rgba(0, 0, 0, 0.99);
+  color: rgba(241, 238, 238, 0.997);
+}
+
+header .navbar .navbar_links #search-bar ::-webkit-input-placeholder {
+  color: rgba(241, 238, 238, 0.997);
+}
+
+header .navbar .navbar_links #search-bar :-ms-input-placeholder {
+  color: rgba(241, 238, 238, 0.997);
+}
+
+header .navbar .navbar_links #search-bar ::-ms-input-placeholder {
+  color: rgba(241, 238, 238, 0.997);
+}
+
+header .navbar .navbar_links #search-bar ::placeholder {
+  color: rgba(241, 238, 238, 0.997);
 }
 
 header .navbar .navbar_links #search-bar #search-input {
@@ -279,7 +273,7 @@ header .navbar .navbar_links .account #user-in a {
           justify-content: center;
 }
 
-header .navbar .active {
+header .navbar .hamburger-active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -290,7 +284,7 @@ header .navbar .active {
   z-index: 99999;
 }
 
-header .navbar .active a {
+header .navbar .hamburger-active a {
   color: rgba(0, 0, 0, 0.99);
 }
 
@@ -308,9 +302,10 @@ header .navbar .active a {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    margin: auto 0;
   }
   header .navbar .navbar_links #search-bar {
-    width: 15rem;
+    width: 20rem;
     color: rgba(241, 238, 238, 0.997);
   }
   header .navbar .navbar_links #search-bar #search-input {
@@ -331,9 +326,6 @@ header .navbar .active a {
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end;
-  }
-  header .navbar .navbar_links li {
-    padding: 1.7rem 1.7rem;
   }
   header .navbar .navbar_links .account {
     color: rgba(241, 238, 238, 0.997);
@@ -423,7 +415,7 @@ body .container {
 
 @media (min-width: 769px) {
   body .container {
-    width: 70%;
+    width: 60%;
   }
 }
 
@@ -800,8 +792,9 @@ footer .logo {
 
 main .jumbotron {
   width: 100%;
-  background-image: url("/images/kovid-rathee[upcoming-event].jpg");
+  background-image: url("/images/Tim-Toomey.jpeg");
   background-size: cover;
+  background-position: center 30%;
   height: 250px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -815,7 +808,7 @@ main .jumbotron {
 }
 
 main .jumbotron_text {
-  color: rgba(241, 238, 238, 0.997);
+  color: rgba(249, 195, 1, 0.99);
   text-transform: uppercase;
   font-size: 1.5rem;
 }
@@ -828,9 +821,30 @@ main #events-lists .event-item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  border-radius: 6px;
   width: 100%;
   height: 90px;
   margin-top: 1rem;
+}
+
+main #events-lists .event-item:nth-child(odd) {
+  background: rgba(229, 229, 229, 0.949);
+}
+
+main #events-lists .event-item:nth-child(even) {
+  background: rgba(242, 242, 242, 0.949);
 }
 
 main #events-lists .event-item .performers-picture {
@@ -907,30 +921,11 @@ main #events-lists .event-item .event-description .event-name {
     font-weight: 700;
   }
   main .container {
-    width: 80%;
+    width: 60%;
     margin: 0 auto;
     position: relative;
-    display: -ms-grid;
-    display: grid;
-    -webkit-column-gap: 3rem;
-            column-gap: 3rem;
-    -ms-grid-columns: 300px calc(100% - 300px);
-        grid-template-columns: 300px calc(100% - 300px);
-  }
-  main #filter {
-    grid-area: 0/0/1/1;
-    height: 500px;
-    width: 300px;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 100px;
-    border: 2px grey solid;
-    border-radius: 5px;
   }
   main #events-lists {
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 1;
-    grid-area: 0/1/1/2;
     margin-top: 2rem;
   }
   main #events-lists .event-item {
@@ -948,7 +943,7 @@ main #events-lists .event-item .event-description .event-name {
   }
   main #events-lists .event-item .event-description {
     margin-left: 10px;
-    width: calc(100vw - 110px);
+    width: 100%;
   }
   main #events-lists .event-item .event-description a {
     font-size: 1.5rem;
