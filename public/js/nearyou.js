@@ -4,6 +4,7 @@ const UIController = (function () {
 
    const DOMstrings = {
       class: {
+         locationAppear: "appear",
          artistLink: "artist-link",
          tourStatus: "tour-status",
          onTour: "on-tour",
@@ -22,6 +23,8 @@ const UIController = (function () {
       id: {
          searchInput: "search-input",
          searchForm: "search-form",
+         location: "location",
+         locationList: "location-list"
       },
 
       attr: {
@@ -130,20 +133,28 @@ const appController = ((UICtrl) => {
 
    // Declare controller local variables
 
-   let hamburgerButton, searchButton;
+   let hamburgerButton, searchButton, locationButton;
 
    hamburgerButton = document.getElementsByClassName(DOM.class.toggleButton)[0];
-   searchButton = document.getElementById('search-input');
+   searchButton = document.getElementById(DOM.id.searchInput);
+   locationButton = document.getElementById(DOM.id.location);
 
    // setting up all events listeners of web app
 
    const setupEventListeners = () => {
       hamburgerButton.addEventListener('click', hamburgerEvent);
       searchButton.addEventListener('keypress', searchEvent);
+      locationButton.addEventListener('click', locationEvent);
    }
 
 
    //App Controller functions =============
+   // Near you page 
+
+   const locationEvent = () => {
+      const locationList = document.getElementById(DOM.id.locationList);
+      locationList.classList.toggle(DOM.class.locationAppear);
+   }
 
    // Hamburger menu event
 

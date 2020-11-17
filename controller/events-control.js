@@ -2,6 +2,7 @@ const RequestIp = require('@supercharge/request-ip');
 const fetch = require('node-fetch');
 const apifetch = require('../controller/api');
 const Filter = require('../controller/events-filter');
+const geoip = require('geoip-lite');
 
 exports.getUpcomingEvents = async (req, res) => {
    try {
@@ -22,22 +23,57 @@ exports.getUpcomingEvents = async (req, res) => {
    }
 }
 
+exports.getNearyouLocations = async (req, res) => {
+
+   const cities = {
+      london: "167.98.119.77",
+      madrid: "84.236.185.247",
+      paris: "92.222.107.29",
+      barcelona: "91.126.239.175",
+      franfurt: "165.227.173.87",
+      rome: "45.139.28.80",
+      amsterdam: "37.139.4.138",
+      lisbon: "188.93.238.29",
+      tokyo: "198.13.63.193"
+   }
+
+   function getIp(city) {
+      const index = Object.keys(cities).indexOf(city);
+      return Object.values(cities)[index];
+   }
+
+   try {
+      api = "https://api.songkick.com/api/3.0/events.json?location=ip:" + getIp(req.params.city);
+      apiKey = "&apikey=iQvmMn3zAKS85ja5";
+      perPage = "40";
+      const location = req.params.city;
+
+      response = await fetch(api + apiKey);
+      data = await response.json();
+      data = data.resultsPage.results.event;
+
+      res.render('pages/near_you', {
+         data: data,
+         location: location
+      })
+   } catch (err) {
+      console.log(err);
+   }
+}
+
 
 exports.getNearyouEvents = async (req, res) => {
+
    let ip, api, apiKey, perPage, response, data;
    let myIp = "87.65.73.133";
-   let london = "167.98.119.77";
-   let madrid = "84.236.185.247";
-   let paris = "92.222.107.29"
-   let barcelona = "91.126.239.175";
-   let franfurt = "165.227.173.87";
-   let rome = "45.139.28.80";
-   let armsterdam = "37.139.4.138";
-   let lisbon = "188.93.238.29"
-   let tokyo = "198.13.63.193";
-   let california = "50.247.72.33";
+
    ip = RequestIp.getClientIp(req)
-   api = "https://api.songkick.com/api/3.0/events.json?location=ip:" + california;
+
+   const geo = geoip.lookup(myIp);
+
+   // console.log(geo);
+
+   api = "https://api.songkick.com/api/3.0/events.json?location=ip:" + myIp;
    apiKey = "&apikey=iQvmMn3zAKS85ja5";
    perPage = "40";
 
@@ -47,7 +83,8 @@ exports.getNearyouEvents = async (req, res) => {
 
    try {
       res.render('pages/near_you', {
-         data: data
+         data: data,
+         location: geo.city
       })
    } catch (err) {
       console.log(err);

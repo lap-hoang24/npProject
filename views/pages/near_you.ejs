@@ -13,7 +13,25 @@
   <header><%- include('../layouts/navbar.ejs') -%></header>
   <main>
     <section class="jumbotron">
-      <div class="jumbotron_text">Event near You</div>
+      <div class="jumbotron_text">Events near You</div>
+      <div id="location">
+        <% if (location != "undefined" || location != "null") { %>
+        <%= location %>
+        <% } else { %>
+        your location
+        <% } %>
+        <i class="fas fa-chevron-down"></i>
+        <ul id="location-list">
+          <li><a href="/events/near-you/london">london</a></li>
+          <li><a href="/events/near-you/paris">paris</a></li>
+          <li><a href="/events/near-you/tokyo">tokyo</a></li>
+          <li><a href="/events/near-you/amsterdam">amsterdam</a></li>
+          <li><a href="/events/near-you/rome">rome</a></li>
+          <li><a href="/events/near-you/lisbon">lisbon</a></li>
+          <li><a href="/events/near-you/madrid">madrid</a></li>
+          <li><a href="/events/near-you/franfurt">franfurt</a></li>
+        </ul>
+      </div>
     </section>
     <div class="container">
       <section id="events-lists">
@@ -41,7 +59,7 @@
   </main>
 
   <%- include('../layouts/footer.ejs') -%>
-  <script src="../js/nearyou.js"></script>
+  <script src="/js/nearyou.js"></script>
   <!-- <script src="../js/api.js"></script> -->
 </body>
 

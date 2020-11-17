@@ -5767,7 +5767,7 @@ body.keyboard-focused .dropdown-content li:focus {
   color: rgba(0, 0, 0, 0.6);
   display: inline-block;
   font-size: 16px;
-  height: 3rem;
+  height: 2rem;
   line-height: 32px;
   outline: 0;
   margin: 0;
@@ -5892,7 +5892,7 @@ textarea.materialize-textarea {
   border-bottom: 1px solid #9e9e9e;
   border-radius: 0;
   outline: none;
-  height: 3rem;
+  height: 2rem;
   width: 100%;
   font-size: 16px;
   margin: 0 0 8px 0;
@@ -6330,11 +6330,11 @@ textarea.materialize-textarea + label:after, .select-wrapper + label:after {
 
 .input-field .prefix {
   position: absolute;
-  width: 3rem;
+  width: 2rem;
   font-size: 2rem;
   -webkit-transition: color .2s;
   transition: color .2s;
-  top: 0.5rem;
+  top: 0rem;
 }
 
 .input-field .prefix.active {
@@ -6422,7 +6422,7 @@ textarea.materialize-textarea + label:after, .select-wrapper + label:after {
 /* Textarea */
 textarea {
   width: 100%;
-  height: 3rem;
+  height: 2rem;
   background-color: transparent;
 }
 
@@ -6433,7 +6433,7 @@ textarea.materialize-textarea {
   padding: .8rem 0 .8rem 0;
   /* prevents text jump on Enter keypress */
   resize: none;
-  min-height: 3rem;
+  min-height: 2rem;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -6904,7 +6904,7 @@ select {
   padding: 5px;
   border: 1px solid #f2f2f2;
   border-radius: 2px;
-  height: 3rem;
+  height: 2rem;
 }
 
 .select-label {
@@ -6928,8 +6928,8 @@ select {
   border: none;
   border-bottom: 1px solid #9e9e9e;
   outline: none;
-  height: 3rem;
-  line-height: 3rem;
+  height: 2rem;
+  line-height: 2rem;
   width: 100%;
   font-size: 16px;
   margin: 0 0 8px 0;
@@ -7056,8 +7056,8 @@ body.keyboard-focused .select-dropdown.dropdown-content li:focus {
 
 .file-field .btn, .file-field .btn-large, .file-field .btn-small {
   float: left;
-  height: 3rem;
-  line-height: 3rem;
+  height: 2rem;
+  line-height: 2rem;
 }
 
 .file-field span {

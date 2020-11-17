@@ -41,5 +41,10 @@ router.get('/change_password/:id',UserController.getPwdChangeForm);
 
 router.post('/change_password/:id', Validator.pwdChangeVal , UserController.postPwdChangeForm);
 
+// GET NEWSLETTER SUBSCRIPTION
+
+router.get('/newsletters', UserController.getNewslettersSub);
+
+router.get('/sendNewsletters', UserController.userWithSub);
 
 module.exports = router;

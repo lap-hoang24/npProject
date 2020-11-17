@@ -17,8 +17,16 @@ const userSchema = mongoose.Schema({
     join_date: {
         type: Date,
         default: Date.now
-    }
+    },
+    status: {
+        type: String,
+        default: "user"
+    },
+    newsletter_sub: {
+        type: Boolean,
+        default: false
 
+    }
 })
 
 const User = module.exports = mongoose.model('User', userSchema);

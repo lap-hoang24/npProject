@@ -19,14 +19,54 @@ main {
         background-size: cover;
         background-position: center 30%;
         height: 250px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include flex(column, center, center);
 
         &_text {
             color: rgba(249, 195, 1, 0.99);
             text-transform: uppercase;
             font-size: 1.5rem;
+        }
+
+        #location {
+            text-align: center;
+            width: 12rem;
+            background: rgba($base-black, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            color: $base-white;
+            position: relative;
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            &-list {
+                background: rgba($base-white, 0.5);
+                position: absolute;
+                border-radius: 0 0 5px 5px;
+                width: 100%;
+                top: 40px;
+                left: 0;   
+                font-size: 1rem;
+                display: none;
+                text-align: center;
+                li {
+                    padding: 0.2rem 0.5rem;
+                    font-weight: 500;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                    a:visited, a {
+                        color: lighten($base-black, 15%);
+                    }
+                }
+            }
+
+            .appear {
+                display: block;
+            }
         }
     }
 
@@ -34,7 +74,6 @@ main {
         margin-top: 2rem;
 
         .event-item {
-
             &:nth-child(odd) {
                 background: lighten($base-grey, 60%);
             }
@@ -48,7 +87,7 @@ main {
             width: 100%;
             height: 90px;
             margin-top: 1rem;
-            
+
             .performers-picture {
                 height: 90px;
                 width: 100px;
@@ -108,8 +147,6 @@ main {
     }
 
     main {
-      
-
         .jumbotron {
             height: 70vh;
 
@@ -129,7 +166,6 @@ main {
             margin-top: 2rem;
 
             .event-item {
-                
                 height: 200px;
 
                 .performers-picture {

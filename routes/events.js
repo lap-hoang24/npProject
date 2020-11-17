@@ -16,4 +16,6 @@ router.get('/search/:value', Event.getSearchResults);
 
 router.get('/artist=:artist_id', Event.getArtistsEvents);
 
+router.get('/near-you/:city', Event.getNearyouLocations);
+
 module.exports = router;

@@ -799,6 +799,12 @@ main .jumbotron {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -811,6 +817,51 @@ main .jumbotron_text {
   color: rgba(249, 195, 1, 0.99);
   text-transform: uppercase;
   font-size: 1.5rem;
+}
+
+main .jumbotron #location {
+  text-align: center;
+  width: 12rem;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  color: rgba(241, 238, 238, 0.997);
+  position: relative;
+}
+
+main .jumbotron #location:hover {
+  cursor: pointer;
+}
+
+main .jumbotron #location-list {
+  background: rgba(241, 238, 238, 0.5);
+  position: absolute;
+  border-radius: 0 0 5px 5px;
+  width: 100%;
+  top: 40px;
+  left: 0;
+  font-size: 1rem;
+  display: none;
+  text-align: center;
+}
+
+main .jumbotron #location-list li {
+  padding: 0.2rem 0.5rem;
+  font-weight: 500;
+}
+
+main .jumbotron #location-list li:hover {
+  text-decoration: underline;
+}
+
+main .jumbotron #location-list li a:visited, main .jumbotron #location-list li a {
+  color: rgba(38, 38, 38, 0.99);
+}
+
+main .jumbotron #location .appear {
+  display: block;
 }
 
 main #events-lists {
