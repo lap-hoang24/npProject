@@ -1,23 +1,21 @@
 const express = require('express');
 const router = express.Router();
 const UserController = require('../controller/user-control');
-const checkAuth = require('../middlewares/auth');
 const Validator = require('../controller/validator');
 const authToken = require('../middlewares/auth-token');
+const checkAuthentication = require('../middlewares/auth');
 
 // ==== Bring in USER MODEL
 
-let User = require('../models/Users');
 
-// ==== Render Register form
+// ==== REGISTER====
 
 router.get('/register', UserController.getRegisterForm);
 
-// ==== Submit Register Form
 
 router.post('/register', Validator.registerFromVal , UserController.postRegisterForm)
 
-// ==== Render LOGIN page
+// ==== LOGIN ====
 
 router.get('/login', UserController.getLoginForm);
 
@@ -28,23 +26,28 @@ router.post('/login', UserController.postLoginForm)
 
 router.get('/logout', UserController.getLogout);
 
-// RENDER PASSWORD RECOVERY PROCESS===
+// ===== PASSWORD RECOVERY PROCESS===
 
-router.get('/recover_password', UserController.getPwdRecoverForm);
+router.get('/recover_password', checkAuthentication, UserController.getPwdRecoverForm);
 
-router.post('/recover_password', UserController.postPwdRecoverForm);
+router.post('/recover_password', checkAuthentication, UserController.postPwdRecoverForm);
 
 
-// RENDER CHANGE PASSWORD PAGE
+// ===== CHANGE PASSWORD PAGES ===
 
-router.get('/change_password/:id',UserController.getPwdChangeForm);
+router.get('/change_password/:id', checkAuthentication,UserController.getPwdChangeForm);
 
-router.post('/change_password/:id', Validator.pwdChangeVal , UserController.postPwdChangeForm);
+router.post('/change_password/:id', Validator.pwdChangeVal , checkAuthentication, UserController.postPwdChangeForm);
 
 // GET NEWSLETTER SUBSCRIPTION
 
-router.get('/newsletters', UserController.getNewslettersSub);
+router.get('/newsletters', checkAuthentication, UserController.getNewslettersSub);
 
-router.get('/sendNewsletters', UserController.userWithSub);
+router.get('/subscribe', checkAuthentication, UserController.userSubscribe);
+
+router.get('/unsubscribe', checkAuthentication, UserController.userUnsubscribe);
+
+router.get('/sendNewsletters', checkAuthentication, UserController.userWithSub);
+
 
 module.exports = router;

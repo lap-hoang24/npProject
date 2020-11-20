@@ -86,10 +86,10 @@ const UIController = (function () {
             let newEventName;
             let eventName = eventNameClass[i].getAttribute(DOMstrings.attr.eventName);
 
-            console.log(eventName.slice(-12));
+            console.log(eventName.slice(0, -33));
 
-            if (eventName.slice(-12) == "(CANCELLED) ") {
-               newEventName = eventName.slice(0, -32);
+            if (eventName.slice(-12) == "(CANCELLED) " || eventName.slice(-12) == "(POSTPONED) ") {
+               newEventName = eventName.slice(0, -33);
             } else {
                newEventName = eventName.slice(0, -19);
             }

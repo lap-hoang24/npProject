@@ -1,0 +1,38 @@
+// ======== GLOBAL STYLING ==========
+
+@import "../base/global";
+
+@import "../layouts/navbar";
+
+@import "../layouts/footer";
+
+@import "../utilities/variables";
+
+@import "../utilities/mixins";
+
+
+
+body {
+   height: 70vh;
+   color: $base-white;
+
+   background: $base-black;
+   .container {
+      padding-top: 10rem;
+      height: 100%;
+
+      a {
+         padding: 0.7rem 1.3rem;
+         background: $yellow;
+         display: inline-block;
+         color: $base-white;
+         font-weight: bold;
+         border-radius: 5px;
+         margin-top: 1rem;
+
+         &:hover {
+            cursor: pointer;
+         }
+      }
+   }
+}

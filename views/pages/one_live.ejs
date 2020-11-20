@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Upcoming Events</title>
+   <link rel="stylesheet" href="/css/one_live.css" />
+   <script src="https://kit.fontawesome.com/ade53cd309.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+   <!-- HEADER -->
+   <header><%- include('../layouts/navbar.ejs') -%></header>
+   <!-- MAIN -->
+   <main>
+
+      <section class="container">
+         <iframe src="<%= event.link %>" frameborder="0" allow="autoplay"></iframe>
+         <form id="comment-form" action="/comments/comment" method="POST">
+            <textarea type="text" name="content" id="content"
+               placeholder="Leave a comment about this amazing livestream"></textarea>
+            <input type="hidden" name="user_id" id="user_id" value="<%= user._id %>">
+            <input type="hidden" name="user_name" id="user_name" value="<%= user.username %>">
+            <input type="hidden" name="user_avatar" id="user_avatar" value="<%=user.avatar %>">
+            <input type="hidden" name="liveshow_id" id="liveshow_id" value="<%=event._id %>">
+            <input type="hidden" name="user_color" id="user_color" value="<%=user.color%>">
+            <button id="comment-btn" type="submit">Send<i class="fas fa-paper-plane"></i></button>
+         </form>
+
+         <div id="comment-wrapper">
+
+         </div>
+      </section>
+
+   </main>
+   <!-- FOOTER -->
+   <%- include('../layouts/footer.ejs') -%>
+
+   <!-- <script src="/js/test.js"></script>    -->
+   <script src="/js/one_live.js"></script>
+   <script src="/js/send-comment.js"></script>
+</body>
+
+</html>

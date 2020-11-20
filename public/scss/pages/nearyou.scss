@@ -10,7 +10,7 @@
 
 @import "../utilities/mixins";
 
-@import "../utilities/functions";
+
 // ===== MAIN ================================
 main {
     .jumbotron {
@@ -22,19 +22,21 @@ main {
         @include flex(column, center, center);
 
         &_text {
-            color: rgba(249, 195, 1, 0.99);
+            color: $yellow;
             text-transform: uppercase;
             font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.7rem;
         }
 
         #location {
             text-align: center;
-            width: 12rem;
-            background: rgba($base-black, 0.3);
-            padding: 0.5rem 1rem;
+            width: 8rem;
+            background: rgba($base-black, 0.6);
+            padding: 0.3rem 0.3rem;
             border-radius: 5px;
             text-transform: uppercase;
-            font-size: 1.2rem;
+            font-size: 0.9rem;
             color: $base-white;
             position: relative;
 
@@ -43,13 +45,13 @@ main {
             }
 
             &-list {
-                background: rgba($base-white, 0.5);
+                background: rgba($base-white, 0.9);
                 position: absolute;
                 border-radius: 0 0 5px 5px;
                 width: 100%;
-                top: 40px;
+                top: 30px;
                 left: 0;   
-                font-size: 1rem;
+                font-size: 0.9rem;
                 display: none;
                 text-align: center;
                 li {
@@ -112,22 +114,16 @@ main {
                         border-bottom: 1px solid $base-black;
                     }
                 }
-
-                img {
-                    height: 100%;
-                    width: 100%;
-                }
             }
 
             .event-description {
                 margin-left: 10px;
-                width: calc(100vw - 110px);
 
                 a {
                     font-size: 0.9rem;
                     font-weight: 600;
                     color: $blue-link;
-                    border-bottom: 2px solid $blue-link;
+                    text-transform: uppercase;
                 }
 
                 .event-name {
@@ -154,10 +150,50 @@ main {
                 font-size: 4rem;
                 font-weight: 700;
             }
+            #location {
+                text-align: center;
+                width: 12rem;
+                background: rgba($base-black, 0.4);
+                padding: 0.5rem 0.1rem;
+                border-radius: 5px;
+                text-transform: uppercase;
+                font-size: 1.2rem;
+                color: $base-white;
+                position: relative;
+    
+                &:hover {
+                    cursor: pointer;
+                }
+    
+                &-list {
+                    background: rgba($base-white, 0.5);
+                    position: absolute;
+                    border-radius: 0 0 5px 5px;
+                    width: 100%;
+                    top: 40px;
+                    left: 0;   
+                    font-size: 1rem;
+                    display: none;
+                    text-align: center;
+                    li {
+                        padding: 0.2rem 0.5rem;
+                        font-weight: 500;
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                        a:visited, a {
+                            color: lighten($base-black, 15%);
+                        }
+                    }
+                }
+    
+                .appear {
+                    display: block;
+                }
+            }
         }
 
         .container {
-            width: 60%;
             margin: 0 auto;
             position: relative;
         }
@@ -168,16 +204,13 @@ main {
             .event-item {
                 height: 200px;
 
+                &:hover {
+                    box-shadow: 1px 1px 7px grey;
+                }
                 .performers-picture {
                     height: 180px;
                     width: 350px;
                     margin-left: 1rem;
-
-                    img {
-                        height: 100%;
-                        width: 100%;
-                        display: block;
-                    }
                 }
 
                 .event-description {
@@ -188,7 +221,6 @@ main {
                         font-size: 1.5rem;
                         font-weight: 500;
                         color: $blue-link;
-                        border-bottom: 2px solid darken($blue-link, 10%);
                     }
 
                     .event-name {

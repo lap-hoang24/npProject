@@ -23,26 +23,42 @@
   display: block;
 }
 
-body {
-  font-size: 13px;
-  font-family: "Montserrat", sans-serif;
+
+.hvr-sweep-to-right {
+  padding: 1rem 2rem;
+  display: inline-block;
+  vertical-align: middle;
+  transform: perspective(1px) translateZ(0);
+  /* box-shadow: 0 0 1px rgba(0, 0, 0, 0); */
+  position: relative;
+  transition-property: color;
+  transition-duration: 0.3s;
+  background-color: #fff;
 }
 
-#gaga {
-  color: #d00d0d;
-  background: #d00d0d;
-  border: #d00d0d;
-}
+.hvr-sweep-to-right:before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 300%;
+  background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(252,176,69,1) 100%);
 
-h2 {
-  color: rgba(0, 0, 0, 0.99);
-  background: rgba(241, 238, 238, 0.997);
-  border: #d00d0d;
-}
+  transform: scaleX(0.333333);
 
-h3 {
-  color: rgba(0, 0, 0, 0.99);
-  background: rgba(241, 238, 238, 0.997);
-  border: rgba(76, 76, 76, 0.949);
+  transform-origin: 0 0%;
+
+  transition-property: transform;
+
+  transition-duration: 0.3s;
+
+  transition-timing-function: ease-out;
 }
-/*# sourceMappingURL=test.css.map */
+/* .hvr-sweep-to-right:hover {
+  color: white;
+} */
+.hvr-sweep-to-right:hover:before {
+  transform: scaleX(1);
+}

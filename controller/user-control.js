@@ -1,14 +1,12 @@
 
-
-// ====== DEPENDENCIES  ==========================================
+// ====== DEPENDENCIES  ========================================
 const mailer_newsletters = require("./mailer-newsletters");
 const mailer_pwd = require('./mailer-pwd_recovery');
 const passport = require('passport');
 const bcryptjs = require('bcryptjs');
 const { check, validationResult } = require('express-validator');
 const jwt = require('jsonwebtoken');
-
-
+const AvaColor = require('./avatar-color-generator');
 const LocalStorage = require('node-localstorage').LocalStorage;
 localStorage = new LocalStorage('./scratch');
 
@@ -43,15 +41,16 @@ exports.postRegisterForm = (req, res) => {
 
       console.log(errors);
    } else {
-
+ 
       let user = new User();
 
       user.email = req.body.email;
       user.username = req.body.username;
       user.password = req.body.password;
+      user.avatar = AvaColor.avatarGenerator();
+      user.color = AvaColor.colorGenerator();
 
       // hashing password
-
       bcryptjs.genSalt(10, (err, salt) => {
          bcryptjs.hash(user.password, salt, (err, hash) => {
             if (err) throw err;
@@ -64,7 +63,7 @@ exports.postRegisterForm = (req, res) => {
                   return;
                } else {
                   req.flash('success', 'You are now registered')
-                  res.redirect('/users/login')
+                  res.redirect('/users/login');
                }
             })
          })
@@ -125,9 +124,7 @@ exports.getLogout = (req, res) => {
 // ==== PASSWORD RECOVERY PROCESS  ====================
 
 exports.getPwdRecoverForm = (req, res) => {
-   res.render('pages/email_recovery', {
-      user: false
-   })
+   res.render('pages/email_recovery', {})
 }
 
 exports.postPwdRecoverForm = (req, res) => {
@@ -137,11 +134,8 @@ exports.postPwdRecoverForm = (req, res) => {
       if (err) {
          console.log(err);
       } else {
-         mailer(user);
-         console.log(user)
-         res.render('pages/email_sent', {
-            user: false
-         })
+         mailer_pwd(user);
+         res.render('pages/email_sent', {user: false})
       }
    })
 }
@@ -206,6 +200,31 @@ exports.postPwdChangeForm = (req, res) => {
 // NEWSLETTER SUBSCRIPTION
 
 exports.getNewslettersSub = (req, res) => {
+
+   res.render('pages/newsletters_sub', {});
+}
+
+
+exports.userUnsubscribe = (req, res) => {
+      User.findOneAndUpdate({ _id: res.locals.user._id }, {
+      $set: {
+         newsletter_sub: false
+      }
+   }, (err, resa) => {
+      if (err) {
+         console.error(err);
+         return
+      } else {
+         // req.flash("success", "Newsletters Subcribed!");
+         res.redirect('/');
+      }
+   }, {
+      upsert: true
+   })
+}
+
+
+exports.userSubscribe = (req, res) => {
    User.findOneAndUpdate({ _id: res.locals.user._id }, {
       $set: {
          newsletter_sub: true

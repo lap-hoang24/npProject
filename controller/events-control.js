@@ -4,6 +4,9 @@ const apifetch = require('../controller/api');
 const Filter = require('../controller/events-filter');
 const geoip = require('geoip-lite');
 
+const Event = require('../models/Event');
+const Comment = require('../models/Comments');
+
 exports.getUpcomingEvents = async (req, res) => {
    try {
       const api = "https://api.seatgeek.com/2/events?";
@@ -178,3 +181,29 @@ exports.getFilteredEvents = async (req, res) => {
       user: false
    })
 }
+
+
+exports.getLiveEvents = (req, res) => {
+   Event.find({}, (err, events) => {
+      if (err) throw err;
+      // console.log(events);
+      res.render('pages/liveshows', { events })
+   })
+}
+
+exports.getLiveEvent = (req, res) => {
+
+   // console.log(req.params.event_id);
+
+   Event.findOne({ _id: req.params.event_id }, (err, event) => {
+      if (err) throw err;
+
+      Comment.find({ liveshows_id: req.params.event_id }, (err, comments) => {
+         if (err) throw err;
+         // console.log(comments);
+         res.render('pages/one_live', { event, comments });
+      })
+   })
+}
+
+

@@ -16,7 +16,8 @@ const UIController = (function () {
          eventName: "event_name",
          upcomingEventLink: "upcoming-event_link",
          nearyouEventLink: "nearyou-event_link",
-         navBar: "navbar"
+         navBar: "navbar",
+         liveDot: "live-dot"
       },
 
       id: {

@@ -15,9 +15,7 @@ const jwt = require('jsonwebtoken');
 const authToken = require('./middlewares/auth-token');
 // const LocalStorage = require('node-localstorage').LocalStorage;
 // localStorage = new LocalStorage('./scratch');
-// === import Authentication Check ===
 
-const checkAuth = require('./middlewares/auth');
 
 // === SETTING UP MONGODB CONNECTION ===
 mongoose.connect(config.database, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -87,6 +85,9 @@ app.use('/users', users);
 
 const events = require('./routes/events');
 app.use('/events', events)
+
+const comments = require('./routes/comments');
+app.use('/comments', comments);
 
 // === RENDER HOME PAGE ===
 

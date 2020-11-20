@@ -10,10 +10,12 @@
 
 @import "../utilities/mixins";
 
-@import "../utilities/functions";
+
 
 // ===== MAIN ================================
 main {
+    font-size: $mb-font;
+
     .jumbotron {
         width: 100%;
         background-image: url("/images/Noiseporn.jpeg");
@@ -42,6 +44,7 @@ main {
             &:nth-child(even) {
                 background: lighten($base-grey, 65%);
             }
+
             @include flex(column, center, flex-start);
             border-radius: 6px;
             width: 100%;
@@ -72,38 +75,36 @@ main {
                         border-bottom: 1px solid $base-black;
                     }
                 }
-
-                img {
-                    height: 100%;
-                    width: 100%;
-                }
             }
 
             .event-description {
                 margin-left: 10px;
-                width: calc(100vw - 110px);
+                width: calc(100% - 120px);
 
                 a {
-                    font-size: 0.9rem;
+                    font-size: $mb-font;
                     font-weight: 600;
                     color: $blue-link;
-                    border-bottom: 2px solid $blue-link;
                 }
 
                 .event-name {
                     text-transform: uppercase;
                     padding-bottom: 0.3rem;
+                    overflow: hidden;
                 }
             }
         }
     }
 }
 
+
+
+
 // ============ MEDIA QUERIES ==============
 
 @media (min-width: 769px) {
     body {
-        font-size: 15px;
+        font-size: $scr-font;
     }
 
     main {
@@ -119,53 +120,36 @@ main {
             width: 70%;
             margin: 0 auto;
             position: relative;
-            display: grid;
-            column-gap: 2rem;
-            grid-template-columns: 250px calc(100% - 2rem - 250px);
         }
 
         #filter {
-            grid-area: 0/0/1/1;
-            height: 295px;
-            width: 250px;
             position: sticky;
-            top: 100px;
-            border: 3px lighten($base-grey, 30%) solid;
+            top: 77px;
             border-radius: 5px;
-            &-title {
-                font-weight: 600;
-                text-align: center;
-                font-size: 1.1rem;
-                margin: 0.5rem 0;
-            }
+            z-index: 999;
+            background: $yellow;
+            padding: 0.4rem 0;
+            form {
+                @include flex(row, space-around, center);
 
-            %form-style {
-                font-size: 0.8rem;
+            }
+            select, input {
+                font-family: 'Oswald', sans-serif;
+                height: 1.6rem;
+                width: 9rem;
+                border: none;
+                padding: 0.3rem;
+                border-radius: 3px;
                 text-transform: uppercase;
-            }
-
-            .form-item {
-                font-weight: 600;
-                padding: 0.7rem 0;
-                @extend %form-style;
-                @include flex(row, space-between, center);
-                input,
-                select {
-                    width: 9rem;
-                    height: 1.3rem;
-                    @extend %form-style;
-                }
             }
 
             #filter-btn {
                 font-size: 1rem;
-                padding: 0.3rem 3rem;
-                border: 1px $base-black solid;
+                padding: 0.3rem 2rem;
                 background: $base-black;
                 border-radius: 3px;
                 color: $base-white;
-                margin: 1.5rem auto;
-                display: block;
+                display: inline-block;
                 &:hover {
                     cursor: pointer;
                     border: 1px lighten($base-black, 10%) solid;
@@ -176,7 +160,7 @@ main {
         }
 
         #events-lists {
-            grid-area: 0/1/1/2;
+            // grid-area: 0/1/1/2;
             margin-top: 2rem;
 
             .event-item {
@@ -186,30 +170,6 @@ main {
                     height: 180px;
                     width: 240px;
                     margin-left: 1rem;
-
-                    // .date_time {
-                    //     font-size: 11px;
-                    //     position: absolute;
-                    //     top: 0;
-                    //     right: 0;
-                    //     background: $base-white;
-                    //     height: 50px;
-                    //     width: 50px;
-                    //     border-radius: 3px;
-                    //     @include flex(column, center, center);
-
-                    //     .day {
-                    //         text-align: center;
-                    //         height: 50%;
-                    //         width: 80%;
-                    //         border-bottom: 1px solid $base-black;
-                    //     }
-                    // }
-                    img {
-                        height: 100%;
-                        width: 100%;
-                        display: block;
-                    }
                 }
 
                 .event-description {

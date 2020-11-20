@@ -10,7 +10,6 @@
 
 @import "../utilities/mixins";
 
-@import "../utilities/functions";
 // ===== MAIN ================================
 
 header {
@@ -27,6 +26,13 @@ main {
             text-align: center;
             border-top: 10px solid $base-black;
             border-bottom: 10px solid $base-black;
+        }
+
+        .no-event {
+            margin: 4rem 0;
+            font-size: 3rem;
+            text-align: center;
+            color: lighten($base-grey, 10%);
         }
         .artist-result {
             &:nth-child(odd) {

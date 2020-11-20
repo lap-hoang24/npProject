@@ -1,9 +1,23 @@
 const mongoose = require('mongoose');
 
 const commentSchema = mongoose.Schema({
-    user_id: {
-        type: mongoose.Schema.ObjectId,
-        required: true
+    user: {
+        user_id: {
+            type: mongoose.Schema.ObjectId,
+            required: true
+        },
+        user_name: {
+            type: String,
+            required: true
+        },
+        user_avatar: {
+            type: String,
+            required: true
+        },
+        user_color: {
+            type: String,
+            required: true
+        }
     },
     content: {
         type: String,
@@ -11,7 +25,7 @@ const commentSchema = mongoose.Schema({
     },
     liveshows_id: {
         type: mongoose.Schema.ObjectId,
-        required: false
+        required: true
     },
     date: {
         type: Date,

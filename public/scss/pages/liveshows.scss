@@ -1,0 +1,68 @@
+// ======== GLOBAL STYLING ==========
+
+@import "../base/global";
+
+@import "../layouts/navbar";
+
+@import "../layouts/footer";
+
+@import "../utilities/variables";
+
+@import "../utilities/mixins";
+
+
+// ==================================
+
+header {
+   .navbar {
+      background: $base-black;
+   }
+
+
+}
+
+main {
+
+   .container {
+      padding-top: 8rem;
+
+      .liveshow {
+         position: relative;
+         height: 300px;
+         width: 100%;
+         margin: 3rem 0;
+
+         img {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+         }
+         a {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background: rgba($base-black, 0.4);
+            font-size: 5rem;
+            text-transform: uppercase;
+            @include flex(column, center, center);
+            font-weight: 900;
+            z-index: 2;
+
+            color: darken($base-white, 5%);
+         }
+
+         .event_name-small {
+            text-align:center;
+            font-size: 3rem;
+         }
+      }
+   }
+}
+
+
+

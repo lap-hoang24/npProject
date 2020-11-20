@@ -2,13 +2,16 @@
 
 @import "../utilities/variables";
 
+@import "../utilities/mixins";
+
 header {
+    font-size: $mb-font - 0.1rem;
     position: fixed;
     top: 0px;
     right: 0;
     width: 100%;
     background: transparent;
-    z-index: 99999999;
+    z-index: 9999;
 
     .actived {
         background-color: $base-black !important;
@@ -59,9 +62,8 @@ header {
             display: none;
 
             #search-bar {
-
                 width: 15rem;
-                color: $base-white;
+                color: $base-black;
 
                 ::placeholder {
                     color: $base-white;
@@ -69,10 +71,11 @@ header {
                 #search-input {
                     width: 90%;
                     background: transparent;
+                    font-family: 'Raleway', sans-serif;
                     border: none;
                     border-bottom: 1px solid rgba(177, 177, 177, 0.597);
                     color: $base-black;
-                    font-size: 1rem;
+                    font-size: $mb-font;
                     &:focus {
                         outline: none;
                     }
@@ -98,13 +101,14 @@ header {
             }
 
             a {
-                font-weight: 400;
+                font-weight: 600;
                 display: block;
             }
 
             #live {
                 color: $red;
             }
+
             .account {
                 display: flex;
                 flex-direction: column;
@@ -142,6 +146,7 @@ header {
         .hamburger-active {
             display: flex;
             position: absolute;
+            width: 100%;
             height: 310px;
             top: 60px;
             background: $base-white;
@@ -157,6 +162,7 @@ header {
     // ======== NAV BAR =============
     header {
         top: 1rem;
+        font-size: $scr-font;
         
         .navbar {
             flex-direction: row;

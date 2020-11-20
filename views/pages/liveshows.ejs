@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Upcoming Events</title>
+   <link rel="stylesheet" href="/css/liveshows.css" />
+   <script src="https://kit.fontawesome.com/ade53cd309.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+   <!-- HEADER -->
+   <header><%- include('../layouts/navbar.ejs') -%></header>
+   <!-- MAIN -->
+   <main>
+      <section class="container">
+         <% events.forEach((event) => { %>
+         <div class="liveshow">
+            <img src="<%= event.image %>" alt="">
+            <a href="/events/live/<%= event._id %>">
+               <div class="artist-large"> <%= event.artist %></div>
+               <div class="event_name-small"> <%= event.name %></div> 
+            </a>
+         </div>
+         <% } ) %>
+      </section>
+
+   </main>
+   <!-- FOOTER -->
+   <%- include('../layouts/footer.ejs') -%>
+
+   <script src="/js/upcoming.js"></script>
+</body>
+
+</html>

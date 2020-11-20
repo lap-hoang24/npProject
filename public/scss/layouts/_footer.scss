@@ -12,6 +12,7 @@ footer {
     background: #000;
     padding: 2rem 0;
     border-top: 1px solid rgba(111, 111, 111, 0.798);
+    font-size: $mb-font;
     a {
         text-decoration: none;
         color: #fff;
@@ -30,7 +31,7 @@ footer {
 
     .footer-nav ul {
         li {
-            padding: 0.3rem 1rem;
+            padding: 0.3rem 0.5rem;
             a:hover {
                 color: red;
             }

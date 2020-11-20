@@ -85,7 +85,7 @@ const UIController = (function () {
  
              console.log(eventName.slice(-12));
  
-             if (eventName.slice(-12) == "(CANCELLED) ") {
+             if (eventName.slice(-12) == "(CANCELLED) " || eventName.slice(-12) == "(POSTPONED) ") {
                 newEventName = eventName.slice(0, -32);
              } else {
                 newEventName = eventName.slice(0, -19);

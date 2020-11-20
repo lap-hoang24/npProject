@@ -1,8 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
 * {
   -webkit-box-sizing: border-box;
@@ -25,11 +25,25 @@
 
 * img {
   display: block;
+  width: 100%;
+  height: 100%;
+}
+
+* button {
+  border: none;
+}
+
+* button:hover {
+  cursor: pointer;
+}
+
+* button:focus {
+  outline: none;
 }
 
 body {
-  font-size: 13px;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
 }
 
 body .container {
@@ -40,6 +54,7 @@ body .container {
 @media (min-width: 769px) {
   body .container {
     width: 60%;
+    margin: 0 auto;
   }
 }
 
@@ -64,11 +79,25 @@ body .container {
 
 * img {
   display: block;
+  width: 100%;
+  height: 100%;
+}
+
+* button {
+  border: none;
+}
+
+* button:hover {
+  cursor: pointer;
+}
+
+* button:focus {
+  outline: none;
 }
 
 body {
-  font-size: 13px;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
 }
 
 body .container {
@@ -79,16 +108,18 @@ body .container {
 @media (min-width: 769px) {
   body .container {
     width: 60%;
+    margin: 0 auto;
   }
 }
 
 header {
+  font-size: 0.8rem;
   position: fixed;
   top: 0px;
   right: 0;
   width: 100%;
   background: transparent;
-  z-index: 99999999;
+  z-index: 9999;
 }
 
 header .actived {
@@ -158,7 +189,7 @@ header .navbar .navbar_links {
 
 header .navbar .navbar_links #search-bar {
   width: 15rem;
-  color: rgba(241, 238, 238, 0.997);
+  color: rgba(0, 0, 0, 0.99);
 }
 
 header .navbar .navbar_links #search-bar ::-webkit-input-placeholder {
@@ -180,10 +211,11 @@ header .navbar .navbar_links #search-bar ::placeholder {
 header .navbar .navbar_links #search-bar #search-input {
   width: 90%;
   background: transparent;
+  font-family: 'Raleway', sans-serif;
   border: none;
   border-bottom: 1px solid rgba(177, 177, 177, 0.597);
   color: rgba(0, 0, 0, 0.99);
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 header .navbar .navbar_links #search-bar #search-input:focus {
@@ -214,7 +246,7 @@ header .navbar .navbar_links li {
 }
 
 header .navbar .navbar_links a {
-  font-weight: 400;
+  font-weight: 600;
   display: block;
 }
 
@@ -278,6 +310,7 @@ header .navbar .hamburger-active {
   display: -ms-flexbox;
   display: flex;
   position: absolute;
+  width: 100%;
   height: 310px;
   top: 60px;
   background: rgba(241, 238, 238, 0.997);
@@ -291,6 +324,7 @@ header .navbar .hamburger-active a {
 @media (min-width: 769px) {
   header {
     top: 1rem;
+    font-size: 1rem;
   }
   header .navbar {
     -webkit-box-orient: horizontal;
@@ -401,11 +435,25 @@ header .navbar .hamburger-active a {
 
 * img {
   display: block;
+  width: 100%;
+  height: 100%;
+}
+
+* button {
+  border: none;
+}
+
+* button:hover {
+  cursor: pointer;
+}
+
+* button:focus {
+  outline: none;
 }
 
 body {
-  font-size: 13px;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
 }
 
 body .container {
@@ -416,6 +464,7 @@ body .container {
 @media (min-width: 769px) {
   body .container {
     width: 60%;
+    margin: 0 auto;
   }
 }
 
@@ -436,6 +485,7 @@ footer {
   background: #000;
   padding: 2rem 0;
   border-top: 1px solid rgba(111, 111, 111, 0.798);
+  font-size: 0.9rem;
 }
 
 footer a {
@@ -460,7 +510,7 @@ footer .footer-medias ul li {
 }
 
 footer .footer-nav ul li {
-  padding: 0.3rem 1rem;
+  padding: 0.3rem 0.5rem;
 }
 
 footer .footer-nav ul li a:hover {
@@ -510,286 +560,6 @@ footer .logo {
   }
 }
 
-.m-1 {
-  margin: 1rem;
-}
-
-.mx-1 {
-  margin: 0 1rem;
-}
-
-.my-1 {
-  margin: 1rem 0;
-}
-
-.mt-1 {
-  margin: 1rem 0 0 0;
-}
-
-.mb-1 {
-  margin: 0 0 1rem 0;
-}
-
-.ml-1 {
-  margin: 0 0 0 1rem;
-}
-
-.mr-1 {
-  margin: 0 1rem 0 0;
-}
-
-.p-1 {
-  padding: 1rem;
-}
-
-.px-1 {
-  padding: 0 1rem;
-}
-
-.py-1 {
-  padding: 1rem 0;
-}
-
-.pt-1 {
-  padding: 1rem 0 0 0;
-}
-
-.pb-1 {
-  padding: 0 0 1rem 0;
-}
-
-.pl-1 {
-  padding: 0 0 0 1rem;
-}
-
-.pr-1 {
-  padding: 0 1rem 0 0;
-}
-
-.m-2 {
-  margin: 2rem;
-}
-
-.mx-2 {
-  margin: 0 2rem;
-}
-
-.my-2 {
-  margin: 2rem 0;
-}
-
-.mt-2 {
-  margin: 2rem 0 0 0;
-}
-
-.mb-2 {
-  margin: 0 0 2rem 0;
-}
-
-.ml-2 {
-  margin: 0 0 0 2rem;
-}
-
-.mr-2 {
-  margin: 0 2rem 0 0;
-}
-
-.p-2 {
-  padding: 2rem;
-}
-
-.px-2 {
-  padding: 0 2rem;
-}
-
-.py-2 {
-  padding: 2rem 0;
-}
-
-.pt-2 {
-  padding: 2rem 0 0 0;
-}
-
-.pb-2 {
-  padding: 0 0 2rem 0;
-}
-
-.pl-2 {
-  padding: 0 0 0 2rem;
-}
-
-.pr-2 {
-  padding: 0 2rem 0 0;
-}
-
-.m-3 {
-  margin: 3rem;
-}
-
-.mx-3 {
-  margin: 0 3rem;
-}
-
-.my-3 {
-  margin: 3rem 0;
-}
-
-.mt-3 {
-  margin: 3rem 0 0 0;
-}
-
-.mb-3 {
-  margin: 0 0 3rem 0;
-}
-
-.ml-3 {
-  margin: 0 0 0 3rem;
-}
-
-.mr-3 {
-  margin: 0 3rem 0 0;
-}
-
-.p-3 {
-  padding: 3rem;
-}
-
-.px-3 {
-  padding: 0 3rem;
-}
-
-.py-3 {
-  padding: 3rem 0;
-}
-
-.pt-3 {
-  padding: 3rem 0 0 0;
-}
-
-.pb-3 {
-  padding: 0 0 3rem 0;
-}
-
-.pl-3 {
-  padding: 0 0 0 3rem;
-}
-
-.pr-3 {
-  padding: 0 3rem 0 0;
-}
-
-.m-4 {
-  margin: 4rem;
-}
-
-.mx-4 {
-  margin: 0 4rem;
-}
-
-.my-4 {
-  margin: 4rem 0;
-}
-
-.mt-4 {
-  margin: 4rem 0 0 0;
-}
-
-.mb-4 {
-  margin: 0 0 4rem 0;
-}
-
-.ml-4 {
-  margin: 0 0 0 4rem;
-}
-
-.mr-4 {
-  margin: 0 4rem 0 0;
-}
-
-.p-4 {
-  padding: 4rem;
-}
-
-.px-4 {
-  padding: 0 4rem;
-}
-
-.py-4 {
-  padding: 4rem 0;
-}
-
-.pt-4 {
-  padding: 4rem 0 0 0;
-}
-
-.pb-4 {
-  padding: 0 0 4rem 0;
-}
-
-.pl-4 {
-  padding: 0 0 0 4rem;
-}
-
-.pr-4 {
-  padding: 0 4rem 0 0;
-}
-
-.m-5 {
-  margin: 5rem;
-}
-
-.mx-5 {
-  margin: 0 5rem;
-}
-
-.my-5 {
-  margin: 5rem 0;
-}
-
-.mt-5 {
-  margin: 5rem 0 0 0;
-}
-
-.mb-5 {
-  margin: 0 0 5rem 0;
-}
-
-.ml-5 {
-  margin: 0 0 0 5rem;
-}
-
-.mr-5 {
-  margin: 0 5rem 0 0;
-}
-
-.p-5 {
-  padding: 5rem;
-}
-
-.px-5 {
-  padding: 0 5rem;
-}
-
-.py-5 {
-  padding: 5rem 0;
-}
-
-.pt-5 {
-  padding: 5rem 0 0 0;
-}
-
-.pb-5 {
-  padding: 0 0 5rem 0;
-}
-
-.pl-5 {
-  padding: 0 0 0 5rem;
-}
-
-.pr-5 {
-  padding: 0 5rem 0 0;
-}
-
 main .jumbotron {
   width: 100%;
   background-image: url("/images/Tim-Toomey.jpeg");
@@ -817,16 +587,18 @@ main .jumbotron_text {
   color: rgba(249, 195, 1, 0.99);
   text-transform: uppercase;
   font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.7rem;
 }
 
 main .jumbotron #location {
   text-align: center;
-  width: 12rem;
-  background: rgba(0, 0, 0, 0.3);
-  padding: 0.5rem 1rem;
+  width: 8rem;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0.3rem 0.3rem;
   border-radius: 5px;
   text-transform: uppercase;
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   color: rgba(241, 238, 238, 0.997);
   position: relative;
 }
@@ -836,13 +608,13 @@ main .jumbotron #location:hover {
 }
 
 main .jumbotron #location-list {
-  background: rgba(241, 238, 238, 0.5);
+  background: rgba(241, 238, 238, 0.9);
   position: absolute;
   border-radius: 0 0 5px 5px;
   width: 100%;
-  top: 40px;
+  top: 30px;
   left: 0;
-  font-size: 1rem;
+  font-size: 0.9rem;
   display: none;
   text-align: center;
 }
@@ -938,21 +710,15 @@ main #events-lists .event-item .performers-picture .date_time .day {
   border-bottom: 1px solid rgba(0, 0, 0, 0.99);
 }
 
-main #events-lists .event-item .performers-picture img {
-  height: 100%;
-  width: 100%;
-}
-
 main #events-lists .event-item .event-description {
   margin-left: 10px;
-  width: calc(100vw - 110px);
 }
 
 main #events-lists .event-item .event-description a {
   font-size: 0.9rem;
   font-weight: 600;
   color: rgba(10, 2, 225, 0.983);
-  border-bottom: 2px solid rgba(10, 2, 225, 0.983);
+  text-transform: uppercase;
 }
 
 main #events-lists .event-item .event-description .event-name {
@@ -971,8 +737,45 @@ main #events-lists .event-item .event-description .event-name {
     font-size: 4rem;
     font-weight: 700;
   }
+  main .jumbotron #location {
+    text-align: center;
+    width: 12rem;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 0.5rem 0.1rem;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    color: rgba(241, 238, 238, 0.997);
+    position: relative;
+  }
+  main .jumbotron #location:hover {
+    cursor: pointer;
+  }
+  main .jumbotron #location-list {
+    background: rgba(241, 238, 238, 0.5);
+    position: absolute;
+    border-radius: 0 0 5px 5px;
+    width: 100%;
+    top: 40px;
+    left: 0;
+    font-size: 1rem;
+    display: none;
+    text-align: center;
+  }
+  main .jumbotron #location-list li {
+    padding: 0.2rem 0.5rem;
+    font-weight: 500;
+  }
+  main .jumbotron #location-list li:hover {
+    text-decoration: underline;
+  }
+  main .jumbotron #location-list li a:visited, main .jumbotron #location-list li a {
+    color: rgba(38, 38, 38, 0.99);
+  }
+  main .jumbotron #location .appear {
+    display: block;
+  }
   main .container {
-    width: 60%;
     margin: 0 auto;
     position: relative;
   }
@@ -982,15 +785,14 @@ main #events-lists .event-item .event-description .event-name {
   main #events-lists .event-item {
     height: 200px;
   }
+  main #events-lists .event-item:hover {
+    -webkit-box-shadow: 1px 1px 7px grey;
+            box-shadow: 1px 1px 7px grey;
+  }
   main #events-lists .event-item .performers-picture {
     height: 180px;
     width: 350px;
     margin-left: 1rem;
-  }
-  main #events-lists .event-item .performers-picture img {
-    height: 100%;
-    width: 100%;
-    display: block;
   }
   main #events-lists .event-item .event-description {
     margin-left: 10px;
@@ -1000,7 +802,6 @@ main #events-lists .event-item .event-description .event-name {
     font-size: 1.5rem;
     font-weight: 500;
     color: rgba(10, 2, 225, 0.983);
-    border-bottom: 2px solid rgba(8, 2, 174, 0.983);
   }
   main #events-lists .event-item .event-description .event-name {
     text-transform: uppercase;

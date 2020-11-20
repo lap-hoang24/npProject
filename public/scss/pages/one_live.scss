@@ -1,0 +1,158 @@
+// ======== GLOBAL STYLING ==========
+@import "../base/global";
+
+@import "../components/classes";
+
+@import "../layouts/navbar";
+
+@import "../layouts/footer";
+
+@import "../utilities/variables";
+
+@import "../utilities/mixins";
+
+
+// ===== MAIN ================================
+body {
+    background: $base-black;
+
+    header {
+        top: 0rem;
+    }
+}
+
+main {
+    font-size: $mb-font;
+
+    .container {
+        padding-top: 200px;
+        iframe {
+            width: 100%;
+            height: 700px;
+            border: solid $base-white 40px;
+        }
+
+        #comment-form {
+            width: 70%;
+            margin: 0 auto;
+            padding: 1rem;
+
+            @include flex(row, center, center);
+
+            textarea {
+                font-size: 1.1rem;
+                width: 80%;
+                color: darken($base-white, 15%);
+                border: none;
+                border-bottom: lighten($base-grey, 40%) 1px solid;
+                background: transparent;
+                resize: none;
+                outline: none;
+            }
+
+            button {
+                padding: 0.5rem 1rem;
+                background: lighten($base-grey, 15%);
+                border: none;
+                color: darken($base-white, 10%);
+                border-radius: 3px;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+
+        #comment-wrapper {
+            width: 100%;
+            background: darken($base-white, 7%);
+            border-radius: 5px;
+
+            .comment {
+                padding: 0.8rem 0.5rem;
+                @include flex(row, flex-start, center);
+                position: relative;
+                .left {
+                    @include flex(row, center, center);
+                    height: 2.2rem;
+                    width: 2.2rem;
+                    margin: 0 1rem 0 0;
+                    border-radius: 100%;
+                }
+                .comment-user {
+                    font-weight: 700;
+                    display: block;
+                }
+                .comment-content {
+                    font-weight: 500;
+                }
+
+                &:hover .setting {
+                    display: flex;
+                }
+
+                .setting {
+                    color: lighten($base-black, 20%);
+                    border-radius: 100%;
+                    display: none;
+                    height: 1.5rem;
+                    width: 1.5rem;
+                    background: lighten($base-grey, 40%);
+                    position: relative;
+                    @include flex(row, center, center);
+                    
+                    &:hover .edit-delete {
+                        display: inline-block;
+                    }
+                    
+                    .edit-delete {
+
+                        display: none;
+                        position:absolute;
+                        top: 0px;
+                        right: 1rem;
+                        width: 7rem;
+
+                        button {
+                            padding: 0.4rem 0.6rem;
+                            border-radius: 3px;
+                            color: $base-white;
+                            display: inline-block;
+                        }
+    
+                        .edit-btn {
+                            background: lighten($base-grey, 15%);
+                        }
+    
+                        .delete-btn {
+                            background: lighten($base-grey, 5%);
+                        }
+                    }
+                    #text {
+                        display: none;
+                    }
+                    position: absolute;
+                    top: 0;
+                    right: 1rem;
+                }
+            }
+        }
+    }
+}
+
+// ============ MEDIA QUERIES ==============
+
+@media (min-width: 769px) {
+    body {
+        font-size: $scr-font;
+    }
+
+    main {
+        .container {
+            width: 70%;
+            margin: 0 auto;
+            position: relative;
+        }
+
+    }
+}
