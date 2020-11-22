@@ -7,6 +7,7 @@ const bcryptjs = require('bcryptjs');
 const { check, validationResult } = require('express-validator');
 const jwt = require('jsonwebtoken');
 const AvaColor = require('./avatar-color-generator');
+const Event = require('../models/Event');
 const LocalStorage = require('node-localstorage').LocalStorage;
 localStorage = new LocalStorage('./scratch');
 
@@ -19,10 +20,7 @@ exports.getRegisterForm = (req, res) => {
    req.logout();
    console.log(req.user);
 
-   res.render('pages/register', {
-      errors: false
-   })
-   // res.redirect('/users/register');
+   res.render('pages/register', { errors: false })
 }
 
 
@@ -41,7 +39,7 @@ exports.postRegisterForm = (req, res) => {
 
       console.log(errors);
    } else {
- 
+
       let user = new User();
 
       user.email = req.body.email;
@@ -127,32 +125,30 @@ exports.getPwdRecoverForm = (req, res) => {
    res.render('pages/email_recovery', {})
 }
 
-exports.postPwdRecoverForm = (req, res) => {
+exports.postPwdRecoverForm = async (req, res) => {
    let query = { email: req.body.email };
 
-   User.findOne(query, (err, user) => {
-      if (err) {
-         console.log(err);
-      } else {
-         mailer_pwd(user);
-         res.render('pages/email_sent', {user: false})
-      }
-   })
+   try {
+      let user = await User.findOne(query)
+
+      mailer_pwd(user);
+      res.render('pages/email_sent', { user: false })
+   } catch (err) {
+      console.error(err)
+   }
 }
 
 
 // ====== PASSWORD CHANGE PROCESS  ========================
 
-exports.getPwdChangeForm = (req, res) => {
-   User.findOne({ _id: req.params.id }, (err, user) => {
-      if (err) {
-         console.log(err)
-      } else {
-         res.render('pages/change_password', {
-            user: user
-         })
-      }
-   })
+exports.getPwdChangeForm = async (req, res) => {
+   try {
+      let user = await User.findOne({ _id: req.params.id })
+
+      res.render('pages/change_password', { user })
+   } catch (err) {
+      console.error(err)
+   }
 }
 
 exports.postPwdChangeForm = (req, res) => {
@@ -197,31 +193,12 @@ exports.postPwdChangeForm = (req, res) => {
    }
 }
 
-// NEWSLETTER SUBSCRIPTION
+// NEWSLETTER SUBSCRIPTION ==============
 
 exports.getNewslettersSub = (req, res) => {
-
    res.render('pages/newsletters_sub', {});
 }
 
-
-exports.userUnsubscribe = (req, res) => {
-      User.findOneAndUpdate({ _id: res.locals.user._id }, {
-      $set: {
-         newsletter_sub: false
-      }
-   }, (err, resa) => {
-      if (err) {
-         console.error(err);
-         return
-      } else {
-         // req.flash("success", "Newsletters Subcribed!");
-         res.redirect('/');
-      }
-   }, {
-      upsert: true
-   })
-}
 
 
 exports.userSubscribe = (req, res) => {
@@ -242,16 +219,104 @@ exports.userSubscribe = (req, res) => {
    })
 }
 
+// exports.userSubscribe = async (req, res) => {
+//    try {
+//       let done = User.findOneAndUpdate({ _id: res.locals.user._id }, { $set: { newsletter_sub: true } }, { upsert: true });
+//       console.log(done);
+//       mailer_newsletters(res.locals.user);
+//       res.redirect('/');
 
-// GET USERS WITH NEWSLETTER SUBSCRIPTION
+//    } catch (err) {
+//       console.error(err);
+//    }
+// }
 
-exports.userWithSub = (req, res) => {
-   User.find({ newsletter_sub: true }, (err, users) => {
+
+// exports.userUnsubscribe = async (req, res) => {
+//    try {
+//       let done = User.findOneAndUpdate({ _id: res.locals.user._id }, { $set: { newsletter_sub: false } }, { upsert: true })
+//       console.log(done);
+//       res.redirect('/');
+//    } catch (err) {
+//       console.error(err);
+//    }
+// }
+
+exports.userUnsubscribe = (req, res) => {
+   User.findOneAndUpdate({ _id: res.locals.user._id }, {
+      $set: {
+         newsletter_sub: false
+      }
+   }, (err, resa) => {
       if (err) {
          console.error(err);
          return
       } else {
-         users.forEach((user) => { mailer_newsletters(user) })
+         // req.flash("success", "Newsletters Subcribed!");
+         res.redirect('/');
       }
+   }, {
+      upsert: true
    })
+}
+
+// GET USERS WITH NEWSLETTER SUBSCRIPTION
+
+exports.userWithSub = async (req, res) => {
+   try {
+      let users = User.find({ newsletter_sub: true })
+      users.forEach((user) => { mailer_newsletters(user) })
+   } catch (err) {
+      console.error(err);
+   }
+}
+
+//================== USER WAS AT LIVE CHECKBOX ====================================
+
+exports.wasThere = async (req, res) => {
+   try {
+      let done = await Event.findOneAndUpdate({ _id: req.body.event_id },
+         { $push: { users_was_there: req.body.user_id } },
+         { upsert: true });
+
+      res.redirect("back");
+
+   } catch (err) {
+      console.error(err);
+   }
+}
+
+exports.ifWasThere = async (req, res) => {
+   try {
+      let event = await Event.findById({ _id: req.body.event_id })
+
+      // if user checked
+      if (event.users_was_there.includes(req.body.user_id)) {
+         res.send("yes");
+      } else {
+         res.send('no');
+      }
+
+   } catch (err) {
+      console.error(err)
+   }
+}
+
+exports.uncheckWasThere = async (req, res) => {
+   try {
+      let event = await Event.findOneAndUpdate({ _id: req.body.event_id },
+         { $pull: { users_was_there: req.body.user_id } });
+
+      let eventUpdated = await Event.findById({ _id: req.body.event_id })
+
+      if (eventUpdated.users_was_there.includes(req.body.user_id)) {
+         res.send('yes');
+      } else {
+         res.send('no');
+         console.log('uncheck');
+      }
+
+   } catch (err) {
+      console.error(err);
+   }
 }

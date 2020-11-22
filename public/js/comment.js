@@ -1,6 +1,6 @@
+
+// ======= SEND COMMENT ===========
 const commentBtn = document.getElementById('comment-btn');
-
-
 
 commentBtn.addEventListener('click', async (event) => {
    event.preventDefault();
@@ -35,28 +35,24 @@ commentBtn.addEventListener('click', async (event) => {
       console.error(err);
    }
 
+   // clear comment input field
+
    document.getElementById('content').value = "";
 
-   // ================================
-
+   // update comments
    getAllComments();
 })
 
 
-// ===============================
+// ==================DELETE COMMENT====================
 
 window.addEventListener("load", () => {
 
    const deleteBtn = document.getElementsByClassName('delete-btn');
-   console.log(deleteBtn.length);
 
    for (let i = 0; i < deleteBtn.length; i++) {
       deleteBtn[i].addEventListener('click', async (event) => {
-         // event.preventDefault();
-         console.log(event.target);
          const commentId = event.target.parentElement.getAttribute('comment_id');
-
-         console.log(commentId);
 
          let response = await fetch(`/comments/delete`, {
             method: "DELETE",
@@ -72,17 +68,43 @@ window.addEventListener("load", () => {
    }
 })
 
+// ================ EDIT COMMENT =================
+
+// window.addEventListener("load", () => {
+
+//    const editBtn = document.getElementsByClassName('edit-btn');
+//    console.log(editBtn.length);
+
+//    for (let i = 0; i < editBtn.length; i++) {
+//       editBtn[i].addEventListener('click', async (event) => {
+//          // event.preventDefault();
+//          console.log(event.target);
+//          const commentId = event.target.parentElement.getAttribute('comment_id');
+
+//          console.log(commentId);
+
+//          let response = await fetch(`/comments/edit`, {
+//             method: "PUT",
+//             headers: { 'Content-Type': 'application/json' },
+//             body: JSON.stringify({
+//                _id: commentId
+//             })
+//          });
+
+//          response = await response.text();
+//          window.location.reload();
+//       })
+//    }
+// })
 
 
 
+// =============UPDATE ALL COMMENTS=============
 
-
-// ========================================
 async function getAllComments() {
    try {
       const commentWrapper = document.getElementById('comment-wrapper');
       const liveshow_id = document.getElementById('liveshow_id').value;
-      console.log(liveshow_id);
       let htmlString;
 
       let res = await fetch('/comments/getcomment', {
@@ -93,7 +115,7 @@ async function getAllComments() {
          })
       })
       dataSet = await res.json();
-      console.log(dataSet);
+
       dataSet.forEach(data => {
          htmlString += `<div class="comment">
          <div class="left ${data.user.user_color}">

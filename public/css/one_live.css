@@ -251,7 +251,7 @@ header .navbar .navbar_links #search-bar ::placeholder {
 header .navbar .navbar_links #search-bar #search-input {
   width: 90%;
   background: transparent;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   border: none;
   border-bottom: 1px solid rgba(177, 177, 177, 0.597);
   color: rgba(0, 0, 0, 0.99);
@@ -260,6 +260,7 @@ header .navbar .navbar_links #search-bar #search-input {
 
 header .navbar .navbar_links #search-bar #search-input:focus {
   outline: none;
+  background: none;
 }
 
 header .navbar .navbar_links #search-bar #search-button:hover {
@@ -616,10 +617,60 @@ main .container {
   padding-top: 200px;
 }
 
+main .container .artist-live {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: 700;
+  padding: 0rem 0 2rem 0rem;
+}
+
+main .container .artist-live .artist-title {
+  font-size: 5rem;
+  color: rgba(241, 238, 238, 0.997);
+  text-transform: uppercase;
+}
+
+main .container .artist-live .live-title {
+  font-size: 3rem;
+  color: rgba(241, 238, 238, 0.997);
+  text-transform: uppercase;
+}
+
 main .container iframe {
   width: 100%;
   height: 700px;
   border: solid rgba(241, 238, 238, 0.997) 40px;
+}
+
+main .container .flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 main .container #comment-form {
@@ -712,6 +763,12 @@ main .container #comment-wrapper .comment .left {
   width: 2.2rem;
   margin: 0 1rem 0 0;
   border-radius: 100%;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+main .container #comment-wrapper .comment .right {
+  width: 90%;
 }
 
 main .container #comment-wrapper .comment .comment-user {

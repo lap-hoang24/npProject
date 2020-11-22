@@ -152,7 +152,6 @@ main {
                 display: inline-block;
                 &:hover {
                     cursor: pointer;
-                    border: 1px lighten($base-black, 10%) solid;
                     background: rgb(255, 255, 255);
                     color: $base-black;
                 }

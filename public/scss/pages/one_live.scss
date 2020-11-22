@@ -26,12 +26,33 @@ main {
 
     .container {
         padding-top: 200px;
+
+
+        .artist-live {
+            @include flex(column, center, center);
+            font-weight: 700;
+            padding: 0rem 0 2rem 0rem;
+            .artist-title {
+                font-size: 5rem;
+                color: $base-white;
+                text-transform: uppercase;
+            }
+
+            .live-title {
+                font-size: 3rem;
+                color: $base-white;
+                text-transform: uppercase;
+            }
+        }
         iframe {
             width: 100%;
             height: 700px;
             border: solid $base-white 40px;
         }
-
+        .flex {
+            @include flex(row, space-between, center);
+        }
+        
         #comment-form {
             width: 70%;
             margin: 0 auto;
@@ -78,6 +99,10 @@ main {
                     width: 2.2rem;
                     margin: 0 1rem 0 0;
                     border-radius: 100%;
+                    align-self: flex-start;
+                }
+                .right {
+                    width: 90%;
                 }
                 .comment-user {
                     font-weight: 700;

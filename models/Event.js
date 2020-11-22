@@ -6,7 +6,7 @@ const eventSchema = mongoose.Schema({
         required: true
     },
     artist: {
-        type:String,
+        type: String,
         required: true
     },
     link: {
@@ -16,7 +16,11 @@ const eventSchema = mongoose.Schema({
     image: {
         type: String,
         required: true
+    },
+    users_was_there: {
+        type: Array,
+        required: true,
     }
-}, {collection: "liveshows"});
+}, { collection: "liveshows" });
 
 const Event = module.exports = mongoose.model('Event', eventSchema);

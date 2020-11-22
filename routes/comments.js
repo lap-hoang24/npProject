@@ -9,4 +9,7 @@ router.post('/comment', Comment.postComment);
 
 router.delete('/delete', Comment.deleteComment);
 
+router.put('/edit', Comment.editComment);
+
+
 module.exports = router;

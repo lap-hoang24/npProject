@@ -40,7 +40,7 @@ function mailer(user) {
       viewEngine : {
          extname: '.handlebars', // handlebars extension
          layoutsDir: 'views/', // location of handlebars templates
-         defaultLayout: 'newsletters', // name of main template
+         defaultLayout: 'welcome-newsletters', // name of main template
          partialsDir: 'views/', // location of your subtemplates aka. header, footer etc
      },
      viewPath: 'views/',
@@ -50,15 +50,9 @@ function mailer(user) {
    var mailOptions = {
       from: 'laguna.sup.dreams@gmail.com',
       to: user.email,
-      subject: 'Testing newsletters huhu',
+      subject: "Welcome to Grooove's Monthly Newsletter",
       generateTextFromHTML: true,
-      template: "newsletters",
-      // html: 'Embedded image: <img src="cid:unique@kreata.ee"/>',
-   //    attachments: [{
-   //       filename: 'banter.jpeg',
-   //       path: '../images/banter.jpeg',
-   //       cid: 'unique@kreata.ee' //same cid value as in the html img src
-   //   }]
+      template: "welcome-newsletters"
    };
 
    transporter.sendMail(mailOptions, function (error, info) {

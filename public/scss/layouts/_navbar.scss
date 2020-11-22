@@ -17,7 +17,6 @@ header {
         background-color: $base-black !important;
     }
 
-
     .navbar {
         display: flex;
         flex-direction: column;
@@ -71,13 +70,14 @@ header {
                 #search-input {
                     width: 90%;
                     background: transparent;
-                    font-family: 'Raleway', sans-serif;
+                    font-family: "Raleway", sans-serif;
                     border: none;
                     border-bottom: 1px solid rgba(177, 177, 177, 0.597);
                     color: $base-black;
                     font-size: $mb-font;
                     &:focus {
                         outline: none;
+                        background: none;
                     }
                 }
 
@@ -140,8 +140,6 @@ header {
                     }
                 }
             }
-            
-            
         }
         .hamburger-active {
             display: flex;
@@ -163,7 +161,7 @@ header {
     header {
         top: 1rem;
         font-size: $scr-font;
-        
+
         .navbar {
             flex-direction: row;
 

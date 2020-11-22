@@ -42,7 +42,14 @@
             <div class="event_name" event_name="<%= data[i].displayName %>">
               <a class="nearyou-event_link" href="<%= data[i].uri %>"><%= data[i].displayName %></a>
             </div>
-            <div class="performers-name"><i class="far fa-star"></i><%= data[i].performance[0].displayName %></div>
+            <div class="performers-name"><i class="far fa-star"></i>
+              <% if (data[i].performance[0] != null) { %>
+                <%= data[i].performance[0].displayName %>
+              <% } else { %>
+                Unknown artist
+               <% } %>
+            </div>
+
             <div class="venue-state"><i class="fas fa-map-marker-alt"></i>
               <%= data[i].venue.displayName %> - <%= data[i].location.city %>
             </div>

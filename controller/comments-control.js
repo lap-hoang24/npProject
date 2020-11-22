@@ -1,6 +1,8 @@
 const Comment = require('../models/Comments');
+const Event = require('../models/Event');
 
-exports.postComment = (req, res) => {
+exports.postComment = async (req, res) => {
+
    let query = {
       content: req.body.content,
       user: {
@@ -12,28 +14,39 @@ exports.postComment = (req, res) => {
       liveshows_id: req.body.liveshows_id
    }
 
-   // console.log(query);
-   Comment.create(query, (err, inserted) => {
-      if (err) throw err;
+   try {
+      let done = Comment.create(query);
       res.redirect('back');
-   })
+   } catch (err) {
+      console.error(err)
+   }
 }
 
-exports.getComment = (req, res) => {
-
-
-   Comment.find({liveshows_id: req.body._id}, null, {sort: {date: -1}}, (err, comments) => {
-      if(err) throw err;
-
+exports.getComment = async (req, res) => {
+   try {
+      let comments = await Comment.find({ liveshows_id: req.body._id }, null, { sort: { date: -1 } })
       res.send(comments);
-   })
+   } catch (err) {
+      console.error(err);
+   }
 }
 
 
-exports.deleteComment = (req, res) => {
-   Comment.deleteOne({_id: req.body._id}, (err, done) => {
-      if(err) throw err;
+exports.deleteComment = async (req, res) => {
+   try {
+      let done = await Comment.deleteOne({ _id: req.body._id })
+      res.redirect("back");
+   } catch (err) {
+      console.error(err);
+   }
+}
+
+// functionality not finished yet
+exports.editComment = (req, res) => {
+   Comment.findOneAndUpdate({ _id: req.body_id }, (err, done) => {
+      if (err) throw err;
 
       res.redirect("back");
    })
 }
+

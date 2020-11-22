@@ -211,7 +211,7 @@ header .navbar .navbar_links #search-bar ::placeholder {
 header .navbar .navbar_links #search-bar #search-input {
   width: 90%;
   background: transparent;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   border: none;
   border-bottom: 1px solid rgba(177, 177, 177, 0.597);
   color: rgba(0, 0, 0, 0.99);
@@ -220,6 +220,7 @@ header .navbar .navbar_links #search-bar #search-input {
 
 header .navbar .navbar_links #search-bar #search-input:focus {
   outline: none;
+  background: none;
 }
 
 header .navbar .navbar_links #search-bar #search-button:hover {
@@ -622,10 +623,6 @@ main .jumbotron #location-list {
 main .jumbotron #location-list li {
   padding: 0.2rem 0.5rem;
   font-weight: 500;
-}
-
-main .jumbotron #location-list li:hover {
-  text-decoration: underline;
 }
 
 main .jumbotron #location-list li a:visited, main .jumbotron #location-list li a {

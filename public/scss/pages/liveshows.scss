@@ -53,12 +53,14 @@ main {
             font-weight: 900;
             z-index: 2;
 
-            color: darken($base-white, 5%);
+            // color: darken($base-white, 5%);
+            color: $yellow;
          }
 
          .event_name-small {
             text-align:center;
             font-size: 3rem;
+            color: $base-white;
          }
       }
    }

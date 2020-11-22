@@ -6,6 +6,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
    <title>Upcoming Events</title>
    <link rel="stylesheet" href="/css/one_live.css" />
+   <link rel="stylesheet" href="/css/materialize.css">
    <script src="https://kit.fontawesome.com/ade53cd309.js" crossorigin="anonymous"></script>
 </head>
 
@@ -16,17 +17,36 @@
    <main>
 
       <section class="container">
+         <div class="artist-live">
+            <div class="artist-title">
+               <%= event.artist %>
+            </div>
+            <div class="live-title">
+               <%= event.name %>
+            </div>
+         </div>
          <iframe src="<%= event.link %>" frameborder="0" allow="autoplay"></iframe>
-         <form id="comment-form" action="/comments/comment" method="POST">
-            <textarea type="text" name="content" id="content"
-               placeholder="Leave a comment about this amazing livestream"></textarea>
-            <input type="hidden" name="user_id" id="user_id" value="<%= user._id %>">
-            <input type="hidden" name="user_name" id="user_name" value="<%= user.username %>">
-            <input type="hidden" name="user_avatar" id="user_avatar" value="<%=user.avatar %>">
-            <input type="hidden" name="liveshow_id" id="liveshow_id" value="<%=event._id %>">
-            <input type="hidden" name="user_color" id="user_color" value="<%=user.color%>">
-            <button id="comment-btn" type="submit">Send<i class="fas fa-paper-plane"></i></button>
-         </form>
+         <div class="flex">
+            <form id="was-there-form" action="">
+               <p>
+                  <label>
+                     <input id="was-there" type="checkbox"  onchange="wasThereCheck()" >
+                     <span>I was there!</span>
+               </label>
+               </p>
+            </form>
+            <form id="comment-form" action="/comments/comment" method="POST">
+               <textarea type="text" name="content" id="content"
+                  placeholder="Leave a comment..."></textarea>
+               <input type="hidden" name="user_id" id="user_id" value="<%= user._id %>">
+               <input type="hidden" name="user_name" id="user_name" value="<%= user.username %>">
+               <input type="hidden" name="user_avatar" id="user_avatar" value="<%=user.avatar %>">
+               <input type="hidden" name="liveshow_id" id="liveshow_id" value="<%=event._id %>">
+               <input type="hidden" name="user_color" id="user_color" value="<%=user.color%>">
+               <button id="comment-btn" type="submit">Send<i class="fas fa-paper-plane"></i></button>
+            </form>
+
+         </div>
 
          <div id="comment-wrapper">
 
@@ -36,10 +56,12 @@
    </main>
    <!-- FOOTER -->
    <%- include('../layouts/footer.ejs') -%>
-
-   <!-- <script src="/js/test.js"></script>    -->
+   <script src="/js/materialize.js"></script>
+   <script src="/js/materialize-init.js"></script>
    <script src="/js/one_live.js"></script>
-   <script src="/js/send-comment.js"></script>
+   <script src="/js/comment.js"></script>
+   <script src="/js/was-there-checkbox.js"></script>
+
 </body>
 
 </html>

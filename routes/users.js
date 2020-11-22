@@ -12,8 +12,7 @@ const checkAuthentication = require('../middlewares/auth');
 
 router.get('/register', UserController.getRegisterForm);
 
-
-router.post('/register', Validator.registerFromVal , UserController.postRegisterForm)
+router.post('/register', Validator.registerFromValidation , UserController.postRegisterForm)
 
 // ==== LOGIN ====
 
@@ -37,7 +36,7 @@ router.post('/recover_password', checkAuthentication, UserController.postPwdReco
 
 router.get('/change_password/:id', checkAuthentication,UserController.getPwdChangeForm);
 
-router.post('/change_password/:id', Validator.pwdChangeVal , checkAuthentication, UserController.postPwdChangeForm);
+router.post('/change_password/:id', Validator.pwdChangeValidation , checkAuthentication, UserController.postPwdChangeForm);
 
 // GET NEWSLETTER SUBSCRIPTION
 
@@ -48,6 +47,14 @@ router.get('/subscribe', checkAuthentication, UserController.userSubscribe);
 router.get('/unsubscribe', checkAuthentication, UserController.userUnsubscribe);
 
 router.get('/sendNewsletters', checkAuthentication, UserController.userWithSub);
+
+// USER WAS AT LIVE
+
+router.post('/wasThere', UserController.wasThere);
+
+router.post('/ifWasThere', UserController.ifWasThere);
+
+router.post('/uncheckWasThere', UserController.uncheckWasThere);
 
 
 module.exports = router;
