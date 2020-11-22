@@ -69,7 +69,7 @@ exports.getNearyouEvents = async (req, res) => {
 
    
    try {
-      api = "https://api.songkick.com/api/3.0/events.json?location=ip:" + myIp;
+      api = "https://api.songkick.com/api/3.0/events.json?location=ip:" + ip;
       apiKey = "&apikey=iQvmMn3zAKS85ja5";
    
       response = await fetch(api + apiKey);
