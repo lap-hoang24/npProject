@@ -540,6 +540,7 @@ footer .logo {
   font-family: "Monoton", cursive;
   font-size: 2rem;
   color: #fff;
+  text-align: center;
 }
 
 @media (min-width: 769px) {
