@@ -47,7 +47,7 @@ body {
 }
 
 body .container {
-  width: 90%;
+  width: 95%;
   margin: 0 auto;
 }
 
@@ -141,7 +141,7 @@ body {
 }
 
 body .container {
-  width: 90%;
+  width: 95%;
   margin: 0 auto;
 }
 
@@ -191,14 +191,14 @@ header .navbar a {
 
 header .navbar .brand_logo {
   font-family: "Monoton", cursive;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   padding: 1rem;
   color: rgba(241, 238, 238, 0.997);
 }
 
 header .navbar .toggle_button {
   position: absolute;
-  top: 1.5rem;
+  top: 1.3rem;
   right: 1.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -249,13 +249,34 @@ header .navbar .navbar_links #search-bar ::placeholder {
 }
 
 header .navbar .navbar_links #search-bar #search-input {
-  width: 90%;
+  width: 70%;
   background: transparent;
   font-family: "Raleway", sans-serif;
   border: none;
   border-bottom: 1px solid rgba(177, 177, 177, 0.597);
   color: rgba(0, 0, 0, 0.99);
   font-size: 0.9rem;
+  text-align: center;
+}
+
+header .navbar .navbar_links #search-bar #search-input::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 0.99);
+  text-align: center;
+}
+
+header .navbar .navbar_links #search-bar #search-input:-ms-input-placeholder {
+  color: rgba(0, 0, 0, 0.99);
+  text-align: center;
+}
+
+header .navbar .navbar_links #search-bar #search-input::-ms-input-placeholder {
+  color: rgba(0, 0, 0, 0.99);
+  text-align: center;
+}
+
+header .navbar .navbar_links #search-bar #search-input::placeholder {
+  color: rgba(0, 0, 0, 0.99);
+  text-align: center;
 }
 
 header .navbar .navbar_links #search-bar #search-input:focus {
@@ -384,9 +405,22 @@ header .navbar .hamburger-active a {
     color: rgba(241, 238, 238, 0.997);
   }
   header .navbar .navbar_links #search-bar #search-input {
-    width: 90%;
+    text-align: center;
+    width: 70%;
     font-size: 1rem;
     color: rgba(241, 238, 238, 0.997);
+  }
+  header .navbar .navbar_links #search-bar #search-input::-webkit-input-placeholder {
+    color: rgba(195, 182, 182, 0.997);
+  }
+  header .navbar .navbar_links #search-bar #search-input:-ms-input-placeholder {
+    color: rgba(195, 182, 182, 0.997);
+  }
+  header .navbar .navbar_links #search-bar #search-input::-ms-input-placeholder {
+    color: rgba(195, 182, 182, 0.997);
+  }
+  header .navbar .navbar_links #search-bar #search-input::placeholder {
+    color: rgba(195, 182, 182, 0.997);
   }
   header .navbar .navbar_links #search-bar #search-button:hover {
     cursor: pointer;
@@ -498,7 +532,7 @@ body {
 }
 
 body .container {
-  width: 90%;
+  width: 95%;
   margin: 0 auto;
 }
 
@@ -615,7 +649,7 @@ main {
 }
 
 main .container {
-  padding-top: 200px;
+  padding-top: 100px;
 }
 
 main .container .artist-live {
@@ -639,21 +673,21 @@ main .container .artist-live {
 }
 
 main .container .artist-live .artist-title {
-  font-size: 5rem;
+  font-size: 2.5rem;
   color: rgba(241, 238, 238, 0.997);
   text-transform: uppercase;
 }
 
 main .container .artist-live .live-title {
-  font-size: 3rem;
+  font-size: 1.7rem;
   color: rgba(241, 238, 238, 0.997);
   text-transform: uppercase;
+  text-align: center;
 }
 
 main .container iframe {
   width: 100%;
-  height: 700px;
-  border: solid rgba(241, 238, 238, 0.997) 40px;
+  height: 270px;
 }
 
 main .container .flex {
@@ -662,10 +696,10 @@ main .container .flex {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -675,7 +709,7 @@ main .container .flex {
 }
 
 main .container #comment-form {
-  width: 70%;
+  width: 100%;
   margin: 0 auto;
   padding: 1rem;
   display: -webkit-box;
@@ -696,7 +730,7 @@ main .container #comment-form {
 }
 
 main .container #comment-form textarea {
-  font-size: 1.1rem;
+  font-size: 1rem;
   width: 80%;
   color: rgba(206, 196, 196, 0.997);
   border: none;
@@ -769,7 +803,7 @@ main .container #comment-wrapper .comment .left {
 }
 
 main .container #comment-wrapper .comment .right {
-  width: 90%;
+  width: 80%;
 }
 
 main .container #comment-wrapper .comment .comment-user {
@@ -854,6 +888,55 @@ main .container #comment-wrapper .comment .setting #text {
     width: 70%;
     margin: 0 auto;
     position: relative;
+  }
+  main .container .artist-live .artist-title {
+    font-size: 5rem;
+  }
+  main .container .artist-live .live-title {
+    font-size: 3rem;
+  }
+  main .container iframe {
+    width: 100%;
+    height: 700px;
+    border: solid rgba(241, 238, 238, 0.997) 40px;
+  }
+  main .container .flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  main .container #comment-form {
+    width: 70%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  main .container #comment-form textarea {
+    font-size: 1.1rem;
   }
 }
 /*# sourceMappingURL=one_live.css.map */

@@ -32,14 +32,14 @@ header {
 
         .brand_logo {
             font-family: "Monoton", cursive;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             padding: 1rem;
             color: $base-white;
         }
 
         .toggle_button {
             position: absolute;
-            top: 1.5rem;
+            top: 1.3rem;
             right: 1.5rem;
             display: flex;
             flex-direction: column;
@@ -68,13 +68,19 @@ header {
                     color: $base-white;
                 }
                 #search-input {
-                    width: 90%;
+                    width: 70%;
                     background: transparent;
                     font-family: "Raleway", sans-serif;
                     border: none;
                     border-bottom: 1px solid rgba(177, 177, 177, 0.597);
                     color: $base-black;
                     font-size: $mb-font;
+                    text-align: center;
+
+                    &::placeholder {
+                        color: $base-black;
+                        text-align: center;
+                    }
                     &:focus {
                         outline: none;
                         background: none;
@@ -172,9 +178,13 @@ header {
                     width: 20rem;
                     color: $base-white;
                     #search-input {
-                        width: 90%;
+                        text-align: center;
+                        width: 70%;
                         font-size: 1rem;
                         color: $base-white;
+                        &::placeholder {
+                            color: darken($base-white, 20%);
+                        }
                     }
 
                     #search-button {

@@ -92,8 +92,7 @@ app.use('/comments', comments);
 // === RENDER HOME PAGE ===
 
 app.get('/', (req, res) => {
-    res.render('index', {
-    })
+    res.render('index', {})
 })
 
 // ====== SERVER PORT ======

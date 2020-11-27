@@ -71,9 +71,15 @@ main {
     }
 
     #events-lists {
-        margin-top: 2rem;
+        margin: 2rem 0;
 
         .event-item {
+            @include flex(column, center, flex-start);
+            border-radius: 6px;
+            width: 100%;
+            height: auto;
+            margin-top: 1rem;
+
             &:nth-child(odd) {
                 background: lighten($base-grey, 60%);
             }
@@ -82,49 +88,20 @@ main {
                 background: lighten($base-grey, 65%);
             }
 
-            @include flex(column, center, flex-start);
-            border-radius: 6px;
-            width: 100%;
-            height: 90px;
-            margin-top: 1rem;
-
-            .performers-picture {
-                height: 90px;
-                width: 100px;
-                margin-left: 5px;
-                position: relative;
-
-                .date_time {
-                    font-size: 11px;
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    background: $base-white;
-                    height: 30px;
-                    width: 30px;
-                    border-radius: 3px;
-                    @include flex(column, center, center);
-
-                    .day {
-                        text-align: center;
-                        height: 50%;
-                        width: 80%;
-                        border-bottom: 1px solid $base-black;
-                    }
-                }
-            }
 
             .event-description {
                 margin-left: 10px;
-
-                a {
+                div {
+                    padding: 0.3rem 0;
+                }
+                a { 
                     font-size: 0.9rem;
                     font-weight: 600;
                     color: $blue-link;
                     text-transform: uppercase;
                 }
 
-                .event-name {
+                .event_name {
                     text-transform: uppercase;
                     padding-bottom: 0.3rem;
                 }
@@ -197,22 +174,18 @@ main {
         }
 
         #events-lists {
-            margin-top: 2rem;
 
             .event-item {
-                height: 200px;
+                height: auto;
 
                 &:hover {
                     box-shadow: 1px 1px 7px grey;
                 }
-                .performers-picture {
-                    height: 180px;
-                    width: 350px;
-                    margin-left: 1rem;
-                }
+            
 
                 .event-description {
-                    margin-left: 10px;
+                    padding: 0 10px;
+                    margin: 0 0;
                     width: 100%;
 
                     a {

@@ -11,7 +11,6 @@
 
 @import "../utilities/mixins";
 
-
 // ===== MAIN ================================
 body {
     background: $base-black;
@@ -25,43 +24,43 @@ main {
     font-size: $mb-font;
 
     .container {
-        padding-top: 200px;
-
+        padding-top: 100px;
 
         .artist-live {
             @include flex(column, center, center);
             font-weight: 700;
             padding: 0rem 0 2rem 0rem;
             .artist-title {
-                font-size: 5rem;
+                font-size: 2.5rem;
                 color: $base-white;
                 text-transform: uppercase;
             }
 
             .live-title {
-                font-size: 3rem;
+                font-size: 1.7rem;
                 color: $base-white;
                 text-transform: uppercase;
+                text-align: center;
             }
         }
         iframe {
             width: 100%;
-            height: 700px;
-            border: solid $base-white 40px;
+            height: 270px;
         }
+
         .flex {
-            @include flex(row, space-between, center);
+            @include flex(column, space-between, center);
         }
-        
+
         #comment-form {
-            width: 70%;
+            width: 100%;
             margin: 0 auto;
             padding: 1rem;
 
             @include flex(row, center, center);
 
             textarea {
-                font-size: 1.1rem;
+                font-size: 1rem;
                 width: 80%;
                 color: darken($base-white, 15%);
                 border: none;
@@ -102,7 +101,7 @@ main {
                     align-self: flex-start;
                 }
                 .right {
-                    width: 90%;
+                    width: 80%;
                 }
                 .comment-user {
                     font-weight: 700;
@@ -125,15 +124,14 @@ main {
                     background: lighten($base-grey, 40%);
                     position: relative;
                     @include flex(row, center, center);
-                    
+
                     &:hover .edit-delete {
                         display: inline-block;
                     }
-                    
-                    .edit-delete {
 
+                    .edit-delete {
                         display: none;
-                        position:absolute;
+                        position: absolute;
                         top: 0px;
                         right: 1rem;
                         width: 7rem;
@@ -144,11 +142,11 @@ main {
                             color: $base-white;
                             display: inline-block;
                         }
-    
+
                         .edit-btn {
                             background: lighten($base-grey, 15%);
                         }
-    
+
                         .delete-btn {
                             background: lighten($base-grey, 5%);
                         }
@@ -177,7 +175,33 @@ main {
             width: 70%;
             margin: 0 auto;
             position: relative;
-        }
 
+            .artist-live {
+                .artist-title {
+                    font-size: 5rem;
+                }
+
+                .live-title {
+                    font-size: 3rem;
+                }
+            }
+            iframe {
+                width: 100%;
+                height: 700px;
+                border: solid $base-white 40px;
+            }
+            .flex {
+                @include flex(row, space-between, center);
+            }
+
+            #comment-form {
+                width: 70%;
+                @include flex(row, center, center);
+
+                textarea {
+                    font-size: 1.1rem;
+                }
+            }
+        }
     }
 }

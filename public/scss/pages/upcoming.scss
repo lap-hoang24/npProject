@@ -34,9 +34,14 @@ main {
     }
 
     #events-lists {
-        margin-top: 2rem;
-
+       
         .event-item {
+            @include flex(row, space-between, center);
+            border-radius: 6px;
+            width: 100%;
+            padding: 0.1rem 0;
+            margin: 1.5rem 0;
+
             &:nth-child(odd) {
                 background: lighten($base-grey, 60%);
             }
@@ -45,11 +50,6 @@ main {
                 background: lighten($base-grey, 65%);
             }
 
-            @include flex(column, center, flex-start);
-            border-radius: 6px;
-            width: 100%;
-            height: 90px;
-            margin-top: 1rem;
 
             .performers-picture {
                 height: 90px;
@@ -89,8 +89,14 @@ main {
 
                 .event-name {
                     text-transform: uppercase;
+                    height: 2.3rem;
                     padding-bottom: 0.3rem;
                     overflow: hidden;
+                    @include flex(row, flex-start, center);
+                }
+
+                .performers-name, .venue-state {
+                    padding: 0.2rem 0;
                 }
             }
         }
@@ -124,7 +130,7 @@ main {
 
         #filter {
             position: sticky;
-            top: 77px;
+            top: 70px;
             border-radius: 5px;
             z-index: 999;
             background: $yellow;
@@ -159,11 +165,11 @@ main {
         }
 
         #events-lists {
-            // grid-area: 0/1/1/2;
             margin-top: 2rem;
 
             .event-item {
                 height: 200px;
+                @include flex(row, flex-start, center);
 
                 .performers-picture {
                     height: 180px;
@@ -179,13 +185,13 @@ main {
                         font-size: 1.5rem;
                         font-weight: 500;
                         color: $blue-link;
-                        border-bottom: 2px solid darken($blue-link, 10%);
                     }
 
                     .event-name {
                         text-transform: uppercase;
                         padding-bottom: 0.3rem;
                         margin: 1rem 0;
+                        height: auto;
                     }
 
                     %perve {

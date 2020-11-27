@@ -47,7 +47,7 @@ body {
 }
 
 body .container {
-  width: 90%;
+  width: 95%;
   margin: 0 auto;
 }
 
@@ -101,7 +101,7 @@ body {
 }
 
 body .container {
-  width: 90%;
+  width: 95%;
   margin: 0 auto;
 }
 
@@ -151,14 +151,14 @@ header .navbar a {
 
 header .navbar .brand_logo {
   font-family: "Monoton", cursive;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   padding: 1rem;
   color: rgba(241, 238, 238, 0.997);
 }
 
 header .navbar .toggle_button {
   position: absolute;
-  top: 1.5rem;
+  top: 1.3rem;
   right: 1.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -209,13 +209,34 @@ header .navbar .navbar_links #search-bar ::placeholder {
 }
 
 header .navbar .navbar_links #search-bar #search-input {
-  width: 90%;
+  width: 70%;
   background: transparent;
   font-family: "Raleway", sans-serif;
   border: none;
   border-bottom: 1px solid rgba(177, 177, 177, 0.597);
   color: rgba(0, 0, 0, 0.99);
   font-size: 0.9rem;
+  text-align: center;
+}
+
+header .navbar .navbar_links #search-bar #search-input::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 0.99);
+  text-align: center;
+}
+
+header .navbar .navbar_links #search-bar #search-input:-ms-input-placeholder {
+  color: rgba(0, 0, 0, 0.99);
+  text-align: center;
+}
+
+header .navbar .navbar_links #search-bar #search-input::-ms-input-placeholder {
+  color: rgba(0, 0, 0, 0.99);
+  text-align: center;
+}
+
+header .navbar .navbar_links #search-bar #search-input::placeholder {
+  color: rgba(0, 0, 0, 0.99);
+  text-align: center;
 }
 
 header .navbar .navbar_links #search-bar #search-input:focus {
@@ -344,9 +365,22 @@ header .navbar .hamburger-active a {
     color: rgba(241, 238, 238, 0.997);
   }
   header .navbar .navbar_links #search-bar #search-input {
-    width: 90%;
+    text-align: center;
+    width: 70%;
     font-size: 1rem;
     color: rgba(241, 238, 238, 0.997);
+  }
+  header .navbar .navbar_links #search-bar #search-input::-webkit-input-placeholder {
+    color: rgba(195, 182, 182, 0.997);
+  }
+  header .navbar .navbar_links #search-bar #search-input:-ms-input-placeholder {
+    color: rgba(195, 182, 182, 0.997);
+  }
+  header .navbar .navbar_links #search-bar #search-input::-ms-input-placeholder {
+    color: rgba(195, 182, 182, 0.997);
+  }
+  header .navbar .navbar_links #search-bar #search-input::placeholder {
+    color: rgba(195, 182, 182, 0.997);
   }
   header .navbar .navbar_links #search-bar #search-button:hover {
     cursor: pointer;
@@ -458,7 +492,7 @@ body {
 }
 
 body .container {
-  width: 90%;
+  width: 95%;
   margin: 0 auto;
 }
 
@@ -564,7 +598,7 @@ footer .logo {
 
 main #jumbotron {
   width: 100%;
-  height: 70vh;
+  height: 50vh;
   background-image: url("../images/danny-howe.jpg");
   background-size: cover;
   background-position: 45%;
@@ -588,7 +622,7 @@ main #jumbotron #slogan {
       -ms-flex-align: center;
           align-items: center;
   padding: 0.7rem;
-  font-size: 1.7rem;
+  font-size: 2rem;
   font-weight: 700;
   background-color: rgba(0, 0, 0, 0.535);
   color: rgba(241, 238, 238, 0.997);
@@ -605,7 +639,7 @@ main #jumbotron #live-button {
   background: #d00d0d;
   padding: 0.7rem 1rem;
   border-radius: 60px;
-  top: 67%;
+  top: 63%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
@@ -664,13 +698,13 @@ main .content-wrapper .carousel .carousel-content .carousel-title {
 main .content-wrapper .carousel .carousel-content p {
   font-size: 0.9rem;
   letter-spacing: 1px;
-  margin: 0 0.3rem;
-  text-align: left;
+  margin: 2rem 1rem;
+  text-align: justify;
 }
 
 main .content-wrapper .carousel .carousel-content a {
   position: absolute;
-  background: rgba(249, 195, 1, 0.99);
+  background: rgba(165, 165, 165, 0.949);
   border-radius: 60px;
   padding: 0.7rem 1.5rem;
   bottom: 50px;
