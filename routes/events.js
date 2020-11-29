@@ -2,12 +2,13 @@ const express = require('express');
 const router = express.Router();
 const Event = require('../controller/events-control');
 const checkAuthentication = require('../middlewares/auth');
+const verifyToken = require('../middlewares/jwt-verifier');
 // =========================
 
 
 router.get('/upcoming', Event.getUpcomingEvents);
 
-router.get('/near-you', checkAuthentication, Event.getNearyouEvents);
+router.get('/near-you',verifyToken , Event.getNearyouEvents);
 
 router.get('/filter/', Event.getFilteredEvents);
 

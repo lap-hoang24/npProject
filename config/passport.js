@@ -3,23 +3,22 @@ const User = require('../models/Users');
 const brcyptjs = require('bcryptjs');
 
 
+
 module.exports = (passport) => {
     // Local Strategy
 
-    passport.use(new LocalStrategy(function (username, password, done) {
+    passport.use('local',
+     new LocalStrategy(function (username, password, done) {
         // Match username 
-
         let query = { username: username };
 
         User.findOne(query, function (err, user) {
-            // check for error
             if (err) { return done(err) }
 
-            // if there's no user found
             if (!user) {
                 return done(null, false, { message: 'No user found' });
             }
-            // if there's a user, perform match password
+
             brcyptjs.compare(password, user.password, function (err, isMatch) {
                 if (err) throw err;
                 if (isMatch) {
@@ -28,6 +27,7 @@ module.exports = (passport) => {
                     return done(null, false, { message: 'Wrong password' });
                 }
             })
+        
         })
 
         passport.serializeUser(function (user, done) {
@@ -48,7 +48,7 @@ module.exports = (passport) => {
     // },
 
     // function (jwtPayload, done) {
-    
+
     //     //find the user in db if needed. This functionality may be omitted if you store everything you'll need in JWT payload.
     //     return User.findOneById(jwtPayload.id)
     //         .then(user => {

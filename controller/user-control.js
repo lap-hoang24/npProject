@@ -8,12 +8,7 @@ const { check, validationResult } = require('express-validator');
 const jwt = require('jsonwebtoken');
 const AvaColor = require('./avatar-color-generator');
 const Event = require('../models/Event');
-const LocalStorage = require('node-localstorage').LocalStorage;
-localStorage = new LocalStorage('./scratch');
-
-
-// ==== Bring in USER MODEL =================================
-let User = require('../models/Users');
+const User = require('../models/Users');
 
 // ====== REGISTER  =========================================
 exports.getRegisterForm = (req, res) => {
@@ -78,37 +73,20 @@ exports.getLoginForm = (req, res) => {
 
 exports.postLoginForm = (req, res, next) => {
    // Authenticate User 
-   passport.authenticate('local', {
-      successRedirect: '/',
-      failureRedirect: '/users/login',
-      failureFlash: true,
-      successFlash: true
+   passport.authenticate('local',  (err, user, info) => {
+      if (err) throw err;
+
+      if (!user) {return res.redirect('/users/login')};
+
+      req.logIn(user, (err) => {
+         if(err) throw err;
+         const token = jwt.sign({id: user._id}, process.env.ACCESS_TOKEN_SECRET, {expiresIn: "2h"});
+
+         res.cookie('jwt_token', token);
+
+         return res.redirect('/');
+      })
    })(req, res, next);
-   // passport.authenticate('login', { session: true }, (err, user, info) => {
-   //     if (err || !user) {
-   //         return res.status(400).json({
-   //             message: 'Something is not right',
-   //             user: user
-   //         });
-   //     }
-   //     req.login(user, { session: false }, (err) => {
-   //         if (err) {
-   //             res.send(err);
-   //         }
-   //         user_id = { user_id: user._id };
-
-   //         // generate a signed json web token with the contents of user object and return it in the response
-   //         const token = jwt.sign(user_id, process.env.ACCESS_TOKEN_SECRET);
-   //         console.log(token);
-   //         // save token in localStorage
-
-   //         res.render("index", {
-   //             user: user
-   //         });
-
-   //     });
-   // })(req, res);
-
 }
 
 // ====== LOGOUT  =====================================

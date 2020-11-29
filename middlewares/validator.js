@@ -3,7 +3,6 @@ const { check, validationResult } = require('express-validator');
 
 // === REGISTER FORM VALIDATOR
 
-
 exports.registerFromValidation = [
     // Validating all the input fields
     check('email').isEmail().trim().withMessage('Email required'),
@@ -20,7 +19,6 @@ exports.registerFromValidation = [
         })
         .trim()
 ];
-
 
 // === PASSWORD CHANGE FORM VALIDATOR
 

@@ -67,7 +67,6 @@ exports.getNearyouEvents = async (req, res) => {
 
    const geo = geoip.lookup(myIp);
 
-   
    try {
       api = "https://api.songkick.com/api/3.0/events.json?location=ip:" + myIp;
       apiKey = "&apikey=iQvmMn3zAKS85ja5";

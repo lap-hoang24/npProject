@@ -1,8 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const UserController = require('../controller/user-control');
-const Validator = require('../controller/validator');
-const authToken = require('../middlewares/auth-token');
+const Validator = require('../middlewares/validator');
 const checkAuthentication = require('../middlewares/auth');
 
 // ==== Bring in USER MODEL

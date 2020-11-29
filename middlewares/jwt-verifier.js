@@ -1,10 +1,9 @@
 const jwt = require("jsonwebtoken");
-// const LocalStorage = require('node-localstorage').LocalStorage;
-// localStorage = new LocalStorage('./scratch');
-module.exports = function authToken(req, res, next) {
 
-    const token = localStorage.getItem('jwt');
+module.exports = function verifyToken(req, res, next) {
 
+    const token = req.cookies.jwt_token;
+    console.log(token);
     if (token == null) return res.sendStatus(401);
 
     jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
