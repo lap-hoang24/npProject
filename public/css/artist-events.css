@@ -598,10 +598,11 @@ footer .logo {
 
 header {
   background: rgba(0, 0, 0, 0.99);
+  top: 0;
 }
 
 main #events_lists {
-  margin: 0 auto;
+  margin: 6rem auto 0 auto;
 }
 
 main #events_lists h1 {

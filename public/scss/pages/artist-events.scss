@@ -14,11 +14,13 @@
 
 header {
         background: $base-black;
+        top: 0;
 }
 main {
 
     #events_lists {
-        margin: 0 auto;
+        margin: 6rem auto 0 auto;
+        
         h1 {
             font-size: 2rem;
             margin: 1.5rem 0rem;

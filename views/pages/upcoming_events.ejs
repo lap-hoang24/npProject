@@ -4,7 +4,7 @@
 <head>
    <meta charset="UTF-8" />
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <title>Upcoming Events</title>
+   <title>Grooove - Upcoming Events</title>
    <link rel="stylesheet" href="/css/upcoming.css" />
    <script src="https://kit.fontawesome.com/ade53cd309.js" crossorigin="anonymous"></script>
 </head>
@@ -23,17 +23,13 @@
          <!-- Filter -->
          <div id="filter">
             <form action="/events/filter" method="GET">
-               <label for="fromdate">from</label>
+               <label for="fromdate">From</label>
                <input id="fromdate" type="date" name="from">
-               <label for="todate">to</label>
+               <label for="todate">To</label>
                <input id="todate" type="date" name="to">
 
-               <select name="popularity" id="popularity">
-                  <option value="">Popularity</option>
-                  <option value="high-popularity">High Popularity</option>
-               </select>
-
-               <select name="event_type" id="type">
+               <label for="event_type">Type</label>
+               <select id="event_type" name="event_type" id="type">
                   <option value="">Event Type</option>
                   <option value="concert">Concert</option>
                   <option value="nfl">NFL</option>
@@ -43,9 +39,9 @@
                   <option value="auto_racing">Racing</option>
                   <option value="wrestling">Wrestling</option>
                   <option value="sports">Sports</option>
-
                </select>
 
+               <label for="">State</label>
                <select name="state" id="states">
                   <option value="">Choose State</option>
                   <option value="AL">Alabama</option>

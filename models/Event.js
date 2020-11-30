@@ -17,10 +17,9 @@ const eventSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    users_was_there: {
-        type: Array,
-        required: true,
-    }
+    users_was_there: [{
+        user_id: mongoose.Schema.ObjectId
+    }]
 }, { collection: "liveshows" });
 
 const Event = module.exports = mongoose.model('Event', eventSchema);

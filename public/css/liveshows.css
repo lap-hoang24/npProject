@@ -596,6 +596,10 @@ footer .logo {
   }
 }
 
+header {
+  top: 0px;
+}
+
 header .navbar {
   background: rgba(0, 0, 0, 0.99);
 }

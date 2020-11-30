@@ -16,8 +16,7 @@ const UIController = (function () {
          eventName: "event_name",
          upcomingEventLink: "upcoming-event_link",
          nearyouEventLink: "nearyou-event_link",
-         navBar: "navbar",
-         liveDot: "live-dot"
+         navBar: "navbar"
       },
 
       id: {
@@ -86,7 +85,7 @@ const UIController = (function () {
 
             console.log(eventName.slice(-12));
 
-            if (eventName.slice(-12) == "(CANCELLED) ") {
+            if (eventName.slice(-12) == "(CANCELLED) " || eventName.slice(-12) == "(POSTPONED) ") {
                newEventName = eventName.slice(0, -32);
             } else {
                newEventName = eventName.slice(0, -19);
@@ -105,7 +104,7 @@ const UIController = (function () {
 
          window.onscroll = function () {
             const top = window.scrollY;
-
+            //  console.log(top);
             if (top > 100) {
                myNav.classList.add("actived");
             }
@@ -171,6 +170,8 @@ const appController = ((UICtrl) => {
 
          UICtrl.navbarScroll();
          UICtrl.showDateTime();
+         UICtrl.addOnTour();
+         UICtrl.removeDateTime();
 
          setupEventListeners();
       }

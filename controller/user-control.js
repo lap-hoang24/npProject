@@ -73,16 +73,20 @@ exports.getLoginForm = (req, res) => {
 
 exports.postLoginForm = (req, res, next) => {
    // Authenticate User 
-   passport.authenticate('local',  (err, user, info) => {
+   passport.authenticate('local', (err, user, info) => { // custom callback
       if (err) throw err;
 
-      if (!user) {return res.redirect('/users/login')};
+      if (!user) {
+         req.flash('error', 'Invalid username or password');
+         return res.redirect('/users/login');
+      };
 
       req.logIn(user, (err) => {
-         if(err) throw err;
-         const token = jwt.sign({id: user._id}, process.env.ACCESS_TOKEN_SECRET, {expiresIn: "2h"});
+         if (err) throw err;
 
-         res.cookie('jwt_token', token);
+         const token = jwt.sign({ id: user._id }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "1h" });
+
+         res.cookie('jwt_token', token, { httpOnly: true }); //save token in cookies
 
          return res.redirect('/');
       })
@@ -131,7 +135,7 @@ exports.getPwdChangeForm = async (req, res) => {
 
 exports.postPwdChangeForm = (req, res) => {
 
-   // If password and password 2 dont match
+   // If password and password2 dont match
    const errors = validationResult(req);
 
    if (!errors.isEmpty()) {
@@ -263,7 +267,27 @@ exports.wasThere = async (req, res) => {
       console.error(err);
    }
 }
+// exports.wasThere = async (req, res) => {
+//    Event.findOneAndUpdate({ _id: req.body.event_id },
+//       { $push: { users_was_there: {user_id: req.body.user_id} } },
+//       { upsert: true }, (err, event) => {
+//          if (err) throw err;
+//          console.log(event);
+//       });
+//       res.redirect("/");
+// }
 
+// exports.ifWasThere = async (req, res) => {
+//    try {
+//       let event = await Event.users_was_there.find({ user_id: req.body.user_id })
+
+//       // if user checked
+//       console.log(event);
+
+//    } catch (err) {
+//       console.error(err)
+//    }
+// }
 exports.ifWasThere = async (req, res) => {
    try {
       let event = await Event.findById({ _id: req.body.event_id })
@@ -283,9 +307,9 @@ exports.ifWasThere = async (req, res) => {
 exports.uncheckWasThere = async (req, res) => {
    try {
       let event = await Event.findOneAndUpdate({ _id: req.body.event_id },
-         { $pull: { users_was_there: req.body.user_id } });
+         { $pull: { users_was_there: req.body.user_id } }); // this returned "event" hasn't been updated from $pull
 
-      let eventUpdated = await Event.findById({ _id: req.body.event_id })
+      let eventUpdated = await Event.findById({ _id: req.body.event_id });
 
       if (eventUpdated.users_was_there.includes(req.body.user_id)) {
          res.send('yes');

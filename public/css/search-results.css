@@ -688,6 +688,9 @@ main #artists-lists .artist-name .on-tour {
   body {
     font-size: 15px;
   }
+  body header {
+    top: 0px;
+  }
   main .jumbotron {
     height: 70vh;
   }

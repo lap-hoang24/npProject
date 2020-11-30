@@ -15,17 +15,13 @@ module.exports = (passport) => {
         User.findOne(query, function (err, user) {
             if (err) { return done(err) }
 
-            if (!user) {
-                return done(null, false, { message: 'No user found' });
-            }
+            if (!user) { return done(null, false, { message: 'Invalid username or password' });}
 
             brcyptjs.compare(password, user.password, function (err, isMatch) {
                 if (err) throw err;
-                if (isMatch) {
-                    return done(null, user);
-                } else {
-                    return done(null, false, { message: 'Wrong password' });
-                }
+
+                if (isMatch) { return done(null, user);
+                } else { return done(null, false, { message: 'Invalid username or password' });}
             })
         
         })

@@ -141,19 +141,16 @@ exports.getFilteredEvents = async (req, res) => {
       to = "";
    }
 
-   api = "https://api.seatgeek.com/2/events?" + eventType + from + to + "&per_page=200";
+   if (query.state == "") {
+      state = "";
+   } else {
+      state = "&venue.state=" + query.state;
+   }
+
+   api = "https://api.seatgeek.com/2/events?" + eventType + from + to + state + "&per_page=100";
    apiKey = "&client_id=MjEzNjIzNTl8MTYwMzM3ODg3OS42NDc4ODU2";
    let events = await apifetch.getData(api, apiKey);
    data = events.events;
-
-   // =========== FILTER ==========
-   if (popularity != "") {
-      data = Filter.popularityFilter(data);
-   }
-
-   if (state != "") {
-      data = Filter.stateFilter(data, state);
-   }
 
    res.render('pages/upcoming_events', { data, user: false })
 }
