@@ -267,27 +267,7 @@ exports.wasThere = async (req, res) => {
       console.error(err);
    }
 }
-// exports.wasThere = async (req, res) => {
-//    Event.findOneAndUpdate({ _id: req.body.event_id },
-//       { $push: { users_was_there: {user_id: req.body.user_id} } },
-//       { upsert: true }, (err, event) => {
-//          if (err) throw err;
-//          console.log(event);
-//       });
-//       res.redirect("/");
-// }
 
-// exports.ifWasThere = async (req, res) => {
-//    try {
-//       let event = await Event.users_was_there.find({ user_id: req.body.user_id })
-
-//       // if user checked
-//       console.log(event);
-
-//    } catch (err) {
-//       console.error(err)
-//    }
-// }
 exports.ifWasThere = async (req, res) => {
    try {
       let event = await Event.findById({ _id: req.body.event_id })

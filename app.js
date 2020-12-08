@@ -18,7 +18,7 @@ const commentsRoutes = require('./routes/comments');
 
 // === SETTING UP MONGODB CONNECTION ===
 
-mongoose.connect(config.database, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.MONGODB, { useNewUrlParser: true, useUnifiedTopology: true });
 const database = mongoose.connection;
 
 database.once('open', () => {
@@ -58,7 +58,7 @@ app.use(session({
 
 require('./config/passport')(passport);
 
-// === PASSPORT MIDDLEWARE === (this section has to be placed before MODELS and ROUTER)
+// === PASSPORT MIDDLEWARE === (this section has to be placed before ROUTER)
 
 app.use(passport.initialize());
 app.use(passport.session());
