@@ -29,10 +29,10 @@ database.on('error', (err) => {
 })
 mongoose.set('useFindAndModify', false);
 
-// ======== SETTING UP MIDDLEWARES ========
+// ======== SETTING UP MIDDLEWARES =======
 
-app.use(bodyParser.urlencoded({ extended: false }));
 app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));
 app.use(cookieParser());
 app.use(express.json());

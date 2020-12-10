@@ -1,5 +1,6 @@
 // ========== CHECK BOX ==================
 const checked = document.getElementById('was-there').getAttribute('checked');
+
 console.log(checked);
 
 async function wasThereCheck() {
@@ -7,7 +8,7 @@ async function wasThereCheck() {
    const event_id = document.getElementById('liveshow_id').value;
    const checked = document.getElementById('was-there').getAttribute('checked');
 
-console.log(checked);
+   console.log(checked);
    if (checked == null) {
       try {
          let response = await fetch('/users/wasThere', {
@@ -65,7 +66,7 @@ async function trueUserWasThere() {
       })
 
       response = await response.text();
-
+      console.log(response);
       if (response == "yes") {
          document.getElementById('was-there').setAttribute('checked', 'checked');
       }
