@@ -255,6 +255,61 @@ exports.userWithSub = async (req, res) => {
 
 //================== USER WAS AT LIVE CHECKBOX ====================================
 
+// exports.wasThere = async (req, res) => {
+//    try {
+//       let done = await Event.findOneAndUpdate({ _id: req.body.event_id },
+//          { $push: { users_was_there: req.body.user_id } },
+//          { upsert: true });
+
+//       res.redirect("back");
+
+//    } catch (err) {
+//       console.error(err);
+//    }
+// }
+
+// exports.ifWasThere = async (req, res) => {
+//    try {
+//       let event = await Event.findById({ _id: req.body.event_id })
+//       console.log(event)
+
+//       const numOfUsers = event.users_was_there.length
+//       // if user checked
+//       if (event.users_was_there.includes(req.body.user_id)) {
+//          console.log(numOfUsers);
+//          res.send("yes");
+//       } else {
+//          console.log(numOfUsers);
+//          // res.send(event.users_was_there.length);
+//          res.send('no');
+//       }
+
+//    } catch (err) {
+//       console.error(err)
+//    }
+// }
+
+// exports.uncheckWasThere = async (req, res) => {
+//    try {
+//       let event = await Event.findOneAndUpdate({ _id: req.body.event_id },
+//          { $pull: { users_was_there: req.body.user_id } }); // this returned "event" hasn't been updated from $pull
+
+//       let eventUpdated = await Event.findById({ _id: req.body.event_id });
+
+//       if (eventUpdated.users_was_there.includes(req.body.user_id)) {
+//          res.send('yes');
+//       } else {
+//          res.send('no');
+//          console.log('uncheck');
+//       }
+
+//    } catch (err) {
+//       console.error(err);
+//    }
+// }
+
+//================== USER WAS AT LIVE CHECKBOX ====================================
+
 exports.wasThere = async (req, res) => {
    try {
       let done = await Event.findOneAndUpdate({ _id: req.body.event_id },
@@ -271,12 +326,13 @@ exports.wasThere = async (req, res) => {
 exports.ifWasThere = async (req, res) => {
    try {
       let event = await Event.findById({ _id: req.body.event_id })
-
+      const numOfUsers = event.users_was_there.length
+      console.log(numOfUsers);
       // if user checked
       if (event.users_was_there.includes(req.body.user_id)) {
-         res.send("yes");
+         res.send({this_user: true, num_of_users: numOfUsers});
       } else {
-         res.send('no');
+         res.send({this_user: false, num_of_users: numOfUsers});
       }
 
    } catch (err) {

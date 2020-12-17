@@ -27,14 +27,19 @@
          </div>
          <iframe src="<%= event.link %>" frameborder="0" allow="autoplay"></iframe>
          <div class="flex">
-            <form id="was-there-form" action="">
-               <p>
-                  <label>
-                     <input id="was-there" type="checkbox"  onchange="wasThereCheck()" >
-                     <span>I was there!</span>
-               </label>
-               </p>
-            </form>
+            <div class="was-there">
+               <form id="was-there-form" action="">
+                  <p>
+                     <label>
+                        <input id="was-there" type="checkbox"  onchange="wasThereCheck()" >
+                        <span>I was there!</span>
+                  </label>
+                  </p>
+               </form>
+               <div id="people-were-there">
+               </div>
+
+            </div>
             <form id="comment-form" action="/comments/comment" method="POST">
                <textarea type="text" name="content" id="content"
                   placeholder="Leave a comment..."></textarea>

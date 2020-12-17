@@ -690,6 +690,11 @@ main .container iframe {
   height: 270px;
 }
 
+main .container #people-were-there {
+  color: rgba(127, 127, 127, 0.949);
+  font-size: 1rem;
+}
+
 main .container .flex {
   display: -webkit-box;
   display: -ms-flexbox;

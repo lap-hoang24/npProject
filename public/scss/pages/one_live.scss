@@ -48,6 +48,11 @@ main {
             height: 270px;
         }
 
+        #people-were-there {
+            color:lighten($base-grey, 20%);
+            font-size: 1rem;
+        }
+
         .flex {
             @include flex(column, space-between, center);
         }
