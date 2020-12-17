@@ -618,7 +618,7 @@ body {
 
 .login-wrapper .error {
   background: rgba(241, 238, 238, 0.997);
-  width: 70%;
+  width: 50%;
   margin: 0 auto;
   border-radius: 25px;
   padding: 0.5rem;
@@ -628,7 +628,7 @@ body {
 }
 
 .login-wrapper #login_form {
-  width: 70%;
+  width: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -654,7 +654,7 @@ body {
 }
 
 .login-wrapper #sign_button {
-  width: 70%;
+  width: 50%;
   margin-top: 1rem;
   padding: 0.5rem 1rem;
   border-radius: 25px;

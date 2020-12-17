@@ -24,19 +24,7 @@ body {
     // animation: background 3s infinite ease-in-out;
 }
 
-// @keyframes background {
-//     from {
-//         background: linear-gradient(
-//             180deg,
-//             rgba(2, 0, 36, 1) 0%,
-//             rgba(114, 2, 115, 0.9164040616246498) 0%,
-//             rgba(255, 0, 0, 0.4374124649859944) 100%
-//         );
-//     }
-//     to {
-//         background: linear-gradient(180deg, rgba(131,58,180,1) 0%, rgba(252,176,69,1) 100%);
-//     }
-// }
+
 .login-wrapper {
     background: transparent;
     text-align: center;
@@ -51,7 +39,7 @@ body {
     }
     .error {
         background: $base-white;
-        width: 70%;
+        width: 50%;
         margin: 0 auto;
         border-radius: 25px;
         padding: 0.5rem;
@@ -61,7 +49,7 @@ body {
     }
 
     #login_form {
-        width: 70%;
+        width: 50%;
         display: flex;
         flex-flow: column wrap;
         margin: 1rem auto;
@@ -81,7 +69,7 @@ body {
     }
 
     #sign_button {
-        width: 70%;
+        width: 50%;
         margin-top: 1rem;
         padding: 0.5rem 1rem;
         border-radius: 25px;

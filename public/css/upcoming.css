@@ -853,6 +853,7 @@ main #events-lists .event-item .event-description .performers-name, main #events
     font-style: italic;
     color: rgba(102, 102, 102, 0.949);
     text-align: center;
+    padding: 5rem 0;
   }
 }
 /*# sourceMappingURL=upcoming.css.map */

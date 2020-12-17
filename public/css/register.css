@@ -602,7 +602,7 @@ body {
 }
 
 .main .register-wrapper {
-  width: 90%;
+  width: 70%;
   margin: 0 auto;
   font-weight: 600;
   text-align: center;
@@ -673,6 +673,9 @@ body {
   .main {
     text-align: center;
     margin-top: 4rem;
+  }
+  .main .register-wrapper {
+    width: 40%;
   }
   .main #register_form {
     width: 40%;
