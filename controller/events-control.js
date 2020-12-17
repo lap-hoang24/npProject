@@ -119,19 +119,8 @@ exports.getArtistsEvents = async (req, res) => {
 
 
 exports.getFilteredEvents = async (req, res) => {
-   let from, to, popularity, eventType, state, api, apiKey, data;
-
+   let from, to, eventType, state, api, apiKey, data;
    const query = req.query;
-
-   popularity = query.popularity;
-   state = query.state;
-
-
-   if (query.event_type != "") {
-      eventType = "taxonomies.name=" + query.event_type;
-   } else {
-      eventType = "";
-   }
 
    if (query.from != "" & query.to != "") {
       from = "&datetime_utc.gte=" + query.from;
@@ -141,16 +130,19 @@ exports.getFilteredEvents = async (req, res) => {
       to = "";
    }
 
-   if (query.state == "") {
-      state = "";
-   } else {
-      state = "&venue.state=" + query.state;
-   }
+   eventType = query.event_type !== "" ? "taxonomies.name=" + query.event_type : "";
+
+   state = query.state !== "" ? "&venue.state=" + query.state : "";
 
    api = "https://api.seatgeek.com/2/events?" + eventType + from + to + state + "&per_page=100";
    apiKey = "&client_id=MjEzNjIzNTl8MTYwMzM3ODg3OS42NDc4ODU2";
-   let events = await apifetch.getData(api, apiKey);
-   data = events.events;
+
+   try {
+      let events = await apifetch.getData(api, apiKey);
+      data = events.events;
+   } catch (err) {
+      console.error(err);
+   }
 
    res.render('pages/upcoming_events', { data, user: false })
 }

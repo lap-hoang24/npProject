@@ -32,13 +32,16 @@ exports.getComment = async (req, res) => {
 }
 
 
-exports.deleteComment = async (req, res) => {
-   try {
-      let done = await Comment.deleteOne({ _id: req.body._id })
-      res.redirect("back");
-   } catch (err) {
-      console.error(err);
-   }
+exports.deleteComment = (req, res) => {
+   Comment.findById({ _id: req.body._id }, (err, comment) => {
+      if (comment.user.user_id.toString() == req.user._id.toString()) {
+         comment.remove();
+         res.redirect("back");
+         // console.log(del)
+      }
+
+   })
+
 }
 
 // functionality not finished yet

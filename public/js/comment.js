@@ -53,7 +53,6 @@ window.addEventListener("load", () => {
    for (let i = 0; i < deleteBtn.length; i++) {
       deleteBtn[i].addEventListener('click', async (event) => {
          const commentId = event.target.parentElement.getAttribute('comment_id');
-
          let response = await fetch(`/comments/delete`, {
             method: "DELETE",
             headers: { 'Content-Type': 'application/json' },
