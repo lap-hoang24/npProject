@@ -22,7 +22,7 @@ async function wasThereCheck() {
 
          ifWasThere();
          // response = await response.text();
-         console.log(response)
+         // console.log(response)
       } catch (err) {
          console.error(err);
       }
@@ -67,7 +67,7 @@ async function ifWasThere() {
       })
       response = await response.text();
       response = JSON.parse(response);
-      console.log(response);
+      // console.log(response);
 
       if (response.this_user) {
          document.getElementById('was-there').setAttribute('checked', 'checked');

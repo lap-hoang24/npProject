@@ -102,10 +102,11 @@ window.addEventListener("load", () => {
 // =============UPDATE ALL COMMENTS=============
 
 async function getAllComments() {
+   let htmlString = "";
    try {
       const commentWrapper = document.getElementById('comment-wrapper');
       const liveshow_id = document.getElementById('liveshow_id').value;
-      let htmlString;
+      // let htmlString;
 
       let res = await fetch('/comments/getcomment', {
          method: "POST",
@@ -115,6 +116,7 @@ async function getAllComments() {
          })
       })
       dataSet = await res.json();
+
 
       dataSet.forEach(data => {
          htmlString += `<div class="comment">
@@ -136,7 +138,6 @@ async function getAllComments() {
       })
 
       commentWrapper.innerHTML = htmlString;
-
    } catch (err) {
       console.error(err);
    }
