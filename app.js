@@ -15,6 +15,7 @@ require('dotenv').config();
 const usersRoutes = require('./routes/users');
 const eventsRoutes = require('./routes/events');
 const commentsRoutes = require('./routes/comments');
+const printRoutes = require('./routes/printing');
 
 // === SETTING UP MONGODB CONNECTION ===
 
@@ -72,6 +73,7 @@ app.get('*', (req, res, next) => {
 app.use('/users', usersRoutes);
 app.use('/events', eventsRoutes)
 app.use('/comments', commentsRoutes);
+app.use('/print', printRoutes);
 
 // === RENDER HOME PAGE ===
 
