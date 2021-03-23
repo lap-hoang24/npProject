@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/', (req, res) => {
+router.get('/shit', (req, res) => {
    try {
       const api = "https://api.seatgeek.com/2/events?";
       const apiKey = "client_id=MjEzNjIzNTl8MTYwMzM3ODg3OS42NDc4ODU2&per_page=";
