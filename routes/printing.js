@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const fetch = require('node-fetch');
 
 router.get('/shit', async (req, res) => {
    try {
@@ -17,6 +18,9 @@ router.get('/shit', async (req, res) => {
    }
 })
 
+router.get('/test', (req, res) => {
+res.send("printing test");
+})
 
 
 module.exports = router;
