@@ -8,6 +8,8 @@ const verifyToken = require('../middlewares/jwt-verifier');
 
 router.get('/upcoming', Event.getUpcomingEvents);
 
+router.get('/hello', Event.getUpcomingEvents);
+
 router.get('/near-you',verifyToken , Event.getNearyouEvents);
 
 router.get('/filter/', Event.getFilteredEvents);

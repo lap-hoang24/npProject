@@ -1,7 +1,6 @@
 const RequestIp = require('@supercharge/request-ip');
 const fetch = require('node-fetch');
 const apifetch = require('../controller/api');
-const Filter = require('../controller/events-filter');
 const geoip = require('geoip-lite');
 
 const Event = require('../models/Event');
