@@ -43,6 +43,7 @@
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
+    "printer": "git+https://github.com/tojocky/node-printer.git",
     "request-ip": "^2.1.3"
   }
 }
