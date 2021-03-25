@@ -8,6 +8,7 @@ const config = require('./config/database');
 const cookieParser = require('cookie-parser');
 const messages = require('express-messages');
 const flash = require('connect-flash');
+const cors = require('cors');
 require('dotenv').config();
 
 // === IMPORT ALL ROUTES ===
@@ -67,6 +68,10 @@ app.get('*', (req, res, next) => {
     res.locals.user = req.user || null;
     next();
 })
+
+app.use(cors());
+
+
 
 // === ROUTER files ===
 
