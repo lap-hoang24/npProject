@@ -1,6 +1,6 @@
 # npProject
 
-### Live Website:  [Grooove it harder](https://grooove.herokuapp.com/) 
+### Live Website: [Grooove it harder](https://grooove.herokuapp.com/)
 
 ## Project Objectives:
 
@@ -25,7 +25,7 @@ Additionally, `Grooove`'s LIVE offers a few classic **live concerts** that site 
 - `Mongoose`
 - `Express`
 
-#### Database: 
+#### Database:
 
 - `MongoDB Atlas`
 
@@ -64,18 +64,9 @@ Additionally, `Grooove`'s LIVE offers a few classic **live concerts** that site 
 - Similar artists recommendation in artist search
 - Responsiveness
 
-## Website Demonstration / Screenshots: 
+## Website Demonstration / Screenshots:
 
 ![alt_text](public/images/README/homepage.png)
 ![alt_text](public/images/README/event-nearyou.png)
 ![alt_text](public/images/README/liveconcerts.png)
 ![alt_text](public/images/README/comment.png)
-
-
-
-
-
-
-
-
-

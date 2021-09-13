@@ -8,52 +8,34 @@ module.exports = (passport) => {
     // Local Strategy
 
     passport.use('local',
-     new LocalStrategy(function (username, password, done) {
-        // Match username 
-        let query = { username: username };
+        new LocalStrategy(function (username, password, done) {
+            // Match username 
+            let query = { username: username };
 
-        User.findOne(query, function (err, user) {
-            if (err) { return done(err) }
+            User.findOne(query, function (err, user) {
+                if (err) { return done(err) }
 
-            if (!user) { return done(null, false, { message: 'Invalid username or password' });}
+                if (!user) { return done(null, false, { message: 'Invalid username or password' }); }
 
-            brcyptjs.compare(password, user.password, function (err, isMatch) {
-                if (err) throw err;
+                brcyptjs.compare(password, user.password, function (err, isMatch) {
+                    if (err) throw err;
 
-                if (isMatch) { return done(null, user);
-                } else { return done(null, false, { message: 'Invalid username or password' });}
+                    if (isMatch) {
+                        return done(null, user);
+                    } else { return done(null, false, { message: 'Invalid username or password' }); }
+                })
+
             })
-        
-        })
 
-        passport.serializeUser(function (user, done) {
-            done(null, user.id);
-        });
-
-        passport.deserializeUser(function (id, done) {
-            User.findById(id, function (err, user) {
-                done(err, user);
+            passport.serializeUser(function (user, done) {
+                done(null, user.id);
             });
-        });
-    }))
 
-
-    // passport.use(new JWTStrategy({
-    //     jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
-    //     secretOrKey   : process.env.ACCESS_TOKEN_SECRET
-    // },
-
-    // function (jwtPayload, done) {
-
-    //     //find the user in db if needed. This functionality may be omitted if you store everything you'll need in JWT payload.
-    //     return User.findOneById(jwtPayload.id)
-    //         .then(user => {
-    //             return done(null, user);
-    //         })
-    //         .catch(err => {
-    //             return done(err);
-    //         });
-    // }
-    // ));
+            passport.deserializeUser(function (id, done) {
+                User.findById(id, function (err, user) {
+                    done(err, user);
+                });
+            });
+        }))
 }
 

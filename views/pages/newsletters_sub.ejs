@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,23 +8,29 @@
    <link rel="stylesheet" href="/css/newsletters.css">
    <script src="https://kit.fontawesome.com/ade53cd309.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-   <header><%- include('../layouts/navbar.ejs') -%></header>
+   <header>
+      <%- include('../layouts/navbar.ejs') -%>
+   </header>
 
    <main class="container">
       <% if (user.newsletter_sub) { %>
-         <h2>Hi, <%= user.username %></h2>
+         <h2>Hi, <%= user.username %>
+         </h2>
          <h2>You are already subscribed to our newsletters, would you like to unsubscribe?</h2>
          <a href="/users/unsubscribe">Unsubscribe</a>
-      <% } else { %>
-         <h2>Hi, <%= user.username %></h2>
-         <h2>You are not subscribed to our newsletters yet, would you like to subscribe?</h2>
-         <a href="/users/subscribe">Subscribe</a>
-     <% } %>
+         <% } else { %>
+            <h2>Hi, <%= user.username %>
+            </h2>
+            <h2>You are not subscribed to our newsletters yet, would you like to subscribe?</h2>
+            <a href="/users/subscribe">Subscribe</a>
+            <% } %>
    </main>
 
    <%- include('../layouts/footer.ejs') -%>
 
-   <script src="/js/main.js"></script>
+      <script src="/js/main.js"></script>
 </body>
+
 </html>

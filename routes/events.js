@@ -10,7 +10,7 @@ router.get('/upcoming', Event.getUpcomingEvents);
 
 router.get('/hello', Event.getUpcomingEvents);
 
-router.get('/near-you',verifyToken , Event.getNearyouEvents);
+router.get('/near-you' , Event.getNearyouEvents);
 
 router.get('/filter/', Event.getFilteredEvents);
 
@@ -18,11 +18,11 @@ router.get('/search/:value', Event.getSearchResults);
 
 router.get('/artist=:artist_id', Event.getArtistsEvents);
 
-router.get('/near-you/:city', checkAuthentication, Event.getNearyouLocations);
+router.get('/near-you/:city', Event.getNearyouLocations);
 
-router.get('/live',checkAuthentication, Event.getLiveEvents);
+router.get('/live', Event.getLiveEvents);
 
-router.get('/live/:event_id',checkAuthentication, Event.getLiveEvent);
+router.get('/live/:event_id',checkAuthentication ,Event.getLiveEvent);
 
 
 module.exports = router;

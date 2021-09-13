@@ -1,7 +1,7 @@
 
 // ========= FLEX BOX ========================
 
-@mixin flex($dir,$x,$y) {
+@mixin flex($direction,$x,$y) {
     display: flex;
     flex-wrap:wrap;
     

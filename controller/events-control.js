@@ -2,9 +2,11 @@ const RequestIp = require('@supercharge/request-ip');
 const fetch = require('node-fetch');
 const apifetch = require('../controller/api');
 const geoip = require('geoip-lite');
-
 const Event = require('../models/Event');
 const Comment = require('../models/Comments');
+const songkickAPI = '6MAMALQ1Hjq4HYvO';
+const seatGeekAPI = ''
+
 
 exports.getUpcomingEvents = async (req, res) => {
    try {
@@ -43,7 +45,7 @@ exports.getNearyouLocations = async (req, res) => {
 
    try {
       api = "https://api.songkick.com/api/3.0/events.json?location=ip:" + getIp(req.params.city);
-      apiKey = "&apikey=iQvmMn3zAKS85ja5";
+      apiKey = `&apikey=${songkickAPI}`;
       perPage = "40";
       const location = req.params.city;
 
@@ -68,7 +70,7 @@ exports.getNearyouEvents = async (req, res) => {
 
    try {
       api = "https://api.songkick.com/api/3.0/events.json?location=ip:" + myIp;
-      apiKey = "&apikey=iQvmMn3zAKS85ja5";
+      apiKey = `&apikey=${songkickAPI}`;
    
       response = await fetch(api + apiKey);
       data = await response.json();
@@ -84,7 +86,7 @@ exports.getNearyouEvents = async (req, res) => {
 exports.getSearchResults = async (req, res) => {
 
    const api = "https://api.songkick.com/api/3.0/search/artists.json?"
-   const apiKey = 'apikey=iQvmMn3zAKS85ja5&query=' + req.params.value;
+   const apiKey = `&apikey=${songkickAPI}&query=` + req.params.value;
    
    try {
       let artist = await apifetch.getData(api, apiKey);
@@ -98,8 +100,8 @@ exports.getSearchResults = async (req, res) => {
 exports.getArtistsEvents = async (req, res) => {
    const artist_id = req.params.artist_id;
    const api = "https://api.songkick.com/api/3.0/artists/" + artist_id + "/calendar.json?"
-   const apiKey = 'apikey=iQvmMn3zAKS85ja5';
-   const apiPast = "https://api.songkick.com/api/3.0/artists/" + artist_id + " /gigography.json?apikey=iQvmMn3zAKS85ja5&min_date=2016-01-01&order=desc";
+   const apiKey = `&apikey=${songkickAPI}`;
+   const apiPast = "https://api.songkick.com/api/3.0/artists/" + artist_id + ` /gigography.json?&apikey=${songkickAPI}&min_date=2016-01-01&order=desc`;
    
    
    try {
